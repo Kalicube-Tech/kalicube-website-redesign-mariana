@@ -175,7 +175,7 @@
 
   // A click inside a page (a toggle, a nav link) moves every font with it, keeps the chosen font and updates the tabs.
   function followNavigation(k, w) {
-    var m = (w.location.pathname || '').match(/kalicube-website-redesign\/(.*?)(index(?:-[a-z]+)?\.html)?$/);
+    var m = (w.location.pathname || '').match(/kalicube-website-redesign-mariana\/(.*?)(index(?:-[a-z]+)?\.html)?$/);
     if (!m) return false;
     var dir = m[1], file = m[2] || 'index.html';
     var idx = -1;
