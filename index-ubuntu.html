@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<script id="flip-redirect">(function(){try{if(window.top!==window.self||/[?&]raw\b/.test(location.search))return;var m=location.pathname.match(/^(.*\/kalicube-website-redesign\/)(.*?)(index(?:-[a-z]+)?\.html)?$/);if(!m)return;var slug=m[2].replace(/\/+$/,"")||"home";if(window.innerWidth<760){if(!/index-ubuntu\.html$/.test(location.pathname))location.replace(m[1]+m[2]+"index-ubuntu.html?raw");return;}location.replace(m[1]+"font-flip/?page="+slug);}catch(e){}})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalicube homepage redesign (draft) · Ubuntu</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400&amp;family=Google+Sans+Code:wght@500&amp;display=swap">
+  <style>
+    html, body { margin: 0; background: #1A274E; }
+    body { font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased;}
+    a { color: #1A274E; text-decoration: none; } a:hover { color: #8C6230; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+  </style>
+<style id="mobile-layout">
+@media (max-width: 759px) {
+  html, body { overflow-x: clip; }
+  .m-page { width: 100% !important; }
+  .m-px { padding-left: 20px !important; padding-right: 20px !important; }
+  .m-pt { padding-top: 48px !important; }
+  .m-pb { padding-bottom: 48px !important; }
+  .m-g1 { grid-template-columns: minmax(0, 1fr) !important; }
+  .m-g2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .m-gap { gap: 24px !important; }
+  .m-stack { flex-direction: column !important; align-items: stretch !important; }
+  .m-w { width: auto !important; max-width: 100% !important; }
+  img.m-w { width: 100% !important; }
+  .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
+  .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
+  .m-nw { white-space: normal !important; }
+  .m-ha { height: auto !important; }
+  .m-ha > [style*="flex: 1"] { min-height: 300px; }
+  div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
+  a.act { max-width: 100%; }
+  .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
+  .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
+  table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
+  /* The menu: logo and the one button */
+  .m-nav { height: 64px !important; padding-left: 16px !important; padding-right: 16px !important; }
+  .m-nav a:not(.act):not(:has(img)), .m-nav .menu, .m-nav a.act[href*="contact"], .m-nav a.act[href*="apply"] { display: none !important; }
+  .m-nav { gap: 10px; }
+  .m-nav > :first-child { min-width: 0; flex-shrink: 1; }
+  .m-nav img { height: auto !important; max-height: 30px; max-width: 100%; min-width: 0; }
+  .m-nav .act { padding: 9px 14px !important; font-size: 14px !important; white-space: nowrap !important; flex-shrink: 0; }
+  svg[viewBox] { max-width: 100%; height: auto; }
+  .m-stack > div[style*="width: 1px"] { display: none !important; }
+  /* Split heroes: text first, then the photo as a band */
+  .hero { display: flex !important; flex-direction: column; }
+  .hero > * { order: 2; }
+  .hero > .m-nav { order: 1; }
+  .hero > div.hero-bg { display: none !important; }
+  .hero > img.hero-bg { position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; height: 240px !important; order: 3; }
+  /* The homepage hero: text, then the caption, then Jason; no floating icons */
+  .m-hero { height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column; }
+  .m-hero > div[aria-hidden] { display: none !important; }
+  .m-hero > div[style*="linear-gradient"] { background: rgba(6,14,38,0.62) !important; }
+  .m-hero > div[style*="position: relative"] { order: 1; height: auto !important; padding: 36px 20px 20px !important; max-width: none !important; }
+  .m-hero > p { position: relative !important; right: auto !important; bottom: auto !important; width: auto !important; text-align: left !important; order: 2; padding: 0 20px 16px; font-size: 15px !important; }
+  .m-hero > img[src*="cutout"] { position: relative !important; right: auto !important; order: 3; height: 250px !important; align-self: center; }
+  .m-hero br { display: none; }
+  /* The numbers band: two by two */
+  .m-nums { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 12px !important; padding: 18px 20px !important; }
+  .m-nums > div > div:first-child { width: 44px !important; height: 44px !important; }
+  .m-nums svg { width: 24px; height: 24px; }
+  .m-nums > div > div + div > span:first-child { font-size: 22px !important; }
+  /* The pinned press strip: slim, two rows of four, no label */
+  .m-press { padding: 8px 12px !important; gap: 0 !important; }
+  .m-press > div:first-child { display: none !important; }
+  .m-press > div:last-child { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 14px !important; justify-items: center; align-items: center; }
+  .m-press img { height: auto !important; max-height: 17px; max-width: 100%; }
+  /* The ecosystem diagram: three by two, then the brand and where it goes */
+  .m-eco { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; row-gap: 22px; }
+  .m-eco > div:first-child { display: none !important; }
+  .m-eco > div:nth-child(8), .m-eco > div:nth-child(9) { grid-column: 1 / -1; padding-top: 0 !important; }
+  .m-eco [style*="height: 78px"] { height: auto !important; margin-bottom: 8px; }
+}
+</style>
+<style>
+  /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
+  html { background: #0F1830; scroll-behavior: smooth; }
+</style>
+<script>
+  function fitPage() {
+    var root = document.documentElement, body = document.body;
+    // Phones get the phone layout at full size; wider windows get the desktop mockup scaled to fit.
+    if (root.clientWidth < 760) { body.style.zoom = 1; } else {
+      body.style.zoom = Math.min(1, root.clientWidth / 1440);
+      // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
+      if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    }
+    // The window height in page units, so a hero can fill the first screen exactly (var(--fold)).
+    root.style.setProperty('--fold', (window.innerHeight / (parseFloat(body.style.zoom) || 1)) + 'px');
+  }
+  window.addEventListener('resize', fitPage);
+  document.addEventListener('DOMContentLoaded', fitPage);
+  window.addEventListener('load', function () { requestAnimationFrame(fitPage); });
+</script>
+<script>
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('[data-yt]');
+    if (!trigger) return;
+    var id = trigger.getAttribute('data-yt');
+    var poster = document.querySelector('[data-yt-poster="' + id + '"]');
+    if (!poster) return;
+    e.preventDefault();
+    poster.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (poster.querySelector('iframe')) return;
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen = true;
+    frame.title = 'Jason Barnard reel';
+    frame.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+    poster.removeAttribute('href');
+    poster.innerHTML = '';
+    poster.appendChild(frame);
+  });
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap">
+</head>
+<body>
+<div style="max-width: 1440px; margin: 0 auto;">
+<div class="m-page" style="width: 1440px; background: #FFFFFF; color: #1A274E;">
+
+  <!-- Navigation -->
+  <header style="background-color: #1A274E; color: #FFFFFF;">
+    <nav class="m-px m-nav" style="height: 84px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
+      <img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; display: block; filter: brightness(0) invert(1);">
+      <div class="m-nw" style="display: flex; align-items: center; gap: 34px; font-size: 16px; font-weight: 500; white-space: nowrap;">
+        <a href="entrepreneurs/" style="color: #FFFFFF;">Entrepreneurs</a>
+        <a href="strategy-plus/" style="color: #FFFFFF;">Companies</a>
+        <a href="kalicubepro/" style="color: #FFFFFF;">Kalicube Pro</a>
+        <a href="#" style="color: #FFFFFF;">Client results</a>
+        <a href="#" style="color: #FFFFFF;">About</a>
+        <div style="display: flex; align-items: center; gap: 14px; margin-left: 6px;">
+          <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; background: #E3A949; color: #1A274E; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Free audit and strategy</a>
+          <a href="https://kalicube.com/about/contact/" target="_blank" rel="noopener" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; color: #E3A949; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Contact us</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero: V4's composition. It fills the first screen, so the numbers and the press strip sit below it on any screen -->
+  <section class="m-hero" style="position: relative; overflow: hidden; background: #0B1633; color: #FFFFFF; height: calc(var(--fold, 900px) - 279px); min-height: 492px;">
+    <img src="images/hero-network.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; display: block;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,14,38,0.72) 0%, rgba(6,14,38,0.42) 44%, rgba(6,14,38,0) 70%);"></div>
+    <div aria-hidden="true" style="position: absolute; inset: 0;">
+      <div style="position: absolute; left: 824px; top: 9%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8M8 12.5h5"></path></svg></div>
+      <div style="position: absolute; left: 879px; top: 30%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></div>
+      <div style="position: absolute; left: 939px; top: 8%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div>
+      <div style="position: absolute; left: 1049px; top: 5%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><span class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 30px; line-height: 1; color: #B98B4E;">G</span></div>
+      <div style="position: absolute; left: 986px; top: 24%; width: 68px; height: 68px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><img src="images/falcon.png" alt="" style="height: 40px; width: auto; display: block;"></div>
+      <div style="position: absolute; left: 929px; top: 47%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div>
+      <div style="position: absolute; left: 844px; top: 64%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.6"></circle><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6M14.5 14.3c.8-.2 1.6-.3 2.5-.3 2.8 0 4.5 2 4.5 5"></path></svg></div>
+      <div style="position: absolute; left: 1319px; top: 10%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div>
+    </div>
+    <img src="images/jason-cutout.png" alt="Jason Barnard, founder of Kalicube" style="position: absolute; right: 24px; bottom: 0; height: min(76%, 520px); width: auto; display: block;">
+    <p class="m-w" style="position: absolute; right: 470px; bottom: 34px; width: 420px; text-align: right; font-size: 17px; line-height: 1.45; font-weight: 700; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.55);">Led by Jason Barnard. Hired by Google to speak on the future of AI Search and how brands win at organic optimization. <a href="jasonbarnard/#reel" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px;">Watch Jason in action.</a></p>
+    <div class="m-px" style="position: relative; height: 100%; box-sizing: border-box; padding: 0 120px; display: flex; flex-direction: column; justify-content: center; gap: 16px; max-width: 940px;">
+      <div class="m-f20" style="font-size: 20px; font-weight: 500; color: #8CC3E6;">Your brand is what Google and AI say it is.</div>
+      <p class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">Engineer how AI <br><span style="color: #E3A949;">understands, trusts and <br>recommends</span> your brand.</p>
+      <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 680px;">Digital Brand Engineering for founders and companies: your brand and reputation in Google, ChatGPT and AI search</h1>
+      <p style="font-size: 19px; line-height: 1.5; color: rgba(255,255,255,0.9); max-width: 680px;">Kalicube is the Digital Brand Engineering company. Tell us who you are, and we’ll tell you where to go and what to do.</p>
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 6px;">
+        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-px m-f21 m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 14px; background: #E3A949; color: #1A274E; padding: 18px 42px; border-radius: 999px; font-size: 22px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <div style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.82); max-width: 440px;">Free · Less than 5 minutes · A detailed audit and strategy based on The Kalicube Process</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The numbers, straight under the hero -->
+  <section class="m-nums m-px" style="background: #1A274E; color: #FFFFFF; border-top: 4px solid #FFFFFF; padding: 18px 120px; display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"></ellipse><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">25 billion</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">data points</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.6"></circle><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6M14.5 14.3c.8-.2 1.6-.3 2.5-.3 2.8 0 4.5 2 4.5 5"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">73 million</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">entities</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">2015</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">weekly data collection began</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3H6v18h7"></path><path d="M15 3l4 4v7M15 3v4h4M9 9h6M9 12.5h6"></path><circle cx="17.5" cy="17.5" r="3"></circle><path d="M16 20.2 15.5 23l2-1 2 1-.5-2.8"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">17</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">patent applications</span></div></div>
+  </section>
+
+  <!-- Press: pinned to the bottom of the first screen, then scrolls into place -->
+  <section class="m-press m-px m-gap m-stack" style="position: sticky; bottom: 0; z-index: 30; background: #FFFFFF; padding: 28px 120px; display: flex; align-items: center; gap: 56px; border-top: 1.5px solid #B98B4E; border-bottom: 1.5px solid #B98B4E; box-shadow: 0 -6px 18px rgba(26,39,78,0.12);">
+    <div class="m-nw" style="font-size: 14px; font-weight: 700; color: #1A274E; white-space: nowrap;">As featured in</div>
+    <div class="m-logos" style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
+      <img src="images/p-forbes.png" alt="Forbes" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-entrepreneur.png" alt="Entrepreneur" style="height: 22px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-lemonde.png" alt="Le Monde" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-skynews.png" alt="Sky News" style="height: 26px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-usatoday.png" alt="USA Today" style="height: 32px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-rollingstone.png" alt="Rolling Stone" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-yahoo.png" alt="Yahoo! News" style="height: 30px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-msn.png" alt="MSN" style="height: 28px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+    </div>
+  </section>
+
+  <!-- John Mueller: the credibility anchor, straight under the hero -->
+  <section class="m-px m-pt m-pb" style="background: #EDF5FB; padding: 80px 120px;">
+    <div class="m-gap m-stack" style="max-width: 1080px; margin: 0 auto; display: flex; gap: 56px; align-items: center;">
+      <img src="images/mueller.jpg" alt="John Mueller" style="width: 168px; height: 168px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0; border: 5px solid #FFFFFF; box-shadow: 0 6px 18px rgba(26,39,78,0.14);">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 18px;">
+        <svg width="58" height="40" viewBox="0 0 58 40" aria-hidden="true"><path d="M23 3C11 6 3 14 3 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C11.4 11.6 16 8.4 23 7.2z" fill="#1A274E"></path><path d="M53 3C41 6 33 14 33 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C41.4 11.6 46 8.4 53 7.2z" fill="#B98B4E"></path></svg>
+        <h2 style="font-size: 17px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470;">What Google’s John Mueller says about Jason Barnard</h2>
+        <p class="m-f32" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 34px; line-height: 1.25; color: #1A274E; font-style: italic;">“From Google’s side, [Knowledge Panels] are just algorithmic. I honestly don’t know anyone else externally who has as much insight.”</p>
+        <div style="display: flex; flex-direction: column; gap: 3px;"><div style="font-size: 18px; font-weight: 700;">John Mueller</div><div style="font-size: 16px; color: #4A5470;">Google’s Senior Search Analyst and Spokesperson</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The gap -->
+  <section class="m-px m-pt m-pb m-gap" style="padding: 112px 120px 96px; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 960px; margin: 0 auto;">
+      <div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Who you are and what AI understands <span style="color: #B98B4E;">aren’t the same thing.</span></div>
+      <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470;">The gap between who you are and what Google and AI understand about you</h2>
+      <p style="font-size: 19px; line-height: 1.6; color: #3D4660; max-width: 820px;">Search engines and AI build their picture of your brand from what they find across your digital ecosystem. When that information is incomplete, inconsistent or unclear, what they understand drifts away from who you really are.</p>
+    </div>
+    <div class="m-g1" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px;">
+      <div style="background: #F6F6F6; border-radius: 12px; padding: 30px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <h3 class="m-f21" style="font-size: 23px; line-height: 1.2; font-weight: 700;">Who you are</h3>
+        <div style="display: flex; align-items: center; gap: 12px; width: 100%;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><svg width="14" height="22" viewBox="0 0 16 24" aria-hidden="true"><path d="M10 1 2 14h6l-2 9 8-13H8z" fill="#B98B4E"></path></svg><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+        <p style="font-size: 18px; line-height: 1.4; color: #8C6230;">AI has incomplete information</p>
+      </div>
+      <div style="background: #F6F6F6; border-radius: 12px; padding: 30px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <h3 class="m-f21" style="font-size: 23px; line-height: 1.2; font-weight: 700;">What you do</h3>
+        <div style="display: flex; align-items: center; gap: 12px; width: 100%;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><svg width="14" height="22" viewBox="0 0 16 24" aria-hidden="true"><path d="M10 1 2 14h6l-2 9 8-13H8z" fill="#B98B4E"></path></svg><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+        <p style="font-size: 18px; line-height: 1.4; color: #8C6230;">AI shows outdated information</p>
+      </div>
+      <div style="background: #F6F6F6; border-radius: 12px; padding: 30px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <h3 class="m-f21" style="font-size: 23px; line-height: 1.2; font-weight: 700;">Your expertise</h3>
+        <div style="display: flex; align-items: center; gap: 12px; width: 100%;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><svg width="14" height="22" viewBox="0 0 16 24" aria-hidden="true"><path d="M10 1 2 14h6l-2 9 8-13H8z" fill="#B98B4E"></path></svg><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+        <p style="font-size: 18px; line-height: 1.4; color: #8C6230;">AI underestimates you</p>
+      </div>
+      <div style="background: #F6F6F6; border-radius: 12px; padding: 30px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <h3 class="m-f21" style="font-size: 23px; line-height: 1.2; font-weight: 700;">Your achievements</h3>
+        <div style="display: flex; align-items: center; gap: 12px; width: 100%;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><svg width="14" height="22" viewBox="0 0 16 24" aria-hidden="true"><path d="M10 1 2 14h6l-2 9 8-13H8z" fill="#B98B4E"></path></svg><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+        <p style="font-size: 18px; line-height: 1.4; color: #8C6230;">AI underrepresents you</p>
+      </div>
+      <div style="background: #F6F6F6; border-radius: 12px; padding: 30px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <h3 class="m-f21" style="font-size: 23px; line-height: 1.2; font-weight: 700;">What makes you different</h3>
+        <div style="display: flex; align-items: center; gap: 12px; width: 100%;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><svg width="14" height="22" viewBox="0 0 16 24" aria-hidden="true"><path d="M10 1 2 14h6l-2 9 8-13H8z" fill="#B98B4E"></path></svg><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+        <p style="font-size: 18px; line-height: 1.4; color: #8C6230;">AI doesn’t explain it</p>
+      </div>
+      <div style="background: #F6F6F6; border-radius: 12px; padding: 30px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <h3 class="m-f21" style="font-size: 23px; line-height: 1.2; font-weight: 700;">What you want to be known for</h3>
+        <div style="display: flex; align-items: center; gap: 12px; width: 100%;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><svg width="14" height="22" viewBox="0 0 16 24" aria-hidden="true"><path d="M10 1 2 14h6l-2 9 8-13H8z" fill="#B98B4E"></path></svg><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+        <p style="font-size: 18px; line-height: 1.4; color: #8C6230;">AI tells the wrong story</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Brand Engineering, defined, in Jason's words -->
+  <section class="m-px m-pt m-pb" style="background: #1A274E; color: #FFFFFF; padding: 88px 120px 92px;">
+    <figure style="margin: 0 auto; max-width: 1060px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center;">
+      <svg width="64" height="44" viewBox="0 0 58 40" aria-hidden="true"><path d="M23 3C11 6 3 14 3 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C11.4 11.6 16 8.4 23 7.2z" fill="#8CC3E6"></path><path d="M53 3C41 6 33 14 33 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C41.4 11.6 46 8.4 53 7.2z" fill="#B98B4E"></path></svg>
+      <h2 style="font-size: 17px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #8CC3E6;">What Digital Brand Engineering is</h2>
+      <blockquote style="margin: 0;"><p class="m-f40" style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-weight: 400; font-size: 40px; line-height: 1.25; color: #FFFFFF;">“Digital Brand Engineering is the process of engineering how search engines and AI understand, trust and recommend a person or a company.”</p></blockquote>
+      <figcaption style="display: flex; align-items: center; gap: 14px; padding-top: 4px;">
+        <img src="images/jason.jpg" alt="Jason Barnard" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; display: block; flex-shrink: 0; border: 2px solid #E3A949;">
+        <span style="display: flex; flex-direction: column; gap: 2px; text-align: left;"><strong style="font-size: 18px; font-weight: 700;">Jason Barnard</strong><span style="font-size: 15px; color: rgba(255,255,255,0.75);">Founder and CEO, Kalicube</span></span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- The problems: self-recognition, each card goes somewhere -->
+  <section class="m-px m-pt m-pb m-gap" style="padding: 104px 120px 112px; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; align-items: center; gap: 28px;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><span style="font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8C6230;">Digital Brand Engineering</span><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 960px; margin: 0 auto;">
+      <div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Digital Brand Engineering aligns what AI relies on, <span style="color: #B98B4E;">and closes that gap.</span></div>
+      <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470;">The problems clients come to Kalicube to solve</h2>
+      <div class="m-f26" style="font-size: 30px; line-height: 1.2; font-weight: 700; color: #5AA5D3; padding-top: 8px;">Which one sounds like you?</div>
+    </div>
+    <div class="m-g1" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px;">
+      <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" style="background: #F6F6F6; border-radius: 12px; padding: 26px 26px 26px 24px; display: flex; align-items: center; gap: 18px; color: #1A274E; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <svg width="36" height="25" viewBox="0 0 58 40" aria-hidden="true" style="flex-shrink: 0; align-self: flex-start;"><path d="M23 3C11 6 3 14 3 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C11.4 11.6 16 8.4 23 7.2z" fill="#1A274E"></path><path d="M53 3C41 6 33 14 33 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C41.4 11.6 46 8.4 53 7.2z" fill="#B98B4E"></path></svg>
+        <p class="m-f21" style="flex: 1; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.3;">AI gets my facts wrong, or out of date.</p>
+        <svg width="38" height="46" viewBox="0 0 44 52" fill="none" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 5 39 26 5 47Z" stroke="#5AA5D3" stroke-width="3" stroke-linejoin="round"></path></svg>
+      </a>
+      <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" style="background: #F6F6F6; border-radius: 12px; padding: 26px 26px 26px 24px; display: flex; align-items: center; gap: 18px; color: #1A274E; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <svg width="36" height="25" viewBox="0 0 58 40" aria-hidden="true" style="flex-shrink: 0; align-self: flex-start;"><path d="M23 3C11 6 3 14 3 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C11.4 11.6 16 8.4 23 7.2z" fill="#1A274E"></path><path d="M53 3C41 6 33 14 33 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C41.4 11.6 46 8.4 53 7.2z" fill="#B98B4E"></path></svg>
+        <p class="m-f21" style="flex: 1; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.3;">AI confuses me with someone else.</p>
+        <svg width="38" height="46" viewBox="0 0 44 52" fill="none" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 5 39 26 5 47Z" stroke="#5AA5D3" stroke-width="3" stroke-linejoin="round"></path></svg>
+      </a>
+      <a href="landing/changed-my-name/" style="background: #F6F6F6; border-radius: 12px; padding: 26px 26px 26px 24px; display: flex; align-items: center; gap: 18px; color: #1A274E; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <svg width="36" height="25" viewBox="0 0 58 40" aria-hidden="true" style="flex-shrink: 0; align-self: flex-start;"><path d="M23 3C11 6 3 14 3 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C11.4 11.6 16 8.4 23 7.2z" fill="#1A274E"></path><path d="M53 3C41 6 33 14 33 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C41.4 11.6 46 8.4 53 7.2z" fill="#B98B4E"></path></svg>
+        <p class="m-f21" style="flex: 1; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.3;">I’ve changed my name, and AI still uses the old one.</p>
+        <svg width="38" height="46" viewBox="0 0 44 52" fill="none" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 5 39 26 5 47Z" stroke="#5AA5D3" stroke-width="3" stroke-linejoin="round"></path></svg>
+      </a>
+      <a href="landing/reputation/" style="background: #F6F6F6; border-radius: 12px; padding: 26px 26px 26px 24px; display: flex; align-items: center; gap: 18px; color: #1A274E; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <svg width="36" height="25" viewBox="0 0 58 40" aria-hidden="true" style="flex-shrink: 0; align-self: flex-start;"><path d="M23 3C11 6 3 14 3 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C11.4 11.6 16 8.4 23 7.2z" fill="#1A274E"></path><path d="M53 3C41 6 33 14 33 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C41.4 11.6 46 8.4 53 7.2z" fill="#B98B4E"></path></svg>
+        <p class="m-f21" style="flex: 1; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.3;">When people look me up, AI leads with the one bad story.</p>
+        <svg width="38" height="46" viewBox="0 0 44 52" fill="none" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 5 39 26 5 47Z" stroke="#5AA5D3" stroke-width="3" stroke-linejoin="round"></path></svg>
+      </a>
+      <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" style="background: #F6F6F6; border-radius: 12px; padding: 26px 26px 26px 24px; display: flex; align-items: center; gap: 18px; color: #1A274E; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <svg width="36" height="25" viewBox="0 0 58 40" aria-hidden="true" style="flex-shrink: 0; align-self: flex-start;"><path d="M23 3C11 6 3 14 3 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C11.4 11.6 16 8.4 23 7.2z" fill="#1A274E"></path><path d="M53 3C41 6 33 14 33 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C41.4 11.6 46 8.4 53 7.2z" fill="#B98B4E"></path></svg>
+        <p class="m-f21" style="flex: 1; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.3;">AI leaves out what I’ve achieved.</p>
+        <svg width="38" height="46" viewBox="0 0 44 52" fill="none" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 5 39 26 5 47Z" stroke="#5AA5D3" stroke-width="3" stroke-linejoin="round"></path></svg>
+      </a>
+      <a href="landing/lead-your-field/" style="background: #F6F6F6; border-radius: 12px; padding: 26px 26px 26px 24px; display: flex; align-items: center; gap: 18px; color: #1A274E; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <svg width="36" height="25" viewBox="0 0 58 40" aria-hidden="true" style="flex-shrink: 0; align-self: flex-start;"><path d="M23 3C11 6 3 14 3 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C11.4 11.6 16 8.4 23 7.2z" fill="#1A274E"></path><path d="M53 3C41 6 33 14 33 26a10 10 0 1 0 10-10c-1.2 0-2.2.1-3.2.4C41.4 11.6 46 8.4 53 7.2z" fill="#B98B4E"></path></svg>
+        <p class="m-f21" style="flex: 1; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.3;">I’m the best at what I do, but AI recommends someone else.</p>
+        <svg width="38" height="46" viewBox="0 0 44 52" fill="none" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 5 39 26 5 47Z" stroke="#5AA5D3" stroke-width="3" stroke-linejoin="round"></path></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Work with Kalicube: the two audiences, after the problem -->
+  <section class="m-px m-pt m-pb m-gap" style="background: #F2F2F2; padding: 104px 120px 112px; display: flex; flex-direction: column; gap: 44px;">
+    <div style="display: flex; align-items: center; gap: 28px;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><span style="font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8C6230;">Work with Kalicube</span><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 960px; margin: 0 auto;">
+      <div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Digital Brand Engineering <span style="color: #B98B4E;">for entrepreneurs and companies</span></div>
+      <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470;">How Kalicube works with entrepreneurs, and with companies</h2>
+      <p style="font-size: 19px; line-height: 1.6; color: #3D4660; max-width: 760px;">Kalicube engineers the digital brands of entrepreneurs and of companies differently, with an approach built for the needs of each.</p>
+    </div>
+    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px;">
+      <div class="m-px" style="background: #FFFFFF; border-radius: 14px; padding: 44px 44px 40px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid #B98B4E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8C6230" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div>
+          <div style="font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8C6230;">Entrepreneurs and executives</div>
+        </div>
+        <h3 class="m-f32" style="font-size: 32px; line-height: 1.15; font-weight: 700;">Your digital brand, engineered for you</h3>
+        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;"><strong style="color: #1A274E;">Kalicube engineers your digital brand for you.</strong> For entrepreneurs and executives who want Kalicube’s Digital Brand Engineers to engineer how Google, ChatGPT and AI search understand, represent and recommend them.</p>
+        <div style="border-top: 1.5px solid #E2E2E2; padding-top: 22px; display: flex; gap: 18px; align-items: flex-start;">
+          <img src="images/cronstedt.jpg" alt="Jonathan Cronstedt" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <p style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.4; color: #1A274E;">“You guys are the only people that have been able to find a way to merge the two of me that exist: the name nobody knows, and the nickname everybody knows by.”</p>
+            <div style="font-size: 15px;"><strong>Jonathan Cronstedt</strong> <span style="color: #4A5470;">· Former President, Kajabi</span></div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-top: 4px;">
+          <a href="entrepreneurs/" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 500; color: #1A274E; padding-bottom: 3px; border-bottom: 2px solid #E3A949; letter-spacing: 0;"><span>Explore Digital Brand Engineering for entrepreneurs</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          <span style="font-size: 15px; color: #3D4660;"><span style="color: #00B67A;">★</span> 4.4 out of 5 on Trustpilot, from 20 reviews</span>
+        </div>
+      </div>
+      <div class="m-px" style="background: #FFFFFF; border-radius: 14px; padding: 44px 44px 40px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid #B98B4E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8C6230" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5l8-2v18M12 21V9l8 2v10M3 21h18M7 8h2M7 12h2M7 16h2M15 13h2M15 17h2"></path></svg></div>
+          <div style="font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8C6230;">Companies and corporations</div>
+        </div>
+        <h3 class="m-f32" style="font-size: 32px; line-height: 1.15; font-weight: 700;">Strategy, and a platform your team runs</h3>
+        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;"><strong style="color: #1A274E;">Strategy and intelligence for your team to implement.</strong> Kalicube builds the Digital Brand Engineering strategy, and Kalicube Pro gives your team the intelligence to run it every week, brand by brand.</p>
+        <div style="border-top: 1.5px solid #E2E2E2; padding-top: 22px; display: flex; gap: 18px; align-items: flex-start;">
+          <img src="images/volpini.jpg" alt="Andrea Volpini" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; display: block; flex-shrink: 0;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <p style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.4; color: #1A274E;">“Kalicube Pro changes the game in reputation management. Brand Reputation on Steroids.”</p>
+            <div style="font-size: 15px;"><strong>Andrea Volpini</strong> <span style="color: #4A5470;">· CEO, WordLift</span></div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-top: 4px;">
+          <a href="strategy-plus/" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 500; color: #1A274E; padding-bottom: 3px; border-bottom: 2px solid #E3A949; letter-spacing: 0;"><span>Explore Strategy Plus for companies</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          <span style="font-size: 15px; color: #3D4660;">Newfold Digital, the group behind Bluehost and Yoast, runs its brands on Kalicube.</span>
+        </div>
+      </div>
+    </div>
+    <p style="text-align: center; font-size: 18px; line-height: 1.6; color: #3D4660;">Want your own marketing team to run it? <a href="kalicubepro/" style="font-weight: 700; border-bottom: 2px solid #5AA5D3;">Kalicube Pro is the platform any team can run</a></p>
+  </section>
+
+  <!-- Your digital ecosystem, and the two definitions -->
+  <section class="m-px m-pt m-pb m-gap" style="background: #EDF5FB; padding: 104px 120px 112px; display: flex; flex-direction: column; gap: 44px;">
+    <div style="display: flex; align-items: center; gap: 28px;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><span style="font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8C6230;">Your digital ecosystem</span><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 960px; margin: 0 auto;">
+      <div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Your digital ecosystem shapes <span style="color: #2F7DB0;">what AI understands about you.</span></div>
+      <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470;">How Google, ChatGPT and AI search build their understanding of your brand</h2>
+      <p style="font-size: 19px; line-height: 1.6; color: #3D4660; max-width: 860px;">Your website matters, but so do your profiles, third-party sources, knowledge graphs, media coverage, reviews and the relationships between them. Search engines and AI read all of it.</p>
+    </div>
+    <div class="m-px" style="background: #FFFFFF; border-radius: 14px; padding: 40px 48px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+      <div class="m-eco" style="position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)) 150px 250px; align-items: start;">
+        <div style="position: absolute; top: 112px; left: 58px; right: 325px; height: 4px; background: #B98B4E; border-radius: 2px;"></div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;"><div style="height: 78px; display: flex; flex-direction: column; gap: 4px;"><div style="font-size: 15px; font-weight: 700;">Website</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470;">Your official content hub</div></div><div style="width: 72px; height: 72px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"></path></svg></div></div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;"><div style="height: 78px; display: flex; flex-direction: column; gap: 4px;"><div style="font-size: 15px; font-weight: 700;">Profiles</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470;">Social and professional profiles</div></div><div style="width: 72px; height: 72px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div></div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;"><div style="height: 78px; display: flex; flex-direction: column; gap: 4px;"><div style="font-size: 15px; font-weight: 700;">Content</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470;">Articles, blogs and publications</div></div><div style="width: 72px; height: 72px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v4h4M9 12h7M9 16h7"></path></svg></div></div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;"><div style="height: 78px; display: flex; flex-direction: column; gap: 4px;"><div style="font-size: 15px; font-weight: 700;">Media</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470;">Press coverage and mentions</div></div><div style="width: 72px; height: 72px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="M7 9h6v4H7zM15 9h2M15 13h2M7 16h10"></path></svg></div></div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;"><div style="height: 78px; display: flex; flex-direction: column; gap: 4px;"><div style="font-size: 15px; font-weight: 700;">Reviews</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470;">Ratings and customer feedback</div></div><div style="width: 72px; height: 72px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></div></div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;"><div style="height: 78px; display: flex; flex-direction: column; gap: 4px;"><div style="font-size: 15px; font-weight: 700;">Trusted sources</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470;">Directories and partners</div></div><div style="width: 72px; height: 72px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div></div>
+        <div style="display: flex; justify-content: center; padding-top: 60px; position: relative;"><div style="width: 104px; height: 104px; border-radius: 50%; background: #1A274E; border: 4px solid #B98B4E; box-shadow: 0 0 0 8px rgba(185,139,78,0.18); display: flex; align-items: center; justify-content: center;"><span class="m-nw" style="background: #E3A949; color: #1A274E; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 9px; border-radius: 6px; white-space: nowrap;">YOUR BRAND</span></div></div>
+        <div style="display: flex; flex-direction: column; gap: 22px; padding-top: 43px;">
+          <div style="display: flex; align-items: center; gap: 10px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 19 18 6M9 6h9v9"></path></svg><div style="width: 60px; height: 60px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8CC3E6" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 15px; font-weight: 700;">Search engines</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470;">Google, Bing and beyond</div></div></div>
+          <div style="display: flex; align-items: center; gap: 10px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 5 18 18M18 9v9H9"></path></svg><div style="width: 60px; height: 60px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8CC3E6" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 15px; font-weight: 700;">AI assistants</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470;">ChatGPT, Gemini, Perplexity, Copilot and others</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px;">
+      <div class="m-px" style="background: #FFFFFF; border-radius: 14px; padding: 40px 44px; display: flex; flex-direction: column; gap: 14px; text-align: center; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <h3 class="m-f32" style="font-size: 32px; line-height: 1.15; font-weight: 700; color: #8C6230;">Digital Brand Engineering</h3>
+        <p class="m-f20" style="font-size: 20px; line-height: 1.45; font-weight: 700; color: #8C6230;">works at the source, across your whole digital ecosystem.</p>
+        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">It aligns the information and signals in every one of these places, so Google, ChatGPT and AI search get one clear, consistent and credible picture of your brand.</p>
+      </div>
+      <div class="m-px" style="background: #FFFFFF; border-radius: 14px; padding: 40px 44px; display: flex; flex-direction: column; gap: 14px; text-align: center; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <h3 class="m-f32" style="font-size: 32px; line-height: 1.15; font-weight: 700; color: #2F7DB0;">Kalicube Pro</h3>
+        <p class="m-f20" style="font-size: 20px; line-height: 1.45; font-weight: 700; color: #2F7DB0;">is the Digital Brand Intelligence platform underneath our work.</p>
+        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">Every week it collects and analyses the information and relationships across your digital ecosystem, and shows what supports or contradicts the brand you want to establish.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Kalicube -->
+  <section class="m-px m-pt m-gap" style="padding: 112px 120px 0; display: flex; flex-direction: column; gap: 44px;">
+    <div style="display: flex; align-items: center; gap: 28px;"><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span><span style="font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8C6230;">Why Kalicube</span><span style="flex: 1; height: 1.5px; background: #B98B4E;"></span></div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 960px; margin: 0 auto;">
+      <div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">The authority behind <span style="color: #B98B4E;">Digital Brand Engineering</span></div>
+      <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470;">Why brands trust Kalicube: Jason Barnard’s record and the Kalicube Pro platform</h2>
+      <p style="font-size: 19px; line-height: 1.6; color: #3D4660;">Jason explains it. Kalicube applies it. Kalicube Pro powers it.</p>
+    </div>
+    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px;">
+      <div style="background: #F6F6F6; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <img src="images/gml.jpg" alt="Jason Barnard on stage" style="width: 100%; aspect-ratio: 16 / 8; object-fit: cover; object-position: 40% 45%; display: block;">
+        <div class="m-px" style="padding: 36px 40px 40px; display: flex; flex-direction: column; gap: 16px;">
+          <h3 class="m-f26" style="font-size: 30px; line-height: 1.15; font-weight: 700;">Founded by <span style="color: #B98B4E;">Jason Barnard</span></h3>
+          <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">Jason started in SEO in 1998, the year Google was incorporated. In 2012 he saw that what people find when they search your name is what matters, and did that work for clients by hand. In 2015 he built Kalicube Pro to automate it, and he is still its sole architect. He was the first to see that search, the knowledge graph and LLMs are three different engines.</p>
+          <a href="jasonbarnard/" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; align-self: flex-start; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; padding-bottom: 3px; border-bottom: 2px solid #E3A949; letter-spacing: 0;"><span>More about Jason Barnard</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        </div>
+      </div>
+      <div class="m-px" style="background: #F6F6F6; border-radius: 14px; padding: 40px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <h3 class="m-f26" style="font-size: 30px; line-height: 1.15; font-weight: 700;">Powered by <span style="color: #2F7DB0;">Kalicube Pro</span></h3>
+        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">Kalicube Pro is Jason’s thinking, encoded, and it is the platform Kalicube’s own team runs on. Every week it collects the data, analyses it in the context of each brand’s strategy, and tells the team what to do next.</p>
+        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">Microsoft, Ahrefs, Yoast and Semrush have all asked Kalicube to help with their brand.</p>
+        <div style="margin-top: auto; background: #FFFFFF; border-radius: 10px; padding: 22px 24px; display: flex; flex-direction: column; gap: 6px; border-left: 4px solid #5AA5D3;">
+          <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2F7DB0;">The Kalicube Process</div>
+          <p style="font-size: 17px; line-height: 1.55; color: #3D4660;">A proven methodology for Digital Brand Engineering and digital marketing strategy, run on Kalicube Pro for every client.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final call to action -->
+  <section class="m-px m-pt m-pb" style="padding: 96px 120px 120px;">
+    <div class="m-px m-gap m-stack" style="background: #1A274E; border-radius: 16px; padding: 72px 88px; display: flex; justify-content: space-between; align-items: center; gap: 72px; color: #FFFFFF; box-shadow: 0 6px 20px rgba(26,39,78,0.16);">
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 660px;">
+        <div class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 46px; line-height: 1.08; letter-spacing: -0.01em; color: #E3A949;">Not sure what needs engineering?</div>
+        <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.8);">Get a free AI audit and strategy for your brand</h2>
+        <p style="font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.88);">The audit and strategy apply The Kalicube Process to your brand, and show you what to address first.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; flex-shrink: 0;">
+        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 20px 34px; border-radius: 999px; font-size: 19px; font-weight: 500; white-space: nowrap; letter-spacing: 0;"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <div style="font-size: 14px; color: rgba(255,255,255,0.78);">Free · Less than 5 minutes</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="m-px m-pt m-gap" style="background: #131C3A; color: rgba(255,255,255,0.72); padding: 88px 120px 48px; display: flex; flex-direction: column; gap: 72px;">
+    <div class="m-gap m-stack" style="display: flex; justify-content: space-between; gap: 64px;">
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 300px;">
+        <img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; align-self: flex-start; display: block; filter: brightness(0) invert(1);">
+        <p style="font-size: 16px; line-height: 1.6;">Digital Brand Engineering for entrepreneurs and companies.</p>
+      </div>
+      <div class="m-g2 m-gap" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 56px; font-size: 15px; line-height: 1.4;">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Services</div>
+          <span>For entrepreneurs</span><span>For companies</span><span>Kalicube Pro</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Proof</div>
+          <span>Client results</span><span>Knowledge Panel results</span><span>What clients say</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Learn</div>
+          <span>The Kalicube Process</span><span>Books by Jason Barnard</span><span>Free guides</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">About</div>
+          <span>Jason Barnard</span><span>The team</span><span>Data and methodology</span><span>Contact</span>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px;">
+      <span>© 2026 Kalicube</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+  </footer>
+
+</div>
+</div>
+</body>
+</html>

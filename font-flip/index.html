@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Font Flip</title>
+<style>
+  :root {
+    --ground: #F3F4F7;
+    --bar: #FFFFFF;
+    --ink: #1B2A4A;
+    --muted: #5A6680;
+    --rule: #DCE1E9;
+    --on: #1B2A4A;
+    --on-ink: #FFFFFF;
+    --gold: #E8AA2E;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--ground); color: var(--ink); font: 15px/1.4 Arial, Helvetica, sans-serif; display: flex; flex-direction: column; }
+  header { background: var(--bar); border-bottom: 1px solid var(--rule); padding: 10px 20px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px 32px; }
+  .name { font-weight: 700; font-size: 17px; white-space: nowrap; }
+  .pages { display: flex; flex-direction: column; gap: 6px; }
+  .site { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; overflow-x: auto; scrollbar-width: thin; padding-bottom: 2px; }
+  .site-name { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); width: 136px; flex-shrink: 0; }
+  .pages button { font: inherit; font-size: 13px; font-weight: 700; color: var(--ink); background: var(--bar); border: 1px solid var(--rule); border-radius: 999px; padding: 6px 13px; cursor: pointer; white-space: nowrap; }
+  .font-top { display: flex; align-items: center; gap: 14px; }
+  .pages button:hover { border-color: var(--ink); }
+  .pages button[aria-current="page"] { background: var(--on); border-color: var(--on); color: var(--on-ink); }
+  button:focus-visible, select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .font { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .font label { display: flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  select { font: inherit; font-size: 15px; font-weight: 700; color: var(--ink); background: var(--bar) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' fill='none' stroke='%231B2A4A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 38px 8px 16px; appearance: none; -webkit-appearance: none; cursor: pointer; min-width: 220px; text-transform: none; letter-spacing: 0; }
+  select:hover { border-color: var(--ink); }
+  .hint { color: var(--muted); font-size: 12px; white-space: nowrap; }
+  kbd { font: inherit; font-weight: 700; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 4px; background: var(--bar); }
+  .stage { position: relative; flex: 1; min-height: 0; }
+  iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #FFFFFF; }
+  iframe.off { visibility: hidden; }
+  .view { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; gap: 2px; background: var(--bar); }
+  .view button { font: inherit; font-size: 13px; font-weight: 700; border: 0; background: transparent; color: var(--ink); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+  .view button[aria-pressed="true"] { background: var(--on); color: var(--on-ink); }
+  /* Mobile: the page at phone width, in a phone-sized frame, so it shows its real phone layout */
+  .stage.mobile { background: #E4E8EF; overflow: auto; }
+  .stage.mobile iframe { left: 50%; top: 18px; right: auto; bottom: auto; width: 390px; height: min(844px, calc(100% - 36px)); transform: translateX(-50%); border-radius: 26px; box-shadow: 0 0 0 10px #1A274E, 0 20px 44px rgba(26,39,78,0.3); }
+  @media (max-width: 900px) { header { grid-template-columns: minmax(0, 1fr); } .site-name { width: 104px; } .font { align-items: flex-start; } .hint { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <nav class="pages" id="pages" aria-label="Pages"></nav>
+  <div class="font">
+    <div class="font-top">
+      <div class="name">Font Flip</div>
+      <div class="view" role="group" aria-label="View"><button type="button" data-view="desktop" aria-pressed="true">Desktop</button><button type="button" data-view="mobile" aria-pressed="false">Mobile</button></div>
+      <label>Font <select id="font">
+        <option value="ubuntu">1 · Ubuntu (house font)</option>
+        <option value="google">2 · Google Sans Flex</option>
+        <option value="dm">3 · DM Sans</option>
+        <option value="arial">4 · Arial</option>
+      </select></label>
+    </div>
+    <label>Buttons <select id="buttons">
+      <option value="code">Google Sans Code (house button font)</option>
+      <option value="arial">Arial Bold</option>
+      <option value="mono">DM Mono</option>
+    </select></label>
+    <div class="hint"><kbd>←</kbd> <kbd>→</kbd> pages · <kbd>space</kbd> or <kbd>1</kbd>–<kbd>4</kbd> fonts · <kbd>B</kbd> buttons · <kbd>M</kbd> desktop / mobile</div>
+  </div>
+</header>
+<main class="stage">
+  <iframe id="google" class="off" title="Page in Google Sans Flex"></iframe>
+  <iframe id="dm" class="off" title="Page in DM Sans"></iframe>
+  <iframe id="arial" class="off" title="Page in Arial"></iframe>
+  <iframe id="ubuntu" title="Page in Ubuntu"></iframe>
+</main>
+<script>
+  var PAGES = [
+    ['kalicube.com', 'Homepage', ''],
+    ['kalicube.com', 'Strategy Plus', 'strategy-plus/'],
+    ['kalicube.com', 'Entrepreneurs', 'entrepreneurs/'],
+    ['kalicube.com', 'Apply: entrepreneurs', 'apply/'],
+    ['kalicube.com', 'Apply: companies', 'apply/companies/'],
+    ['kalicube.com', 'Compare: companies', 'compare/companies/'],
+    ['kalicube.com', 'Compare: entrepreneurs', 'compare/entrepreneurs/'],
+    ['kalicube.com', 'Name change', 'landing/changed-my-name/'],
+    ['kalicube.com', 'One bad story', 'landing/reputation/'],
+    ['kalicube.com', 'Lead your field', 'landing/lead-your-field/'],
+    ['jasonbarnard.com', 'Homepage', 'jasonbarnard/'],
+    ['kalicube.pro', 'Homepage', 'kalicubepro/'],
+    ['Team', 'Mind, Machine, Practice', 'mind-machine-practice/']
+  ];
+  var ORDER = ['ubuntu', 'google', 'dm', 'arial'];
+  var FILES = { google: 'index.html', dm: 'index-dmsans.html', arial: 'index-arial.html', ubuntu: 'index-ubuntu.html' };
+  var frames = {};
+  ORDER.forEach(function (k) { frames[k] = document.getElementById(k); });
+  var shown = 'ubuntu';
+  var current = 0;
+  var fontSelect = document.getElementById('font');
+  var pageBar = document.getElementById('pages');
+  var stage = document.querySelector('.stage');
+  var view = 'desktop';
+
+  function setView(v) {
+    view = v === 'mobile' ? 'mobile' : 'desktop';
+    stage.classList.toggle('mobile', view === 'mobile');
+    document.querySelectorAll('.view button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === view)); });
+    try { localStorage.setItem('font-flip-view', view); } catch (e) {}
+    markTabs();
+  }
+
+  var buttonSelect = document.getElementById('buttons');
+  var BUTTON_CSS = {
+    code: '',
+    arial: "font-family: Arial, Helvetica, sans-serif !important; font-weight: 700 !important; letter-spacing: 0 !important;",
+    mono: "font-family: 'DM Mono', Menlo, monospace !important; font-weight: 500 !important; letter-spacing: -0.01em !important;"
+  };
+  var BUTTON_ORDER = ['code', 'arial', 'mono'];
+  var buttonFont = 'code';
+
+  function styleButtons(k) {
+    var w = win(k);
+    if (!w || !w.document || !w.document.head) return;
+    var d = w.document;
+    if (!d.getElementById('ff-code-font')) {
+      var l = d.createElement('link');
+      l.id = 'ff-code-font';
+      l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@500&family=DM+Mono:wght@500&display=swap';
+      d.head.appendChild(l);
+    }
+    var st = d.getElementById('ff-buttons');
+    if (!st) { st = d.createElement('style'); st.id = 'ff-buttons'; d.head.appendChild(st); }
+    st.textContent = BUTTON_CSS[buttonFont] ? '.act { ' + BUTTON_CSS[buttonFont] + ' }' : '';
+  }
+
+  function setButtons(v) {
+    buttonFont = BUTTON_CSS.hasOwnProperty(v) ? v : 'arial';
+    buttonSelect.value = buttonFont;
+    ORDER.forEach(styleButtons);
+  }
+
+  function win(k) { try { return frames[k].contentWindow; } catch (e) { return null; } }
+
+  function syncFrom(k) {
+    var a = win(k);
+    if (!a) return;
+    var maxA = a.document.documentElement.scrollHeight - a.innerHeight;
+    var ratio = maxA > 0 ? a.scrollY / maxA : 0;
+    ORDER.forEach(function (o) {
+      if (o === k) return;
+      var b = win(o);
+      if (!b) return;
+      var maxB = b.document.documentElement.scrollHeight - b.innerHeight;
+      b.scrollTo(0, Math.round(ratio * Math.max(maxB, 0)));
+    });
+  }
+
+  function show(k) {
+    fontSelect.value = k;
+    if (k === shown) return;
+    syncFrom(shown);
+    ORDER.forEach(function (o) { frames[o].classList.toggle('off', o !== k); });
+    shown = k;
+  }
+
+  function load(i) {
+    current = (i + PAGES.length) % PAGES.length;
+    var path = '../' + PAGES[current][2];
+    var fresh = '?v=' + Date.now();
+    ORDER.forEach(function (k) { frames[k].src = path + FILES[k] + fresh; });
+    markTabs();
+  }
+
+  // A click inside a page (a toggle, a nav link) moves every font with it, keeps the chosen font and updates the tabs.
+  function followNavigation(k, w) {
+    var m = (w.location.pathname || '').match(/kalicube-website-redesign\/(.*?)(index(?:-[a-z]+)?\.html)?$/);
+    if (!m) return false;
+    var dir = m[1], file = m[2] || 'index.html';
+    var idx = -1;
+    PAGES.forEach(function (p, i) { if (p[2] === dir) idx = i; });
+    if (idx < 0) return false;
+    var fresh = '?v=' + Date.now();
+    if (k === shown && idx !== current) {
+      current = idx;
+      markTabs();
+      ORDER.forEach(function (o) { if (o !== k) frames[o].src = '../' + dir + FILES[o] + fresh; });
+    }
+    if (file !== FILES[k]) { frames[k].src = '../' + dir + FILES[k] + fresh; return true; }
+    return false;
+  }
+
+  function markTabs() {
+    pageBar.querySelectorAll('button').forEach(function (b) {
+      if (Number(b.dataset.i) === current) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+    });
+    try { localStorage.setItem('font-flip-page', String(current)); } catch (e) {}
+    try { history.replaceState(null, '', '?page=' + slug(PAGES[current][2]) + (view === 'mobile' ? '&view=mobile' : '')); } catch (e) {}
+  }
+
+  // Links like font-flip/?page=strategy-plus open that page, so each draft can be shared.
+  function slug(dir) { return dir ? dir.replace(/\/$/, '') : 'home'; }
+  function pageFromUrl() {
+    var q = (new URLSearchParams(location.search).get('page') || '').replace(/^\/+|\/+$/g, '');
+    var idx = -1;
+    if (q) PAGES.forEach(function (p, i) { if (slug(p[2]) === q) idx = i; });
+    return idx;
+  }
+
+  function onKey(e) {
+    var tag = (e.target && e.target.tagName) || '';
+    if (/INPUT|TEXTAREA|SELECT/.test(tag)) return;
+    if (e.code === 'Space' && tag !== 'BUTTON') {
+      e.preventDefault();
+      show(ORDER[(ORDER.indexOf(shown) + 1) % ORDER.length]);
+    } else if (/^[1-4]$/.test(e.key)) {
+      show(ORDER[Number(e.key) - 1]);
+    } else if (e.key === 'm' || e.key === 'M') {
+      setView(view === 'mobile' ? 'desktop' : 'mobile');
+    } else if (e.key === 'b' || e.key === 'B') {
+      setButtons(BUTTON_ORDER[(BUTTON_ORDER.indexOf(buttonFont) + 1) % BUTTON_ORDER.length]);
+    } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      load(current + (e.key === 'ArrowRight' ? 1 : -1));
+    }
+  }
+
+  ORDER.forEach(function (k) {
+    frames[k].addEventListener('load', function () {
+      var w = win(k);
+      if (!w) return;
+      if (followNavigation(k, w)) return;
+      w.addEventListener('scroll', function () { if (k === shown) syncFrom(k); }, { passive: true });
+      w.document.addEventListener('keydown', onKey);
+      styleButtons(k);
+    });
+  });
+  document.addEventListener('keydown', onKey);
+
+  var sites = {};
+  PAGES.forEach(function (p, i) {
+    if (!sites[p[0]]) {
+      var group = document.createElement('div');
+      group.className = 'site';
+      group.setAttribute('role', 'group');
+      group.setAttribute('aria-label', p[0]);
+      var name = document.createElement('span');
+      name.className = 'site-name';
+      name.textContent = p[0];
+      group.appendChild(name);
+      pageBar.appendChild(group);
+      sites[p[0]] = group;
+    }
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = p[1];
+    b.dataset.i = String(i);
+    b.addEventListener('click', function () { load(i); });
+    sites[p[0]].appendChild(b);
+  });
+  fontSelect.addEventListener('change', function () { show(fontSelect.value); fontSelect.blur(); });
+  buttonSelect.addEventListener('change', function () { setButtons(buttonSelect.value); buttonSelect.blur(); });
+  document.querySelectorAll('.view button').forEach(function (b) { b.addEventListener('click', function () { setView(b.dataset.view); b.blur(); }); });
+
+  // Every visit opens in the house fonts: Ubuntu, with Google Sans Code buttons.
+  var startPage = 0;
+  try {
+    startPage = Math.min(PAGES.length - 1, Math.max(0, parseInt(localStorage.getItem('font-flip-page') || '0', 10) || 0));
+  } catch (e) {}
+  if (pageFromUrl() >= 0) startPage = pageFromUrl();
+  var startView = 'desktop';
+  try { startView = localStorage.getItem('font-flip-view') || 'desktop'; } catch (e) {}
+  var qv = new URLSearchParams(location.search).get('view');
+  if (qv) startView = qv;
+  view = startView === 'mobile' ? 'mobile' : 'desktop';
+  load(startPage);
+  setView(view);
+  show('ubuntu');
+  setButtons('code');
+</script>
+</body>
+</html>

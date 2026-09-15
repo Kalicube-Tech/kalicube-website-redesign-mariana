@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<script id="flip-redirect">(function(){try{if(window.top!==window.self||/[?&]raw\b/.test(location.search))return;var m=location.pathname.match(/^(.*\/kalicube-website-redesign\/)(.*?)(index(?:-[a-z]+)?\.html)?$/);if(!m)return;var slug=m[2].replace(/\/+$/,"")||"home";if(window.innerWidth<760){if(!/index-ubuntu\.html$/.test(location.pathname))location.replace(m[1]+m[2]+"index-ubuntu.html?raw");return;}location.replace(m[1]+"font-flip/?page="+slug);}catch(e){}})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I’ve changed my name, and AI still uses the old one (draft) · Ubuntu</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400&amp;family=Caveat:wght@600&amp;family=Google+Sans+Code:wght@500&amp;display=swap">
+  <style>
+    html, body { margin: 0; background: #1A274E; }
+    body { font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased;}
+    a { color: #1A274E; text-decoration: none; } a:hover { color: #8C6230; }
+    a:focus-visible { outline: 2px solid #E3A949; outline-offset: 4px; border-radius: 4px; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .struck { position: relative; display: inline-block; line-height: 1.2; text-decoration: line-through; text-decoration-color: #B98B4E; text-decoration-thickness: 2.5px; }
+    .fix { position: absolute; left: 2px; top: -27px; font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 27px; font-weight: 600; line-height: 1; color: #B98B4E; white-space: nowrap; transform: rotate(-4deg); text-decoration: none; }
+    .hero { position: relative; overflow: hidden; }
+    .hero > * { position: relative; z-index: 1; }
+    .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    .hero > img.hero-bg { left: var(--split, 50%); width: calc(100% - var(--split, 50%)); }
+  </style>
+<style id="mobile-layout">
+@media (max-width: 759px) {
+  html, body { overflow-x: clip; }
+  .m-page { width: 100% !important; }
+  .m-px { padding-left: 20px !important; padding-right: 20px !important; }
+  .m-pt { padding-top: 48px !important; }
+  .m-pb { padding-bottom: 48px !important; }
+  .m-g1 { grid-template-columns: minmax(0, 1fr) !important; }
+  .m-g2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .m-gap { gap: 24px !important; }
+  .m-stack { flex-direction: column !important; align-items: stretch !important; }
+  .m-w { width: auto !important; max-width: 100% !important; }
+  img.m-w { width: 100% !important; }
+  .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
+  .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
+  .m-nw { white-space: normal !important; }
+  .m-ha { height: auto !important; }
+  .m-ha > [style*="flex: 1"] { min-height: 300px; }
+  div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
+  a.act { max-width: 100%; }
+  .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
+  .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
+  table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
+  /* The menu: logo and the one button */
+  .m-nav { height: 64px !important; padding-left: 16px !important; padding-right: 16px !important; }
+  .m-nav a:not(.act):not(:has(img)), .m-nav .menu, .m-nav a.act[href*="contact"], .m-nav a.act[href*="apply"] { display: none !important; }
+  .m-nav { gap: 10px; }
+  .m-nav > :first-child { min-width: 0; flex-shrink: 1; }
+  .m-nav img { height: auto !important; max-height: 30px; max-width: 100%; min-width: 0; }
+  .m-nav .act { padding: 9px 14px !important; font-size: 14px !important; white-space: nowrap !important; flex-shrink: 0; }
+  svg[viewBox] { max-width: 100%; height: auto; }
+  .m-stack > div[style*="width: 1px"] { display: none !important; }
+  /* Split heroes: text first, then the photo as a band */
+  .hero { display: flex !important; flex-direction: column; }
+  .hero > * { order: 2; }
+  .hero > .m-nav { order: 1; }
+  .hero > div.hero-bg { display: none !important; }
+  .hero > img.hero-bg { position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; height: 240px !important; order: 3; }
+  /* The homepage hero: text, then the caption, then Jason; no floating icons */
+  .m-hero { height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column; }
+  .m-hero > div[aria-hidden] { display: none !important; }
+  .m-hero > div[style*="linear-gradient"] { background: rgba(6,14,38,0.62) !important; }
+  .m-hero > div[style*="position: relative"] { order: 1; height: auto !important; padding: 36px 20px 20px !important; max-width: none !important; }
+  .m-hero > p { position: relative !important; right: auto !important; bottom: auto !important; width: auto !important; text-align: left !important; order: 2; padding: 0 20px 16px; font-size: 15px !important; }
+  .m-hero > img[src*="cutout"] { position: relative !important; right: auto !important; order: 3; height: 250px !important; align-self: center; }
+  .m-hero br { display: none; }
+  /* The numbers band: two by two */
+  .m-nums { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 12px !important; padding: 18px 20px !important; }
+  .m-nums > div > div:first-child { width: 44px !important; height: 44px !important; }
+  .m-nums svg { width: 24px; height: 24px; }
+  .m-nums > div > div + div > span:first-child { font-size: 22px !important; }
+  /* The pinned press strip: slim, two rows of four, no label */
+  .m-press { padding: 8px 12px !important; gap: 0 !important; }
+  .m-press > div:first-child { display: none !important; }
+  .m-press > div:last-child { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 14px !important; justify-items: center; align-items: center; }
+  .m-press img { height: auto !important; max-height: 17px; max-width: 100%; }
+  /* The ecosystem diagram: three by two, then the brand and where it goes */
+  .m-eco { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; row-gap: 22px; }
+  .m-eco > div:first-child { display: none !important; }
+  .m-eco > div:nth-child(8), .m-eco > div:nth-child(9) { grid-column: 1 / -1; padding-top: 0 !important; }
+  .m-eco [style*="height: 78px"] { height: auto !important; margin-bottom: 8px; }
+}
+</style>
+<style>
+  /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
+  html { background: #0F1830; scroll-behavior: smooth; }
+</style>
+<script>
+  function fitPage() {
+    var root = document.documentElement, body = document.body;
+    // Phones get the phone layout at full size; wider windows get the desktop mockup scaled to fit.
+    if (root.clientWidth < 760) { body.style.zoom = 1; } else {
+      body.style.zoom = Math.min(1, root.clientWidth / 1440);
+      // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
+      if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    }
+    // The window height in page units, so a hero can fill the first screen exactly (var(--fold)).
+    root.style.setProperty('--fold', (window.innerHeight / (parseFloat(body.style.zoom) || 1)) + 'px');
+  }
+  window.addEventListener('resize', fitPage);
+  document.addEventListener('DOMContentLoaded', fitPage);
+  window.addEventListener('load', function () { requestAnimationFrame(fitPage); });
+</script>
+<script>
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('[data-yt]');
+    if (!trigger) return;
+    var id = trigger.getAttribute('data-yt');
+    var poster = document.querySelector('[data-yt-poster="' + id + '"]');
+    if (!poster) return;
+    e.preventDefault();
+    poster.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (poster.querySelector('iframe')) return;
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen = true;
+    frame.title = 'Jason Barnard reel';
+    frame.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+    poster.removeAttribute('href');
+    poster.innerHTML = '';
+    poster.appendChild(frame);
+  });
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap">
+</head>
+<body>
+<div style="max-width: 1440px; margin: 0 auto;">
+<div class="m-page" style="width: 1440px; background: #FFFFFF; color: #1A274E;">
+
+  <!-- Navigation -->
+  <header style="background-color: #1A274E; color: #FFFFFF;">
+    <nav class="m-px m-nav" style="height: 84px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
+      <a href="../../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
+      <div class="m-nw" style="display: flex; align-items: center; gap: 34px; font-size: 16px; font-weight: 500; white-space: nowrap;">
+        <a href="../../entrepreneurs/" style="color: #FFFFFF;">Entrepreneurs</a>
+        <a href="../../strategy-plus/" style="color: #FFFFFF;">Companies</a>
+        <a href="../../kalicubepro/" style="color: #FFFFFF;">Kalicube Pro</a>
+        <a href="#" style="color: #FFFFFF;">Client results</a>
+        <a href="#" style="color: #FFFFFF;">About</a>
+        <div style="display: flex; align-items: center; gap: 14px; margin-left: 6px;">
+          <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; background: #E3A949; color: #1A274E; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Free audit and strategy</a>
+          <a href="../../apply/" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; color: #E3A949; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Book a call</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero: the prospect is the hero, bright on the right; Jason small under the buttons -->
+  <section class="hero" style="--split: 54%; background: #1A274E; color: #FFFFFF;">
+    <img src="images/hero-name-change.jpg" class="hero-bg" alt="" style="object-fit: cover; object-position: center 35%; display: block;">
+    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(26,39,78) 0%, rgb(26,39,78) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
+    <div class="m-px m-pb m-g1 m-gap" style="padding: 64px 120px 80px; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 72px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.32); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700; background: rgba(6,14,38,0.35);">
+        <a href="../../strategy-plus/" style="color: #FFFFFF; border-radius: 999px; padding: 8px 18px;">For companies</a>
+        <span style="background: #FFFFFF; color: #1A274E; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</span>
+      </div>
+      <p class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">I’ve changed my name, <span style="color: #E3A949;">and AI still uses the old one.</span></p>
+      <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 640px;">Name change in Google and AI: update your name in your Knowledge Panel, ChatGPT and Gemini</h1>
+      <p style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 640px;">You changed your name for a reason: marriage, a divorce, a fresh start, or the name you actually go by. Google still shows the old one in your Knowledge Panel. ChatGPT and Gemini introduce you by it. Your personal brand is split in two, because the machines found the old name first and nobody told them.</p>
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 6px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 17px 30px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          <a href="../../apply/" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.85); padding: 15px 28px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; background: rgba(6,14,38,0.35);">Book a call</a>
+        </div>
+        <div style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.82); max-width: 440px;">Free · Less than 5 minutes · A detailed audit and strategy based on The Kalicube Process</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; padding-top: 16px; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.16); max-width: 640px;"><img src="images/jason-friendly.jpg" alt="Jason Barnard" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.85);"><p style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.86);"><span style="font-weight: 700; color: #FFFFFF;">Led by Jason Barnard.</span> Hired by Google to speak on the future of AI Search and how brands win at organic optimization. <a href="../../jasonbarnard/#reel" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px;">Watch Jason in action.</a></p></div>
+      </div>
+      <!-- The example, on the photo -->
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="m-px" style="background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 34px 40px 36px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 22px;">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">THE QUESTION</div>
+            <div class="m-f21" style="font-size: 23px; font-weight: 700;">Who is Morgan Ellis?</div>
+          </div>
+          <div style="height: 1px; background: #E3E7EE;"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">WHAT AI ANSWERS</div>
+            <p class="m-f20" style="font-size: 20px; line-height: 2.7; color: #1A274E; padding-top: 14px;"><span class="struck">Morgan Hart<span class="fix">Morgan Ellis</span></span> is a strategy consultant based in Paris, best known for advising family businesses on succession. <span class="struck">Hart<span class="fix">Ellis</span></span> founded the practice in 2011.</p>
+          </div>
+          <div class="m-f26" style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #B98B4E; transform: rotate(-2deg); transform-origin: left center;">Same person. One story, both names.</div>
+        </div>
+        <p style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.88); background: rgba(26,39,78,0.88); padding: 6px 12px; border-radius: 6px; align-self: flex-start;">Example: the answer before the record is corrected, marked up the way we fix it. Kalicube is a French company, so our examples are set in Paris.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The numbers, straight under the hero -->
+  <section class="m-nums m-px" style="background: #1A274E; color: #FFFFFF; border-top: 4px solid #FFFFFF; padding: 18px 120px; display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"></ellipse><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">25 billion</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">data points</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.6"></circle><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6M14.5 14.3c.8-.2 1.6-.3 2.5-.3 2.8 0 4.5 2 4.5 5"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">73 million</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">entities</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">2015</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">weekly data collection began</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3H6v18h7"></path><path d="M15 3l4 4v7M15 3v4h4M9 9h6M9 12.5h6"></path><circle cx="17.5" cy="17.5" r="3"></circle><path d="M16 20.2 15.5 23l2-1 2 1-.5-2.8"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">17</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">patent applications</span></div></div>
+  </section>
+
+  <!-- Press: pinned to the bottom of the first screen, then scrolls into place -->
+  <section class="m-press m-px m-gap m-stack" style="position: sticky; bottom: 0; z-index: 30; background: #FFFFFF; padding: 28px 120px; display: flex; align-items: center; gap: 56px; border-top: 1.5px solid #B98B4E; border-bottom: 1.5px solid #B98B4E; box-shadow: 0 -6px 18px rgba(26,39,78,0.12);">
+    <div class="m-nw" style="font-size: 14px; font-weight: 700; color: #1A274E; white-space: nowrap;">As featured in</div>
+    <div class="m-logos" style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
+      <img src="images/p-forbes.png" alt="Forbes" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-entrepreneur.png" alt="Entrepreneur" style="height: 22px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-lemonde.png" alt="Le Monde" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-skynews.png" alt="Sky News" style="height: 26px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-usatoday.png" alt="USA Today" style="height: 32px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-rollingstone.png" alt="Rolling Stone" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-yahoo.png" alt="Yahoo! News" style="height: 30px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-msn.png" alt="MSN" style="height: 28px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+    </div>
+  </section>
+
+  <!-- Trust, straight after the first screen: the right people for this reader -->
+  <section class="m-px m-pb" style="background: #EDF5FB; padding: 72px 120px 80px; display: flex; flex-direction: column; gap: 28px;">
+    <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 860px;">What Google and our clients say about changing your name in Google</h2>
+    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <div style="display: flex; flex-direction: column; gap: 12px;"><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #2F7DB0;">GOOGLE</div><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“From Google’s side, [Knowledge Panels] are just algorithmic. I honestly don’t know anyone else externally who has as much insight.”</p></div>
+        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #B98B4E; padding-top: 16px;"><img src="images/mueller.jpg" alt="John Mueller" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0;"><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">John Mueller</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">Google’s Senior Search Analyst and Spokesperson</div></div></div>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <div style="display: flex; flex-direction: column; gap: 12px;"><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“Jason helped me tremendously with my name change and Google very quickly connected the dots of what my name is now and understood who I am.”</p></div>
+        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #B98B4E; padding-top: 16px;"><div style="position: relative; width: 52px; height: 52px; flex-shrink: 0;" role="img" aria-label="Placeholder: photo still needed"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 6px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">Olga Zarr</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">SEO Consultant, SEOSLY</div></div></div>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <div style="display: flex; flex-direction: column; gap: 12px;"><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“The only people that have been able to find a way to merge the two of me that exist… the name that I am legally and nobody knows. And JCron, the industry nickname that everybody knows me by.”</p></div>
+        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #B98B4E; padding-top: 16px;"><div style="position: relative; width: 52px; height: 52px; flex-shrink: 0;" role="img" aria-label="Placeholder: photo still needed"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 6px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">Jonathan Cronstedt</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">Former President, Kajabi</div></div></div>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
+        <div style="display: flex; flex-direction: column; gap: 12px;"><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“How you appear in online search results is who you are... period. No one understands how to influence branded search results better than Jason Barnard.”</p></div>
+        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #B98B4E; padding-top: 16px;"><div style="position: relative; width: 52px; height: 52px; flex-shrink: 0;" role="img" aria-label="Placeholder: photo still needed"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 6px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">David Avrin</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">Strategic Brand Development Consultant and Author, on Jason’s book The Fundamentals of Brand SERPs for Business</div></div></div>
+      </div>
+    </div>
+  </section>
+
+    <!-- What's going on, and what we do -->
+  <section class="m-px m-pb" style="padding: 40px 120px 80px; display: flex; flex-direction: column;">
+    <div class="m-g1 m-gap" style="display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; padding: 56px 0; border-bottom: 1px solid #E3E7EE;">
+      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.12;">Google and AI trust the name with <span style="color: #B98B4E;">the most evidence</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Why Google and AI still use your old name</h2></div>
+      <p class="m-f20" style="font-size: 20px; line-height: 1.7; color: #3D4660; max-width: 640px;">Google and AI aren’t being stubborn. They built their picture of you from years of pages, profiles and articles under your old name, and those pages still agree with each other. Your new name appears in a few places, but nothing connects it to everything you did before. So the machine does the sensible thing: it trusts the version with the most evidence, and that’s the old one.</p>
+    </div>
+    <div class="m-g1 m-gap" style="display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; padding: 56px 0;">
+      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.12;">What we do <span style="color: #B98B4E;">about it</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">How we connect your new name to everything you’ve done</h2></div>
+      <p class="m-f20" style="font-size: 20px; line-height: 1.7; color: #3D4660; max-width: 640px;">We give the machines one clear story that joins both names. It starts on your own website, with a page that states who you are now and who you were, and the structured data that says so in machine language. Then we update and connect your profiles, so each one points to the same person. Finally we make the record easy to check, so anyone writing about you gets the name right. We do the work. You tell us the story and approve it. Then we show you the change in Google and AI, measured against what you asked for.</p>
+    </div>
+  </section>
+
+  <!-- Final call to action: the two options again, with Jason -->
+  <section class="m-px m-pt m-pb" id="call" style="padding: 96px 120px 120px;">
+    <div class="m-px" style="background: #1A274E; border-radius: 16px; padding: 64px 80px; display: flex; flex-direction: column; gap: 32px; color: #FFFFFF; box-shadow: 0 6px 20px rgba(26,39,78,0.16);">
+      <div class="m-gap m-stack" style="display: flex; justify-content: space-between; align-items: center; gap: 64px;">
+        <div style="display: flex; flex-direction: column; gap: 16px; max-width: 680px;">
+          <div class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: -0.01em;">To close the deal today, you need <span style="color: #E3A949;">Google, ChatGPT and AI search on your side.</span></div>
+          <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.8);">Book a call about your name change in Google and AI</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: stretch; gap: 12px; flex-shrink: 0;">
+          <a href="../../apply/" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; justify-content: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 20px 34px; border-radius: 999px; font-size: 19px; font-weight: 500; white-space: nowrap; letter-spacing: 0;"><span>Book a call</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; justify-content: center; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.85); padding: 18px 32px; border-radius: 999px; font-size: 19px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">Get your free audit and strategy</a>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.16); padding-top: 28px; display: flex; align-items: center; gap: 16px;"><img src="images/jason.jpg" alt="Jason Barnard" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; display: block; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.85);"><p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.72);">The Kalicube team works on your brand using Kalicube Pro. Jason Barnard started in SEO in 1998, the year Google was incorporated. He built Kalicube Pro in 2015 to automate the brand work he had done by hand since 2012. Born in the UK, he lives in the south of France and is a member of Entrepreneurs’ Organization Paris.</p></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="m-px m-pt m-gap" style="background: #131C3A; color: rgba(255,255,255,0.72); padding: 88px 120px 48px; display: flex; flex-direction: column; gap: 72px;">
+    <div class="m-gap m-stack" style="display: flex; justify-content: space-between; gap: 64px;">
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 300px;">
+        <a href="../../" style="display: block; align-self: flex-start;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
+        <p style="font-size: 16px; line-height: 1.6;">Digital Brand Engineering for entrepreneurs and companies.</p>
+      </div>
+      <div class="m-g2 m-gap" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 56px; font-size: 15px; line-height: 1.4;">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Services</div>
+          <span>For entrepreneurs</span><span>For companies</span><span>Kalicube Pro</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Proof</div>
+          <span>Client results</span><span>Knowledge Panel results</span><span>What clients say</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Learn</div>
+          <span>The Kalicube Process</span><span>Books by Jason Barnard</span><span>Free guides</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">About</div>
+          <span>Jason Barnard</span><span>The team</span><span>Data and methodology</span><span>Contact</span>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px;">
+      <span>© 2026 Kalicube</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+  </footer>
+
+</div>
+</div>
+</body>
+</html>
