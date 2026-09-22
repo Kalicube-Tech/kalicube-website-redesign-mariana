@@ -60,6 +60,7 @@
   .hero > .m-nav { order: 1; }
   .hero > div.hero-bg { display: none !important; }
   .hero > img.hero-bg { position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; height: 240px !important; order: 3; }
+  .hero-card-wrap { padding-top: 0 !important; align-self: stretch !important; }
   /* The homepage hero: text, then the caption, then Jason; no floating icons */
   .m-hero { height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column; }
   .m-hero > div[aria-hidden] { display: none !important; }
@@ -152,25 +153,25 @@
 
   <!-- Hero: the prospect is the hero, bright on the right; Jason small under the buttons -->
   <section class="hero" style="--split: 54%; background: #1A274E; color: #FFFFFF;">
-    <img src="images/hero-apply.jpg" class="hero-bg" alt="" style="object-fit: cover; object-position: 55% 30%; display: block;">
+    <img src="images/hero-apply.jpg" class="hero-bg" alt="" style="object-fit: cover; object-position: 55% 12%; display: block;">
     <div class="hero-bg" style="background: linear-gradient(90deg, rgb(26,39,78) 0%, rgb(26,39,78) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
     <div class="m-px m-pb m-g1 m-gap" style="padding: 64px 120px 80px; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 72px; align-items: center;">
       <div style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.32); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700; background: rgba(6,14,38,0.35);">
-        <a href="../strategy-plus/" style="color: #FFFFFF; border-radius: 999px; padding: 8px 18px;">For companies</a>
-        <span style="background: #FFFFFF; color: #1A274E; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</span>
+      <div class="m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; align-self: flex-start; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #E3A949; text-transform: uppercase;">For executives &amp; business leaders</div>
+      <p class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">Executive <span style="color: #E3A949;">Digital Brand</span> Engineering</p>
+      <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 640px;">People search your name and ask AI about you before they make important decisions.</h1>
+      <p style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 640px;">Kalicube engineers your executive digital brand so what they find accurately reflects who you are, what you’ve achieved and what you’re known for.</p>
+      <div class="m-stack" style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding-top: 10px;">
+        <a href="https://kalicube.com/about/contact/" target="_blank" rel="noopener" class="act m-f20" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 16px 26px; border-radius: 999px; font-size: 17px; font-weight: 500; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Speak with a Digital Brand Engineer</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-f20" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: transparent; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.6); padding: 14px 24px; border-radius: 999px; font-size: 17px; font-weight: 500; letter-spacing: 0;"><span>Take the Free AI Audit</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
       </div>
-      <p class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">I’m not appreciated for what I am. <span style="color: #E3A949;">AI doesn’t show who I really am.</span></p>
-      <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 640px;">Personal brand management for entrepreneurs in Google, ChatGPT and AI search</h1>
-      <p style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 640px;">When someone looks you up before a deal, a hire or a meeting, Google and AI tell them who you are. Too often that answer is out of date, incomplete or someone else’s version of you, and you’re judged on it before you walk into the room.</p>
-      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 6px;">
-        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-f20 m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 17px 34px; border-radius: 999px; font-size: 20px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-        <div style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.82); max-width: 440px;">Free · Less than 5 minutes · A detailed audit and strategy based on The Kalicube Process</div>
+      <div style="padding-top: 16px; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.16); max-width: 640px; display: flex; flex-direction: column; gap: 8px;">
+        <p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; line-height: 1.4; color: rgba(255,255,255,0.92); font-style: italic;">“What I believe that Google Knowledge Panel is, is the most effective salesperson you will ever have in your career.”</p>
+        <p style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.72);">— Scott Duffy, Entrepreneur, Author, Digital Brand Expert</p>
       </div>
-      <div style="display: flex; align-items: center; gap: 14px; padding-top: 16px; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.16); max-width: 640px;"><img src="images/jason-friendly.jpg" alt="Jason Barnard" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.85);"><p style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.86);"><span style="font-weight: 700; color: #FFFFFF;">Led by Jason Barnard.</span> Hired by Google to speak on the future of AI Search and how brands win at organic optimization. <a href="../jasonbarnard/#reel" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px;">Watch Jason in action.</a></p></div>
       </div>
-      <!-- The example, on the photo -->
-      <div style="display: flex; flex-direction: column; gap: 16px;">
+      <!-- The example, on the photo: pushed down so the face in hero-apply.jpg stays clear -->
+      <div class="hero-card-wrap" style="display: flex; flex-direction: column; gap: 16px; align-self: flex-end; padding-top: 150px;">
         <div class="m-px" style="background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 34px 40px 36px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 22px;">
           <div style="display: flex; flex-direction: column; gap: 8px;">
             <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">THE QUESTION</div>
