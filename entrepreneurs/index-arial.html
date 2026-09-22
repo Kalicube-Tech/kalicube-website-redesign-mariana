@@ -60,7 +60,7 @@
   .hero > .m-nav { order: 1; }
   .hero > div.hero-bg { display: none !important; }
   .hero > img.hero-bg { position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; height: 240px !important; order: 3; }
-  .hero-card-wrap { padding-top: 0 !important; align-self: stretch !important; }
+  .hero-card { position: static !important; left: auto !important; top: auto !important; transform: none !important; width: auto !important; }
   /* The homepage hero: text, then the caption, then Jason; no floating icons */
   .m-hero { height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column; }
   .m-hero > div[aria-hidden] { display: none !important; }
@@ -137,11 +137,11 @@
     <nav class="m-px m-nav" style="height: 84px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
       <a href="../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
       <div class="m-nw" style="display: flex; align-items: center; gap: 34px; font-size: 16px; font-weight: 500; white-space: nowrap;">
-        <a href="../entrepreneurs/" style="color: #FFFFFF;">Entrepreneurs</a>
-        <a href="../strategy-plus/" style="color: #FFFFFF;">Companies</a>
-        <a href="../kalicubepro/" style="color: #FFFFFF;">Kalicube Pro</a>
-        <a href="#" style="color: #FFFFFF;">Client results</a>
-        <a href="#" style="color: #FFFFFF;">About</a>
+        <a href="#" style="color: #FFFFFF;">Services ▾</a>
+        <a href="#" style="color: #FFFFFF;">Proof ▾</a>
+        <a href="#" style="color: #FFFFFF;">Learn ▾</a>
+        <a href="#" style="color: #FFFFFF;">About ▾</a>
+        <a href="#" style="color: #FFFFFF;">How It Works</a>
         <div style="display: flex; align-items: center; gap: 14px; margin-left: 6px;">
           <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; background: #E3A949; color: #1A274E; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Free audit and strategy</a>
           <a href="https://kalicube.com/about/contact/" target="_blank" rel="noopener" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; color: #E3A949; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Contact us</a>
@@ -151,10 +151,10 @@
   </header>
 
   <!-- Hero: the prospect is the hero, bright on the right; Jason small under the buttons -->
-  <section class="hero" style="--split: 54%; background: #1A274E; color: #FFFFFF;">
+  <section class="hero" style="--split: 54%; background: #1A274E; color: #FFFFFF; min-height: 900px;">
     <img src="images/hero-apply.jpg" class="hero-bg" alt="" style="object-fit: cover; object-position: 55% 12%; display: block;">
     <div class="hero-bg" style="background: linear-gradient(90deg, rgb(26,39,78) 0%, rgb(26,39,78) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
-    <div class="m-px m-pb m-g1 m-gap" style="padding: 64px 120px 80px; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 72px; align-items: center;">
+    <div class="m-px m-pb" style="padding: 64px 120px 80px; max-width: 700px;">
       <div style="display: flex; flex-direction: column; gap: 18px;">
       <div class="m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; align-self: flex-start; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #E3A949; text-transform: uppercase;">For executives &amp; business leaders</div>
       <p class="m-f48" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">Executive <span style="color: #E3A949;">Digital Brand</span> Engineering</p>
@@ -170,25 +170,22 @@
         <p style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.72);">— Scott Duffy, Entrepreneur, Author, Digital Brand Expert</p>
       </div>
       </div>
-      <!-- The example, on the photo: pushed down so the face in hero-apply.jpg stays clear -->
-      <div class="hero-card-wrap" style="display: flex; flex-direction: column; gap: 16px; align-self: flex-end; padding-top: 300px;">
-        <div class="m-px" style="background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 34px 40px 36px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 22px;">
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">THE QUESTION</div>
-            <div class="m-f21" style="font-size: 23px; font-weight: 700; line-height: 1.3;">Who is Morgan Ellis?</div>
-          </div>
-          <div style="height: 1px; background: #E3E7EE;"></div>
-          <div style="display: flex; flex-direction: column; gap: 4px;">
-            <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">WHAT AI ANSWERS</div>
-            <div style="padding-top: 6px;">
-              <p class="m-f20" style="font-size: 20px; line-height: 2.7; color: #1A274E;">Morgan Ellis is <span class="struck">a consultant<span class="fix">the go-to succession adviser</span></span> in Paris.</p>
-              <p class="m-f20" style="font-size: 20px; line-height: 2.7; color: #1A274E;">Ellis has advised <span class="struck">a few<span class="fix">200</span></span> family businesses.</p>
-            </div>
-          </div>
-          <div class="m-f26" style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #B98B4E; transform: rotate(-2deg); transform-origin: left center;">Not less than you are. Exactly who you are.</div>
-        </div>
-        <p style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.88); background: rgba(26,39,78,0.88); padding: 6px 12px; border-radius: 6px; align-self: flex-start;">Example: the answer before it’s corrected, marked up the way we fix it. Kalicube is a French company, so our examples are set in Paris.</p>
+    </div>
+    <!-- The example, centered over the photo -->
+    <div class="hero-card m-px" style="position: absolute; box-sizing: border-box; left: calc((100% + var(--split, 54%)) / 2); top: 430px; transform: translateX(-50%); width: 500px; background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 34px 40px 36px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 22px; z-index: 1;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">THE QUESTION</div>
+        <div class="m-f21" style="font-size: 23px; font-weight: 700; line-height: 1.3;">Who is Morgan Ellis?</div>
       </div>
+      <div style="height: 1px; background: #E3E7EE;"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">WHAT AI ANSWERS</div>
+        <div style="padding-top: 6px;">
+          <p class="m-f20" style="font-size: 20px; line-height: 2.7; color: #1A274E;">Morgan Ellis is <span class="struck">a consultant<span class="fix">the go-to succession adviser</span></span> in Paris.</p>
+          <p class="m-f20" style="font-size: 20px; line-height: 2.7; color: #1A274E;">Ellis has advised <span class="struck">a few<span class="fix">200</span></span> family businesses.</p>
+        </div>
+      </div>
+      <div class="m-f26" style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #B98B4E; transform: rotate(-2deg); transform-origin: left center;">Not less than you are. Exactly who you are.</div>
     </div>
   </section>
 
