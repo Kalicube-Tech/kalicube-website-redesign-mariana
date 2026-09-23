@@ -43,6 +43,9 @@
   div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
   a.act { max-width: 100%; }
   .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
+  .ai-row + .ai-row { margin-top: 34px !important; }
+  .ai-rows { padding-top: 40px !important; }
+  .ai-rows p:last-child .fix { left: auto !important; right: 2px !important; }
   .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
@@ -151,7 +154,7 @@
   </header>
 
   <!-- Hero: the prospect is the hero, bright on the right; Jason small under the buttons -->
-  <section class="hero" style="--split: 54%; background: #1A274E; color: #FFFFFF; min-height: 900px;">
+  <section class="hero" style="--split: 54%; background: #1A274E; color: #FFFFFF; min-height: 1060px;">
     <img src="images/hero-apply.jpg" class="hero-bg" alt="" style="object-fit: cover; object-position: 55% 12%; display: block;">
     <div class="hero-bg" style="background: linear-gradient(90deg, rgb(26,39,78) 0%, rgb(26,39,78) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
     <div class="m-px m-pb" style="padding: 64px 120px 80px; max-width: 700px;">
@@ -180,9 +183,11 @@
       <div style="height: 1px; background: #E3E7EE;"></div>
       <div style="display: flex; flex-direction: column; gap: 4px;">
         <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">WHAT AI ANSWERS</div>
-        <div style="padding-top: 6px;">
-          <p class="m-f20" style="font-size: 20px; line-height: 2.7; color: #1A274E;">Morgan Ellis is <span class="struck">a consultant<span class="fix">the go-to succession adviser</span></span> in Paris.</p>
-          <p class="m-f20" style="font-size: 20px; line-height: 2.7; color: #1A274E;">Ellis has advised <span class="struck">a few<span class="fix">200</span></span> family businesses.</p>
+        <div class="ai-rows" style="padding-top: 6px;">
+          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 2.7; color: #1A274E;"><span class="struck">Investment banker<span class="fix">Technology executive and advisor</span></span></p>
+          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 2.7; color: #1A274E;"><span class="struck">New York based<span class="fix">Based in London, UK</span></span></p>
+          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 2.7; color: #1A274E;"><span class="struck">Runs a hedge fund<span class="fix">Former fintech founder</span></span></p>
+          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 2.7; color: #1A274E;">Morgan Ellis is known for <span class="struck">banking<span class="fix">AI, strategy and growth</span></span></p>
         </div>
       </div>
       <div class="m-f26" style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #B98B4E; transform: rotate(-2deg); transform-origin: left center;">Not less than you are. Exactly who you are.</div>
