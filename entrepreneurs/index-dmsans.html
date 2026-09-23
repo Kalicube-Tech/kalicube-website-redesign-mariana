@@ -16,7 +16,7 @@
     h1, h2, h3 { text-wrap: balance; }
     p { text-wrap: pretty; }
     .struck { position: relative; display: inline-block; line-height: 1.2; text-decoration: line-through; text-decoration-color: #B98B4E; text-decoration-thickness: 2.5px; }
-    .fix { position: absolute; left: 2px; top: -27px; font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 27px; font-weight: 600; line-height: 1; color: #B98B4E; white-space: nowrap; transform: rotate(-4deg); text-decoration: none; }
+    .fix-inline { font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 24px; font-weight: 600; line-height: 1; color: #B98B4E; white-space: nowrap; text-decoration: none; }
     .hero { position: relative; overflow: hidden; }
     .hero > * { position: relative; z-index: 1; }
     .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
@@ -42,10 +42,7 @@
   .m-ha > [style*="flex: 1"] { min-height: 300px; }
   div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
   a.act { max-width: 100%; }
-  .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
-  .ai-row + .ai-row { margin-top: 34px !important; }
-  .ai-rows { padding-top: 40px !important; }
-  .ai-rows p:last-child .fix { left: auto !important; right: 2px !important; }
+  .fix-inline { font-size: 21px !important; }
   .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
@@ -185,7 +182,7 @@
       </div>
     </div>
     <!-- The example, centered over the photo -->
-    <div class="hero-card m-px" style="position: absolute; box-sizing: border-box; left: calc((100% + var(--split, 54%)) / 2); top: 430px; transform: translateX(-50%); width: 500px; background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 34px 40px 36px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 22px; z-index: 1;">
+    <div class="hero-card m-px" style="position: absolute; box-sizing: border-box; left: calc((100% + var(--split, 54%)) / 2); top: 430px; transform: translateX(-50%); width: 640px; background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 34px 40px 36px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 22px; z-index: 1;">
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">THE QUESTION</div>
         <div class="m-f21" style="font-size: 23px; font-weight: 700; line-height: 1.3;">Who is Morgan Ellis?</div>
@@ -193,11 +190,11 @@
       <div style="height: 1px; background: #E3E7EE;"></div>
       <div style="display: flex; flex-direction: column; gap: 4px;">
         <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">WHAT AI ANSWERS</div>
-        <div class="ai-rows" style="padding-top: 6px;">
-          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 2.7; color: #1A274E;"><span class="struck">Investment banker<span class="fix">Technology executive and advisor</span></span></p>
-          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 2.7; color: #1A274E;"><span class="struck">New York based<span class="fix">Based in London, UK</span></span></p>
-          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 2.7; color: #1A274E;"><span class="struck">Runs a hedge fund<span class="fix">Former fintech founder</span></span></p>
-          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 2.7; color: #1A274E;">Morgan Ellis is known for <span class="struck">banking<span class="fix">AI, strategy and growth</span></span></p>
+        <div class="ai-rows" style="padding-top: 6px; display: flex; flex-direction: column; gap: 14px;">
+          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 1.3; color: #1A274E; margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px;"><span class="struck">Investment banker</span><span aria-hidden="true" style="color: #B98B4E; font-weight: 700;">&rarr;</span><span class="fix-inline">Technology executive and advisor</span></p>
+          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 1.3; color: #1A274E; margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px;"><span class="struck">New York based</span><span aria-hidden="true" style="color: #B98B4E; font-weight: 700;">&rarr;</span><span class="fix-inline">Based in London, UK</span></p>
+          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 1.3; color: #1A274E; margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px;"><span class="struck">Runs a hedge fund</span><span aria-hidden="true" style="color: #B98B4E; font-weight: 700;">&rarr;</span><span class="fix-inline">Former fintech founder</span></p>
+          <p class="m-f20 ai-row" style="font-size: 20px; line-height: 1.3; color: #1A274E; margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px;"><span>Morgan Ellis is known for <span class="struck">banking</span></span><span aria-hidden="true" style="color: #B98B4E; font-weight: 700;">&rarr;</span><span class="fix-inline">AI, strategy and growth</span></p>
         </div>
       </div>
       <div class="m-f26" style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #B98B4E; transform: rotate(-2deg); transform-origin: left center;">Not less than you are. Exactly who you are.</div>
