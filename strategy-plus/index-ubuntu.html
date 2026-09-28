@@ -157,8 +157,9 @@
 </style>
 <style id="underlying-issue">
   /* The underlying issue: two columns, the argument on the left, a client quote on the right.
-     All gold in this section comes from --ui-gold (brand gold #E3A949); the pale badge and quote-mark tints are translucent versions of it. */
-  .ui-sec { --ui-gold: #E3A949; --ui-gold-tint: rgba(227, 169, 73, 0.2); --ui-gold-pale: rgba(227, 169, 73, 0.35); background: #FFFFFF; color: #1A274E; padding: 88px 120px 96px; }
+     Option B (blue): the accent comes from --ui-gold, set to the page blue #2F7DB0 on the page's light-blue section background;
+     the pale badge and quote-mark tints are translucent versions of it. Set --ui-gold back to #E3A949 and the background to #FFFFFF for the gold option. */
+  .ui-sec { --ui-gold: #2F7DB0; --ui-gold-tint: rgba(47, 125, 176, 0.12); --ui-gold-pale: rgba(47, 125, 176, 0.4); background: #EDF5FB; color: #1A274E; padding: 88px 120px 96px; }
   .ui-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .ui-left { display: flex; flex-direction: column; gap: 20px; padding-right: 64px; }
   .ui-right { display: flex; flex-direction: column; justify-content: center; gap: 28px; padding-left: 64px; border-left: 1px solid rgba(26,39,78,0.14); }
