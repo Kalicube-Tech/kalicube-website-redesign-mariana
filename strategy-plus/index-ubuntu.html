@@ -157,27 +157,27 @@
 </style>
 <style id="underlying-issue">
   /* The underlying issue: two columns, the argument on the left, a client quote on the right.
-     Gold text uses darker shades of the brand gold so it passes contrast on the light background; lines and badges use #E3A949. */
-  .ui-sec { background: #EDF5FB; color: #1A274E; padding: 88px 120px 96px; }
+     All gold in this section comes from --ui-gold (brand gold #E3A949); the pale badge and quote-mark tints are mixed from it. */
+  .ui-sec { --ui-gold: #E3A949; --ui-gold-tint: color-mix(in srgb, var(--ui-gold) 22%, #FFFFFF); --ui-gold-pale: color-mix(in srgb, var(--ui-gold) 45%, #FFFFFF); background: #EDF5FB; color: #1A274E; padding: 88px 120px 96px; }
   .ui-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .ui-left { display: flex; flex-direction: column; gap: 20px; padding-right: 64px; }
   .ui-right { display: flex; flex-direction: column; justify-content: center; gap: 28px; padding-left: 64px; border-left: 1px solid rgba(26,39,78,0.14); }
-  .ui-eyebrow { display: flex; align-items: center; gap: 18px; white-space: nowrap; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #8C5F14; }
-  .ui-eyebrow::after { content: ""; flex: 0 1 120px; min-width: 32px; height: 1px; background: #E3A949; }
+  .ui-eyebrow { display: flex; align-items: center; gap: 18px; white-space: nowrap; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ui-gold); }
+  .ui-eyebrow::after { content: ""; flex: 0 1 120px; min-width: 32px; height: 1px; background: var(--ui-gold); }
   .ui-sec h2 { font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; text-wrap: initial; }
-  .ui-sec h2 .ui-gold { color: #A8741F; }
+  .ui-sec h2 .ui-gold { color: var(--ui-gold); }
   .ui-body { font-size: 18px; line-height: 1.55; color: #3D4660; max-width: 62ch; }
   .ui-sub { font-size: 19px; line-height: 1.4; font-weight: 700; color: #1A274E; padding-top: 8px; }
   .ui-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
   .ui-list li { display: flex; align-items: center; gap: 20px; font-size: 17px; line-height: 1.45; color: #3D4660; }
   .ui-list strong { color: #1A274E; }
-  .ui-badge { width: 56px; height: 56px; border-radius: 50%; background: #F8EBD3; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .ui-badge svg { width: 28px; height: 28px; }
+  .ui-badge { width: 56px; height: 56px; border-radius: 50%; background: var(--ui-gold-tint); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ui-badge svg { width: 28px; height: 28px; stroke: var(--ui-gold); }
   .ui-close { font-size: 19px; line-height: 1.45; font-weight: 700; color: #1A274E; padding-top: 8px; max-width: 62ch; }
-  .ui-mark { display: block; width: 84px; height: 64px; }
+  .ui-mark { display: block; width: 84px; height: 64px; fill: var(--ui-gold-pale); }
   .ui-quote { margin: 0; display: flex; flex-direction: column; gap: 22px; }
   .ui-quote p { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 26px; line-height: 1.45; color: #1A274E; }
-  .ui-rule { width: 64px; height: 3px; background: #E3A949; border: 0; margin: 0; }
+  .ui-rule { width: 64px; height: 3px; background: var(--ui-gold); border: 0; margin: 0; }
   .ui-attr { display: flex; align-items: center; gap: 28px; }
   .ui-photo { width: 150px; height: 150px; border-radius: 50%; flex-shrink: 0; object-fit: cover; object-position: center; display: block; }
   .ui-who { display: flex; flex-direction: column; gap: 6px; }
@@ -324,15 +324,15 @@
         <p class="ui-body">But Google and AI don't see these activities as separate channels. They combine information from across your digital ecosystem, including sources your company doesn't control, to form one understanding of your business.</p>
         <p class="ui-sub">That changes the job of corporate brand strategy:</p>
         <ul class="ui-list">
-          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#A8741F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.8"></circle><circle cx="5.5" cy="9.5" r="2.2"></circle><circle cx="18.5" cy="9.5" r="2.2"></circle><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M1.8 18c0-2.3 1.6-4 3.7-4 1 0 1.8.3 2.5.9M22.2 18c0-2.3-1.6-4-3.7-4-1 0-1.8.3-2.5.9"></path></svg></span><span>Your teams need to reinforce the <strong>same brand narrative</strong>, not create conflicting signals.</span></li>
-          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#A8741F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"></rect><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h7M8.5 18h4"></path></svg></span><span>Third-party sources need to <strong>corroborate</strong> what your company says about itself.</span></li>
-          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#A8741F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"></circle><circle cx="5" cy="18.5" r="2.5"></circle><circle cx="19" cy="18.5" r="2.5"></circle><circle cx="12" cy="13" r="1.8"></circle><path d="M12 7.5v3.7M10.5 14.2l-3.8 2.7M13.5 14.2l3.8 2.7"></path></svg></span><span>Your company, people, products and expertise need to be <strong>clearly connected and understood.</strong></span></li>
-          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#A8741F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"></path><path d="M18 2.8v3.8h-3.8M6 21.2v-3.8h3.8"></path></svg></span><span>Those signals need to <strong>remain consistent</strong> as the business evolves.</span></li>
+          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.8"></circle><circle cx="5.5" cy="9.5" r="2.2"></circle><circle cx="18.5" cy="9.5" r="2.2"></circle><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M1.8 18c0-2.3 1.6-4 3.7-4 1 0 1.8.3 2.5.9M22.2 18c0-2.3-1.6-4-3.7-4-1 0-1.8.3-2.5.9"></path></svg></span><span>Your teams need to reinforce the <strong>same brand narrative</strong>, not create conflicting signals.</span></li>
+          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"></rect><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h7M8.5 18h4"></path></svg></span><span>Third-party sources need to <strong>corroborate</strong> what your company says about itself.</span></li>
+          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"></circle><circle cx="5" cy="18.5" r="2.5"></circle><circle cx="19" cy="18.5" r="2.5"></circle><circle cx="12" cy="13" r="1.8"></circle><path d="M12 7.5v3.7M10.5 14.2l-3.8 2.7M13.5 14.2l3.8 2.7"></path></svg></span><span>Your company, people, products and expertise need to be <strong>clearly connected and understood.</strong></span></li>
+          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"></path><path d="M18 2.8v3.8h-3.8M6 21.2v-3.8h3.8"></path></svg></span><span>Those signals need to <strong>remain consistent</strong> as the business evolves.</span></li>
         </ul>
         <p class="ui-close">Corporate Digital Brand Engineering creates the strategy that brings these signals together, so your organisation is understood consistently across search and AI.</p>
       </div>
       <figure class="ui-right" style="margin: 0;">
-        <svg class="ui-mark" viewBox="0 0 84 64" aria-hidden="true"><path fill="#F1D8AC" d="M0 64V38C0 17 10 5 30 0l4 9C23 13 17 21 17 31h16v33H0zm47 0V38C47 17 57 5 77 0l4 9c-11 4-17 12-17 22h16v33H47z"></path></svg>
+        <svg class="ui-mark" viewBox="0 0 84 64" aria-hidden="true"><path d="M0 64V38C0 17 10 5 30 0l4 9C23 13 17 21 17 31h16v33H0zm47 0V38C47 17 57 5 77 0l4 9c-11 4-17 12-17 22h16v33H47z"></path></svg>
         <blockquote class="ui-quote">
           <p>"Our company has made some significant shifts in our business over the past couple years, many of which have been influenced by opportunities uncovered by following the Kalicube process.</p>
           <p>Specifically, to make it easier to generate helpful press mentions and other signals for LLMs, we've been working to unify our efforts around a simplified communication strategy."</p>
