@@ -98,7 +98,7 @@
   .hc-br { display: none; }
   @media (min-width: 1024px) {
     .hc-section { --split: 59% !important; min-height: 860px !important; }
-    .hc-fade { display: none !important; }
+    .hc-fade { display: block !important; left: calc(var(--split) - 1px) !important; width: calc((100% - var(--split)) * 0.2 + 1px) !important; background: linear-gradient(to right, rgb(26,39,78), rgba(26,39,78,0)) !important; pointer-events: none; }
     .hc-img { height: 108% !important; object-position: 57% 0% !important; }
     .hc-copy { max-width: 850px !important; padding: 48px 56px 48px 120px !important; }
     .hc-stack { gap: 14px !important; }
