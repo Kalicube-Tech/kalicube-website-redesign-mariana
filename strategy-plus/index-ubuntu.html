@@ -180,11 +180,10 @@
   .ui-rule { width: 64px; height: 3px; background: #E3A949; border: 0; margin: 0; }
   .ui-attr { display: flex; align-items: center; gap: 28px; }
   .ui-photo { width: 150px; height: 150px; border-radius: 50%; flex-shrink: 0; object-fit: cover; object-position: center; display: block; }
-  .ui-ph { background: #DDE4EE; border: 2px dashed #8A94AB; box-sizing: border-box; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px; line-height: 1.3; color: #3D4660; padding: 12px; }
   .ui-who { display: flex; flex-direction: column; gap: 6px; }
   .ui-name { font-size: 18px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1A274E; }
   .ui-role { font-size: 17px; color: #3D4660; }
-  .ui-logo { width: 210px; height: 44px; margin-top: 8px; border-radius: 6px; }
+  .ui-logo { display: block; width: 200px; height: auto; margin-top: 8px; }
   @media (max-width: 759px) {
     .ui-sec { padding: 48px 20px 56px; }
     .ui-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
@@ -344,8 +343,7 @@
           <div class="ui-who">
             <span class="ui-name">BJ Bellamy</span>
             <span class="ui-role">VP of Marketing</span>
-            <!-- PLACEHOLDER: replace with images/logo-dumpsters.png (or .svg), alt "Dumpsters.com" -->
-            <div class="ui-logo ui-ph" role="img" aria-label="Placeholder: Dumpsters.com logo still needed">Dumpsters.com logo needed</div>
+            <img class="ui-logo" src="images/dumpsters_logo.webp" alt="Dumpsters.com" width="884" height="203" loading="lazy">
           </div>
         </figcaption>
       </figure>
