@@ -165,6 +165,51 @@
     if (/[?&]hero=even\b/.test(location.search)) document.querySelectorAll('.cdbe-hero').forEach(function (h) { h.classList.add('hero--even'); });
   });
 </script>
+<style id="underlying-issue">
+  /* The underlying issue: two columns, the argument on the left, a client quote on the right.
+     Gold text uses darker shades of the brand gold so it passes contrast on the light background; lines and badges use #E3A949. */
+  .ui-sec { background: #EDF5FB; color: #1A274E; padding: 88px 120px 96px; }
+  .ui-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .ui-left { display: flex; flex-direction: column; gap: 20px; padding-right: 64px; }
+  .ui-right { display: flex; flex-direction: column; justify-content: center; gap: 28px; padding-left: 64px; border-left: 1px solid rgba(26,39,78,0.14); }
+  .ui-eyebrow { display: flex; align-items: center; gap: 18px; white-space: nowrap; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #8C5F14; }
+  .ui-eyebrow::after { content: ""; flex: 0 1 120px; min-width: 32px; height: 1px; background: #E3A949; }
+  .ui-sec h2 { font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; text-wrap: initial; }
+  .ui-sec h2 .ui-gold { color: #A8741F; }
+  .ui-body { font-size: 18px; line-height: 1.55; color: #3D4660; max-width: 62ch; }
+  .ui-sub { font-size: 19px; line-height: 1.4; font-weight: 700; color: #1A274E; padding-top: 8px; }
+  .ui-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+  .ui-list li { display: flex; align-items: center; gap: 20px; font-size: 17px; line-height: 1.45; color: #3D4660; }
+  .ui-list strong { color: #1A274E; }
+  .ui-badge { width: 56px; height: 56px; border-radius: 50%; background: #F8EBD3; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ui-badge svg { width: 28px; height: 28px; }
+  .ui-close { font-size: 19px; line-height: 1.45; font-weight: 700; color: #1A274E; padding-top: 8px; max-width: 62ch; }
+  .ui-mark { display: block; width: 84px; height: 64px; }
+  .ui-quote { margin: 0; display: flex; flex-direction: column; gap: 22px; }
+  .ui-quote p { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 26px; line-height: 1.45; color: #1A274E; }
+  .ui-rule { width: 64px; height: 3px; background: #E3A949; border: 0; margin: 0; }
+  .ui-attr { display: flex; align-items: center; gap: 28px; }
+  .ui-photo { width: 150px; height: 150px; border-radius: 50%; flex-shrink: 0; }
+  .ui-ph { background: #DDE4EE; border: 2px dashed #8A94AB; box-sizing: border-box; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px; line-height: 1.3; color: #3D4660; padding: 12px; }
+  .ui-who { display: flex; flex-direction: column; gap: 6px; }
+  .ui-name { font-size: 18px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1A274E; }
+  .ui-role { font-size: 17px; color: #3D4660; }
+  .ui-logo { width: 210px; height: 44px; margin-top: 8px; border-radius: 6px; }
+  @media (max-width: 759px) {
+    .ui-sec { padding: 48px 20px 56px; }
+    .ui-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .ui-left { padding-right: 0; }
+    .ui-right { padding-left: 0; padding-top: 36px; border-left: 0; border-top: 1px solid rgba(26,39,78,0.14); }
+    .ui-sec h2 { font-size: 33px; }
+    .ui-body, .ui-list li { font-size: 16px; }
+    .ui-sub, .ui-close { font-size: 17px; }
+    .ui-quote p { font-size: 21px; }
+    .ui-mark { width: 63px; height: 48px; }
+    .ui-attr { gap: 18px; }
+    .ui-photo { width: 104px; height: 104px; }
+    .ui-logo { width: 170px; }
+  }
+</style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
   html { background: #0F1830; scroll-behavior: smooth; }
@@ -286,34 +331,41 @@
     </div>
   </section>
 
-  <!-- Trust, straight after the first screen: the right people for this reader -->
-  <section class="m-px m-pb" style="background: #EDF5FB; padding: 72px 120px 80px; display: flex; flex-direction: column; gap: 28px;">
-    <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 860px;">What Google, Bing and Yoast say about Jason Barnard</h2>
-    <div class="m-g1" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
-      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-        <div style="display: flex; flex-direction: column; gap: 12px;"><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #2F7DB0;">GOOGLE</div><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“From Google’s side, [Knowledge Panels] are just algorithmic. I honestly don’t know anyone else externally who has as much insight.”</p></div>
-        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #5AA5D3; padding-top: 16px;"><img src="images/mueller.jpg" alt="John Mueller" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0;"><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">John Mueller</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">Google’s Senior Search Analyst and Spokesperson</div></div></div>
+  <!-- The underlying issue: why corporate brand strategy has changed, with a client quote -->
+  <section class="ui-sec" aria-labelledby="ui-title">
+    <div class="ui-grid">
+      <div class="ui-left">
+        <p class="ui-eyebrow">The underlying issue</p>
+        <h2 id="ui-title">It's still brand strategy.<br>What's changed is<br><span class="ui-gold">who tells the story.</span></h2>
+        <p class="ui-body">Your marketing, SEO, PR, content and leadership teams all contribute to how your company is understood.</p>
+        <p class="ui-body">But Google and AI don't see these activities as separate channels. They combine information from across your digital ecosystem, including sources your company doesn't control, to form one understanding of your business.</p>
+        <p class="ui-sub">That changes the job of corporate brand strategy:</p>
+        <ul class="ui-list">
+          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#A8741F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.8"></circle><circle cx="5.5" cy="9.5" r="2.2"></circle><circle cx="18.5" cy="9.5" r="2.2"></circle><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M1.8 18c0-2.3 1.6-4 3.7-4 1 0 1.8.3 2.5.9M22.2 18c0-2.3-1.6-4-3.7-4-1 0-1.8.3-2.5.9"></path></svg></span><span>Your teams need to reinforce the <strong>same brand narrative</strong>, not create conflicting signals.</span></li>
+          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#A8741F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"></rect><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h7M8.5 18h4"></path></svg></span><span>Third-party sources need to <strong>corroborate</strong> what your company says about itself.</span></li>
+          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#A8741F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"></circle><circle cx="5" cy="18.5" r="2.5"></circle><circle cx="19" cy="18.5" r="2.5"></circle><circle cx="12" cy="13" r="1.8"></circle><path d="M12 7.5v3.7M10.5 14.2l-3.8 2.7M13.5 14.2l3.8 2.7"></path></svg></span><span>Your company, people, products and expertise need to be <strong>clearly connected and understood.</strong></span></li>
+          <li><span class="ui-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#A8741F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"></path><path d="M18 2.8v3.8h-3.8M6 21.2v-3.8h3.8"></path></svg></span><span>Those signals need to <strong>remain consistent</strong> as the business evolves.</span></li>
+        </ul>
+        <p class="ui-close">Corporate Digital Brand Engineering creates the strategy that brings these signals together, so your organisation is understood consistently across search and AI.</p>
       </div>
-      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-        <div style="display: flex; flex-direction: column; gap: 12px;"><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #2F7DB0;">BING</div><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“These days the strategy should not simply be getting indexed in search engines… the strategy should be to maximize visibility.”</p></div>
-        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #5AA5D3; padding-top: 16px;"><div style="position: relative; width: 52px; height: 52px; flex-shrink: 0;" role="img" aria-label="Placeholder: photo still needed"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 6px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">Fabrice Canel</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">Principal Program Manager, Bing, on Jason’s book The Fundamentals of Brand SERPs for Business</div></div></div>
-      </div>
-      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-        <div style="display: flex; flex-direction: column; gap: 12px;"><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #2F7DB0;">YOAST</div><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“Jason has been very important in shaping our thinking at Yoast about Brand SERPs… This is probably one of the most important aspects of SEO these days.”</p></div>
-        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #5AA5D3; padding-top: 16px;"><div style="position: relative; width: 52px; height: 52px; flex-shrink: 0;" role="img" aria-label="Placeholder: photo still needed"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 6px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">Joost de Valk</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">Founder and Chief Product Officer, Yoast, on Jason’s book The Fundamentals of Brand SERPs for Business</div></div></div>
-      </div>
-      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-        <div style="display: flex; flex-direction: column; gap: 12px;"><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“How you appear in online search results is who you are... period. No one understands how to influence branded search results better than Jason Barnard.”</p></div>
-        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #5AA5D3; padding-top: 16px;"><div style="position: relative; width: 52px; height: 52px; flex-shrink: 0;" role="img" aria-label="Placeholder: photo still needed"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 6px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">David Avrin</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">Strategic Brand Development Consultant and Author, on Jason’s book The Fundamentals of Brand SERPs for Business</div></div></div>
-      </div>
-      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-        <div style="display: flex; flex-direction: column; gap: 12px;"><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“He has pioneered innovative solutions that empower business leaders to future-proof their brands in the digital landscape.”</p></div>
-        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #5AA5D3; padding-top: 16px;"><div style="position: relative; width: 52px; height: 52px; flex-shrink: 0;" role="img" aria-label="Placeholder: photo still needed"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 6px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">Ed Trifone</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">Business Development and Operations Executive</div></div></div>
-      </div>
-      <div style="background: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-        <div style="display: flex; flex-direction: column; gap: 12px;"><p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; line-height: 1.3; color: #1A274E; font-style: italic;">“Jason Barnard’s The Fundamentals of Brand SERPs for Business will set you on the path to leveraging what is at everyone’s fingertips in the online world… information about your brand.”</p></div>
-        <div style="display: flex; align-items: center; gap: 14px; border-top: 2px solid #5AA5D3; padding-top: 16px;"><div style="position: relative; width: 52px; height: 52px; flex-shrink: 0;" role="img" aria-label="Placeholder: photo still needed"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 6px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-size: 16px; font-weight: 700; color: #1A274E;">Ted Rubin</div><div style="font-size: 14px; line-height: 1.4; color: #4A5470;">Communications Transformation Strategist</div></div></div>
-      </div>
+      <figure class="ui-right" style="margin: 0;">
+        <svg class="ui-mark" viewBox="0 0 84 64" aria-hidden="true"><path fill="#F1D8AC" d="M0 64V38C0 17 10 5 30 0l4 9C23 13 17 21 17 31h16v33H0zm47 0V38C47 17 57 5 77 0l4 9c-11 4-17 12-17 22h16v33H47z"></path></svg>
+        <blockquote class="ui-quote">
+          <p>"Our company has made some significant shifts in our business over the past couple years, many of which have been influenced by opportunities uncovered by following the Kalicube process.</p>
+          <p>Specifically, to make it easier to generate helpful press mentions and other signals for LLMs, we've been working to unify our efforts around a simplified communication strategy."</p>
+        </blockquote>
+        <hr class="ui-rule">
+        <figcaption class="ui-attr">
+          <!-- PLACEHOLDER: replace with images/bj-bellamy.jpg (square headshot, at least 300x300) -->
+          <div class="ui-photo ui-ph" role="img" aria-label="Placeholder: BJ Bellamy headshot still needed">Headshot needed</div>
+          <div class="ui-who">
+            <span class="ui-name">BJ Bellamy</span>
+            <span class="ui-role">VP of Marketing</span>
+            <!-- PLACEHOLDER: replace with images/logo-dumpsters.png (or .svg), alt "Dumpsters.com" -->
+            <div class="ui-logo ui-ph" role="img" aria-label="Placeholder: Dumpsters.com logo still needed">Dumpsters.com logo needed</div>
+          </div>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
