@@ -93,6 +93,31 @@
   .m-eco [style*="height: 78px"] { height: auto !important; margin-bottom: 8px; }
 }
 </style>
+<style id="hero-compact">
+  /* Compact executive hero: desktop only, so tablet (760-1023, scaled desktop) and mobile keep the original layout */
+  .hc-br { display: none; }
+  @media (min-width: 1024px) {
+    .hc-section { --split: 59% !important; min-height: 860px !important; }
+    .hc-fade { display: none !important; }
+    .hc-img { height: 108% !important; object-position: 57% 0% !important; }
+    .hc-copy { max-width: 850px !important; padding: 48px 56px 48px 120px !important; }
+    .hc-stack { gap: 14px !important; }
+    .hc-br { display: inline; }
+    .hc-nowrap { white-space: nowrap; }
+    .hc-wide { max-width: 680px !important; text-wrap: pretty !important; }
+    .hc-btns { padding-top: 6px !important; gap: 14px 18px !important; }
+    .hc-btns::after { content: ""; flex-basis: 100%; height: 0; order: 1; }
+    .hc-btns > :not(:first-child) { order: 2; }
+    .hc-quote-wrap { max-width: 680px !important; padding-top: 14px !important; margin-top: 2px !important; }
+    .hc-card { left: auto !important; right: 48px !important; top: auto !important; bottom: 140px !important; transform: none !important; width: 520px !important; padding: 22px 28px 24px !important; gap: 12px !important; }
+    .hc-card .m-f21 { font-size: 19px !important; }
+    .hc-card div[style*="letter-spacing: 0.08em"] { font-size: 11px !important; }
+    .hc-card .ai-rows { gap: 8px !important; padding-top: 4px !important; }
+    .hc-card .ai-row { font-size: 16px !important; gap: 8px !important; }
+    .hc-card .fix-inline { font-size: 19px !important; }
+    .hc-card .m-f26 { font-size: 22px !important; }
+  }
+</style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
   html { background: #0F1830; scroll-behavior: smooth; }
@@ -158,28 +183,28 @@
   </header>
 
   <!-- Hero: the prospect is the hero, bright on the right; Jason small under the buttons -->
-  <section class="hero" style="--split: 54%; background: #1A274E; color: #FFFFFF; min-height: 1060px;">
-    <img src="images/hero-apply.jpg" class="hero-bg" alt="" style="object-fit: cover; object-position: 55% 12%; display: block;">
-    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(26,39,78) 0%, rgb(26,39,78) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
-    <div class="hero-copy m-px" style="position: absolute; inset: 0; box-sizing: border-box; padding: 56px 120px; max-width: 700px; display: flex; flex-direction: column; justify-content: center;">
-      <div style="display: flex; flex-direction: column; gap: 18px;">
+  <section class="hero hc-section" style="--split: 54%; background: #1A274E; color: #FFFFFF; min-height: 1060px;">
+    <img src="images/hero-apply.jpg" class="hero-bg hc-img" alt="" style="object-fit: cover; object-position: 55% 12%; display: block;">
+    <div class="hero-bg hc-fade" style="background: linear-gradient(90deg, rgb(26,39,78) 0%, rgb(26,39,78) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
+    <div class="hero-copy hc-copy m-px" style="position: absolute; inset: 0; box-sizing: border-box; padding: 56px 120px; max-width: 700px; display: flex; flex-direction: column; justify-content: center;">
+      <div class="hc-stack" style="display: flex; flex-direction: column; gap: 18px;">
       <div class="m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; align-self: flex-start; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #E3A949; text-transform: uppercase;">For executives &amp; business leaders</div>
-      <p class="m-f48" style="font-family: 'Google Sans Flex', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">Executive <span style="color: #E3A949;">Digital Brand</span> Engineering</p>
-      <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 640px;">People search your name and ask AI about you before they make important decisions.</h1>
-      <p style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 640px;">Kalicube engineers your executive digital brand so what they find accurately reflects who you are, what you’ve achieved and what you’re known for.</p>
-      <div class="m-stack" style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding-top: 10px;">
+      <p class="m-f48" style="font-family: 'Google Sans Flex', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">Executive <span class="hc-nowrap" style="color: #E3A949;">Digital Brand</span><br class="hc-br"> Engineering</p>
+      <h1 class="hc-wide" style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 640px;">People search your name and ask AI about you before they make important decisions.</h1>
+      <p class="hc-wide" style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 640px;">Kalicube engineers your executive digital brand so what they find accurately reflects who you are, what you’ve achieved and what you’re known for.</p>
+      <div class="m-stack hc-btns" style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding-top: 10px;">
         <a href="https://kalicube.com/about/contact/" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 15px 28px; border-radius: 999px; font-size: 17px; font-weight: 500; letter-spacing: 0; white-space: nowrap; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Speak with a Digital Brand Engineer</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
         <span class="m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); text-transform: uppercase;">OR</span>
         <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-f20" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: transparent; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.6); padding: 14px 24px; border-radius: 999px; font-size: 17px; font-weight: 500; letter-spacing: 0; white-space: nowrap;"><span>Take the Free AI Audit</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
       </div>
-      <div style="padding-top: 16px; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.16); max-width: 640px; display: flex; flex-direction: column; gap: 8px;">
-        <p class="m-f20" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; line-height: 1.4; color: rgba(255,255,255,0.92); font-style: italic;">“Jason and Kalicube have managed to get Google to give me preference over others.”</p>
+      <div class="hc-quote-wrap" style="padding-top: 16px; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.16); max-width: 640px; display: flex; flex-direction: column; gap: 8px;">
+        <p class="m-f20" style="font-weight: 700; font-size: 19px; line-height: 1.4; color: rgba(255,255,255,0.92); font-style: italic;">“What I believe that Google Knowledge Panel is, is the most effective salesperson you will ever have in your career.”</p>
         <p style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.72);">— Scott Duffy, Entrepreneur, Author, Digital Brand Expert</p>
       </div>
       </div>
     </div>
     <!-- The example, centered over the photo -->
-    <div class="hero-card m-px" style="position: absolute; box-sizing: border-box; left: calc((100% + var(--split, 54%)) / 2); top: 430px; transform: translateX(-50%); width: 640px; background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 34px 40px 36px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 22px; z-index: 1;">
+    <div class="hero-card hc-card m-px" style="position: absolute; box-sizing: border-box; left: calc((100% + var(--split, 54%)) / 2); top: 430px; transform: translateX(-50%); width: 640px; background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 34px 40px 36px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 22px; z-index: 1;">
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">THE QUESTION</div>
         <div class="m-f21" style="font-size: 23px; font-weight: 700; line-height: 1.3;">Who is Morgan Ellis?</div>
