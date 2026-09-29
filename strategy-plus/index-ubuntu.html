@@ -228,7 +228,7 @@
 <style id="how-it-works">
   /* How Corporate Digital Brand Engineering works: three steps and a closing band.
      Colours reuse the page's own values (no CSS variables on this page): navy #1A274E, muted body #3D4660,
-     accent blue #2F7DB0, light-blue section shade #EDF5FB; gold accents #E3A949. Fonts inherit the page font (Ubuntu). */
+     accent blue #2F7DB0; gold accents #E3A949. Fonts inherit the page font (Ubuntu). */
   .hiw-sec { background: #FFFFFF; color: #1A274E; padding: 88px 120px 96px; }
   .hiw-head { text-align: center; }
   .hiw-sec h2 { display: flex; flex-direction: column; align-items: center; gap: 14px; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #E3A949; }
@@ -247,7 +247,6 @@
   .hiw-foot { margin-top: auto; padding-top: 28px; }
   .hiw-foot::before { content: ""; display: block; width: 44px; height: 2px; background: #E3A949; margin-bottom: 16px; }
   .hiw-label { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #1A274E; }
-  .hiw-band { margin-top: 64px; background: #EDF5FB; border-radius: 16px; padding: 32px 40px; text-align: center; font-size: 28px; line-height: 1.3; font-weight: 700; color: #1A274E; }
   /* Tablet and mobile: steps stack in order, arrows hidden */
   @media (max-width: 1023px) {
     .hiw-steps { grid-template-columns: minmax(0, 1fr); gap: 48px; max-width: 760px; margin-left: auto; margin-right: auto; }
@@ -262,7 +261,47 @@
     .hiw-num { font-size: 36px; }
     .hiw-step h3 { font-size: 22px; }
     .hiw-body { font-size: 16px; }
-    .hiw-band { margin-top: 48px; padding: 24px 20px; font-size: 21px; }
+  }
+</style>
+<style id="measurable-action">
+  /* Turn corporate brand strategy into measurable action: statement and callout on the left, 2x2 cards on the right.
+     Colours reuse the page's own values (no CSS variables on this page): light-blue section #EDF5FB, navy #1A274E,
+     muted body #3D4660, accent blue #2F7DB0, card shadow as on the page's existing cards; gold accents #E3A949. Font: the page font (Ubuntu). */
+  .mma-sec { background: #EDF5FB; color: #1A274E; padding: 88px 120px 96px; }
+  .mma-grid { display: grid; grid-template-columns: minmax(0, 45fr) minmax(0, 55fr); gap: 56px; align-items: start; }
+  .mma-left { display: flex; flex-direction: column; gap: 22px; }
+  .mma-sec h2 { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 14px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
+  .mma-sec h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
+  .mma-display { font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
+  .mma-accent { color: #2F7DB0; }
+  .mma-body { font-size: 18px; line-height: 1.6; color: #3D4660; }
+  .mma-callout { display: flex; align-items: center; gap: 20px; background: linear-gradient(rgba(227, 169, 73, 0.16), rgba(227, 169, 73, 0.16)), #FFFFFF; border-radius: 14px; padding: 22px 24px; margin-top: 6px; }
+  .mma-callout svg { width: 40px; height: 40px; flex-shrink: 0; stroke: #E3A949; }
+  .mma-callout-rule { align-self: stretch; width: 1.5px; background: #E3A949; flex-shrink: 0; }
+  .mma-callout p { font-size: 17px; line-height: 1.5; font-weight: 500; color: #1A274E; }
+  .mma-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .mma-card { background: #FFFFFF; border-radius: 14px; padding: 28px 28px 30px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 14px; }
+  .mma-badge { width: 52px; height: 52px; border-radius: 50%; background: rgba(47, 125, 176, 0.12); display: flex; align-items: center; justify-content: center; }
+  .mma-badge svg { width: 26px; height: 26px; stroke: #2F7DB0; }
+  .mma-card h3 { font-size: 21px; line-height: 1.25; font-weight: 700; color: #1A274E; }
+  .mma-card > p { font-size: 16px; line-height: 1.55; color: #3D4660; }
+  .mma-items { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .mma-items li { display: flex; align-items: center; gap: 12px; background: rgba(26, 39, 78, 0.04); border-radius: 999px; padding: 9px 16px; font-size: 15px; line-height: 1.35; color: #1A274E; }
+  .mma-items li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #E3A949; flex-shrink: 0; }
+  .mma-shot { display: block; margin-top: 4px; }
+  .mma-shot img { display: block; width: 100%; height: auto; border-radius: 10px; }
+  @media (max-width: 1023px) {
+    .mma-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  }
+  @media (max-width: 759px) {
+    .mma-sec { padding: 48px 20px 56px; }
+    .mma-display { font-size: 32px; }
+    .mma-body { font-size: 16px; }
+    .mma-callout { padding: 18px; gap: 14px; }
+    .mma-callout svg { width: 32px; height: 32px; }
+    .mma-callout p { font-size: 16px; }
+    .mma-cards { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    .mma-card { padding: 24px 22px 26px; }
   }
 </style>
 <style>
@@ -456,7 +495,63 @@
         <div class="hiw-foot"><p class="hiw-label">Implemented by your team</p></div>
       </li>
     </ol>
-    <p class="hiw-band">One strategy. Continuous intelligence. <span class="hiw-accent">Clear priorities your team can act on.</span></p>
+  </section>
+
+  <!-- Turn corporate brand strategy into measurable action -->
+  <section class="mma-sec" aria-labelledby="mma-title">
+    <div class="mma-grid">
+      <div class="mma-left">
+        <h2 id="mma-title">Turn corporate brand strategy into measurable action</h2>
+        <p class="mma-display">Give your marketing<br>team direction<br><span class="mma-accent">you can measure.</span></p>
+        <p class="mma-body">Your marketing team doesn't need more activity. It needs to know what deserves attention, why it matters and whether the work is making a difference. Corporate Digital Brand Engineering turns strategy into prioritised direction your team can execute, while Kalicube Pro provides the intelligence to keep that direction current.</p>
+        <div class="mma-callout">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21v-3.5a6.5 6.5 0 1 1 7.5-6.4l1.8 3.2c.2.4-.1.9-.5.9H16v2.3c0 .8-.7 1.5-1.5 1.5H12.5V21"></path><path d="M11 8.2a2 2 0 0 1 3 1.7c0 1.2-1.5 1.5-1.5 2.6"></path></svg>
+          <span class="mma-callout-rule" aria-hidden="true"></span>
+          <p>For marketing leadership, that means less time deciding where to focus, and <span class="mma-accent">more headspace</span> for the decisions only you can make.</p>
+        </div>
+      </div>
+      <div class="mma-cards">
+        <article class="mma-card">
+          <span class="mma-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"></rect><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h7M8.5 18h4"></path></svg></span>
+          <h3>What needs attention now</h3>
+          <p>Kalicube Pro identifies the most important opportunities and gaps for your brand, based on how it is understood across the digital ecosystem.</p>
+          <ul class="mma-items">
+            <li>Topics and narratives to strengthen</li>
+            <li>Competitors gaining visibility</li>
+            <li>Content gaps and inconsistencies</li>
+          </ul>
+        </article>
+        <article class="mma-card">
+          <span class="mma-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.8"></circle><circle cx="5.5" cy="9.5" r="2.2"></circle><circle cx="18.5" cy="9.5" r="2.2"></circle><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M1.8 18c0-2.3 1.6-4 3.7-4 1 0 1.8.3 2.5.9M22.2 18c0-2.3-1.6-4-3.7-4-1 0-1.8.3-2.5.9"></path></svg></span>
+          <h3>Your team executes the strategy</h3>
+          <p>Your internal team works on the prioritised actions across SEO, content, PR, websites and brand, with clear direction and context.</p>
+          <ul class="mma-items">
+            <li>Create or update content</li>
+            <li>Strengthen key digital assets</li>
+            <li>Support with PR and thought leadership</li>
+          </ul>
+        </article>
+        <article class="mma-card">
+          <span class="mma-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"></path><rect x="6" y="11" width="3" height="7"></rect><rect x="10.5" y="6" width="3" height="12"></rect><rect x="15" y="9" width="3" height="9"></rect></svg></span>
+          <h3>Measure corporate digital brand progress</h3>
+          <p>Progress is measured over time with real data from Kalicube Pro, so you can see what's working and where attention is needed.</p>
+          <picture class="mma-shot">
+            <source srcset="images/kalicube_pro_dashboard.webp" type="image/webp">
+            <img src="images/kalicube_pro_dashboard.png" width="1774" height="887" loading="lazy" alt="Kalicube Pro dashboard showing brand progress over time">
+          </picture>
+        </article>
+        <article class="mma-card">
+          <span class="mma-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"></path><path d="M18 2.8v3.8h-3.8M6 21.2v-3.8h3.8"></path></svg></span>
+          <h3>What needs attention next</h3>
+          <p>As the data changes, new opportunities and risks emerge. The strategy is updated and your team moves to the next set of priorities.</p>
+          <ul class="mma-items">
+            <li>Refine the strategy based on results</li>
+            <li>Address new opportunities</li>
+            <li>Keep building long-term visibility</li>
+          </ul>
+        </article>
+      </div>
+    </div>
   </section>
 
   <!-- What changed -->
