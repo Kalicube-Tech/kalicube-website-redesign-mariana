@@ -264,35 +264,46 @@
   }
 </style>
 <style id="measurable-action">
-  /* Turn corporate brand strategy into measurable action: statement and callout on the left, 2x2 cards on the right.
+  /* Turn corporate brand strategy into measurable action: statement and callout on the left, a four-step cycle on the right.
      Colours reuse the page's own values (no CSS variables on this page): light-blue section #EDF5FB, navy #1A274E,
-     muted body #3D4660, accent blue #2F7DB0, card shadow as on the page's existing cards; gold accents #E3A949. Font: the page font (Ubuntu). */
+     muted body #3D4660, accent blue #2F7DB0, card shadow as on the page's existing cards; gold accents #E3A949. Font: the page font (Ubuntu).
+     The desktop design is a fixed 1440px page scaled to fit, so the cycle uses fixed positions and the arrows are drawn to match. */
   .mma-sec { background: #EDF5FB; color: #1A274E; padding: 88px 120px 96px; }
-  .mma-grid { display: grid; grid-template-columns: minmax(0, 45fr) minmax(0, 55fr); gap: 56px; align-items: start; }
+  .mma-grid { display: grid; grid-template-columns: minmax(0, 45fr) minmax(0, 55fr); gap: 56px; align-items: center; }
   .mma-left { display: flex; flex-direction: column; gap: 22px; }
   .mma-sec h2 { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 14px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
   .mma-sec h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
   .mma-display { font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
   .mma-accent { color: #2F7DB0; }
   .mma-body { font-size: 18px; line-height: 1.6; color: #3D4660; }
-  .mma-callout { display: flex; align-items: center; gap: 20px; background: linear-gradient(rgba(227, 169, 73, 0.16), rgba(227, 169, 73, 0.16)), #FFFFFF; border-radius: 14px; padding: 22px 24px; margin-top: 6px; }
+  .mma-callout { display: flex; align-items: center; gap: 20px; background: linear-gradient(rgba(227, 169, 73, 0.16), rgba(227, 169, 73, 0.16)), #FFFFFF; border-left: 4px solid #E3A949; border-radius: 14px; padding: 22px 24px; margin-top: 6px; }
   .mma-callout svg { width: 40px; height: 40px; flex-shrink: 0; stroke: #E3A949; }
   .mma-callout-rule { align-self: stretch; width: 1.5px; background: #E3A949; flex-shrink: 0; }
-  .mma-callout p { font-size: 17px; line-height: 1.5; font-weight: 500; color: #1A274E; }
-  .mma-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-  .mma-card { background: #FFFFFF; border-radius: 14px; padding: 28px 28px 30px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 14px; }
-  .mma-badge { width: 52px; height: 52px; border-radius: 50%; background: rgba(47, 125, 176, 0.12); display: flex; align-items: center; justify-content: center; }
-  .mma-badge svg { width: 26px; height: 26px; stroke: #2F7DB0; }
-  .mma-card h3 { font-size: 21px; line-height: 1.25; font-weight: 700; color: #1A274E; }
-  .mma-card > p { font-size: 16px; line-height: 1.55; color: #3D4660; }
-  .mma-items { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .mma-items li { display: flex; align-items: center; gap: 12px; background: rgba(26, 39, 78, 0.04); border-radius: 999px; padding: 9px 16px; font-size: 15px; line-height: 1.35; color: #1A274E; }
-  .mma-items li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #E3A949; flex-shrink: 0; }
-  .mma-shot { display: block; margin-top: 4px; }
-  .mma-shot img { display: block; width: 100%; height: auto; border-radius: 10px; }
+  .mma-callout p { font-size: 17px; line-height: 1.5; font-weight: 400; color: #1A274E; }
+  .mma-callout strong { font-weight: 700; }
+  /* The cycle: top, right, bottom, left, joined clockwise by curved gold arrows */
+  .mma-cycle { position: relative; width: 629px; height: 760px; margin: 0 auto; }
+  .mma-cycle::before { content: ""; position: absolute; left: 50%; top: 50%; width: 600px; height: 600px; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(47, 125, 176, 0.16) 0%, rgba(47, 125, 176, 0.07) 45%, rgba(47, 125, 176, 0) 70%); pointer-events: none; }
+  .mma-arrows { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+  .mma-steps { list-style: none; margin: 0; padding: 0; }
+  .mma-card { position: absolute; width: 300px; height: 236px; box-sizing: border-box; background: #FFFFFF; border-radius: 14px; padding: 22px 22px 22px 20px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; align-items: center; gap: 14px; }
+  .mma-card:nth-child(1) { left: 164.5px; top: 0; }
+  .mma-card:nth-child(2) { left: 329px; top: 262px; }
+  .mma-card:nth-child(3) { left: 164.5px; top: 524px; }
+  .mma-card:nth-child(4) { left: 0; top: 262px; }
+  .mma-badge { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .mma-badge svg { width: 24px; height: 24px; }
+  .mma-badge-blue { background: rgba(47, 125, 176, 0.12); } .mma-badge-blue svg { stroke: #2F7DB0; }
+  .mma-badge-gold { background: rgba(227, 169, 73, 0.18); } .mma-badge-gold svg { stroke: #E3A949; }
+  .mma-badge-navy { background: rgba(26, 39, 78, 0.08); } .mma-badge-navy svg { stroke: #1A274E; }
+  .mma-card-text { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .mma-card h3 { font-size: 18px; line-height: 1.25; font-weight: 700; color: #1A274E; }
+  .mma-card p { font-size: 15px; line-height: 1.5; color: #3D4660; }
+  /* Tablet: the text goes full width and the cycle sits centred below it */
   @media (max-width: 1023px) {
     .mma-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
   }
+  /* Mobile: cards stack in cycle order with small gold arrows between; no curves or glow */
   @media (max-width: 759px) {
     .mma-sec { padding: 48px 20px 56px; }
     .mma-display { font-size: 32px; }
@@ -300,8 +311,12 @@
     .mma-callout { padding: 18px; gap: 14px; }
     .mma-callout svg { width: 32px; height: 32px; }
     .mma-callout p { font-size: 16px; }
-    .mma-cards { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-    .mma-card { padding: 24px 22px 26px; }
+    .mma-cycle { width: auto; height: auto; }
+    .mma-cycle::before, .mma-arrows { display: none; }
+    .mma-steps { display: flex; flex-direction: column; gap: 44px; }
+    .mma-card { position: relative; left: auto !important; top: auto !important; width: auto; height: auto; padding: 22px 20px; }
+    .mma-card + .mma-card::before { content: ""; position: absolute; left: 50%; top: -34px; width: 1.5px; height: 22px; background: #E3A949; transform: translateX(-50%); }
+    .mma-card + .mma-card::after { content: ""; position: absolute; left: 50%; top: -18px; width: 8px; height: 8px; border-right: 1.5px solid #E3A949; border-bottom: 1.5px solid #E3A949; transform: translateX(-50%) rotate(45deg); }
   }
 </style>
 <style>
@@ -502,54 +517,42 @@
     <div class="mma-grid">
       <div class="mma-left">
         <h2 id="mma-title">Turn corporate brand strategy into measurable action</h2>
-        <p class="mma-display">Give your marketing<br>team direction<br><span class="mma-accent">you can measure.</span></p>
-        <p class="mma-body">Your marketing team doesn't need more activity. It needs to know what deserves attention, why it matters and whether the work is making a difference. Corporate Digital Brand Engineering turns strategy into prioritised direction your team can execute, while Kalicube Pro provides the intelligence to keep that direction current.</p>
+        <p class="mma-display">Give your marketing team direction <span class="mma-accent">you can measure.</span></p>
+        <p class="mma-body">Your marketing team doesn't need more activity. It needs to know what deserves attention, why it matters and whether the work is making a difference. Corporate Digital Brand Engineering turns strategy into prioritised direction your team can execute, with the intelligence to keep that direction current.</p>
         <div class="mma-callout">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21v-3.5a6.5 6.5 0 1 1 7.5-6.4l1.8 3.2c.2.4-.1.9-.5.9H16v2.3c0 .8-.7 1.5-1.5 1.5H12.5V21"></path><path d="M11 8.2a2 2 0 0 1 3 1.7c0 1.2-1.5 1.5-1.5 2.6"></path></svg>
           <span class="mma-callout-rule" aria-hidden="true"></span>
-          <p>For marketing leadership, that means less time deciding where to focus, and <span class="mma-accent">more headspace</span> for the decisions only you can make.</p>
+          <p><strong>For marketing leadership</strong>, that means less time deciding where to focus, and <span class="mma-accent">more headspace</span> for the decisions only you can make.</p>
         </div>
       </div>
-      <div class="mma-cards">
-        <article class="mma-card">
-          <span class="mma-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"></rect><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h7M8.5 18h4"></path></svg></span>
-          <h3>What needs attention now</h3>
-          <p>Kalicube Pro identifies the most important opportunities and gaps for your brand, based on how it is understood across the digital ecosystem.</p>
-          <ul class="mma-items">
-            <li>Topics and narratives to strengthen</li>
-            <li>Competitors gaining visibility</li>
-            <li>Content gaps and inconsistencies</li>
-          </ul>
-        </article>
-        <article class="mma-card">
-          <span class="mma-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.8"></circle><circle cx="5.5" cy="9.5" r="2.2"></circle><circle cx="18.5" cy="9.5" r="2.2"></circle><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M1.8 18c0-2.3 1.6-4 3.7-4 1 0 1.8.3 2.5.9M22.2 18c0-2.3-1.6-4-3.7-4-1 0-1.8.3-2.5.9"></path></svg></span>
-          <h3>Your team executes the strategy</h3>
-          <p>Your internal team works on the prioritised actions across SEO, content, PR, websites and brand, with clear direction and context.</p>
-          <ul class="mma-items">
-            <li>Create or update content</li>
-            <li>Strengthen key digital assets</li>
-            <li>Support with PR and thought leadership</li>
-          </ul>
-        </article>
-        <article class="mma-card">
-          <span class="mma-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"></path><rect x="6" y="11" width="3" height="7"></rect><rect x="10.5" y="6" width="3" height="12"></rect><rect x="15" y="9" width="3" height="9"></rect></svg></span>
-          <h3>Measure corporate digital brand progress</h3>
-          <p>Progress is measured over time with real data from Kalicube Pro, so you can see what's working and where attention is needed.</p>
-          <picture class="mma-shot">
-            <source srcset="images/kalicube_pro_dashboard.webp" type="image/webp">
-            <img src="images/kalicube_pro_dashboard.png" width="1774" height="887" loading="lazy" alt="Kalicube Pro dashboard showing brand progress over time">
-          </picture>
-        </article>
-        <article class="mma-card">
-          <span class="mma-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"></path><path d="M18 2.8v3.8h-3.8M6 21.2v-3.8h3.8"></path></svg></span>
-          <h3>What needs attention next</h3>
-          <p>As the data changes, new opportunities and risks emerge. The strategy is updated and your team moves to the next set of priorities.</p>
-          <ul class="mma-items">
-            <li>Refine the strategy based on results</li>
-            <li>Address new opportunities</li>
-            <li>Keep building long-term visibility</li>
-          </ul>
-        </article>
+      <div class="mma-cycle">
+        <svg class="mma-arrows" viewBox="0 0 629 760" aria-hidden="true">
+          <defs><marker id="mma-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></marker></defs>
+          <g fill="none" stroke="#E3A949" stroke-width="2" stroke-linecap="round" marker-end="url(#mma-head)">
+            <path d="M474 112 Q 564 112 564 252"></path>
+            <path d="M564 508 Q 564 648 474 648"></path>
+            <path d="M155 648 Q 65 648 65 508"></path>
+            <path d="M65 252 Q 65 112 155 112"></path>
+          </g>
+        </svg>
+        <ol class="mma-steps">
+          <li class="mma-card">
+            <span class="mma-badge mma-badge-blue"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"></rect><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h7M8.5 18h4"></path></svg></span>
+            <div class="mma-card-text"><h3>Prioritise what needs attention now</h3><p>Kalicube Pro identifies the most important opportunities and gaps for your brand, based on how it is understood across the digital ecosystem.</p></div>
+          </li>
+          <li class="mma-card">
+            <span class="mma-badge mma-badge-gold"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.8"></circle><circle cx="5.5" cy="9.5" r="2.2"></circle><circle cx="18.5" cy="9.5" r="2.2"></circle><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M1.8 18c0-2.3 1.6-4 3.7-4 1 0 1.8.3 2.5.9M22.2 18c0-2.3-1.6-4-3.7-4-1 0-1.8.3-2.5.9"></path></svg></span>
+            <div class="mma-card-text"><h3>Your team executes the corporate brand strategy</h3><p>Your internal team works on the prioritised actions across SEO, content, PR, websites and brand, with clear direction and context.</p></div>
+          </li>
+          <li class="mma-card">
+            <span class="mma-badge mma-badge-navy"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"></path><rect x="6" y="11" width="3" height="7"></rect><rect x="10.5" y="6" width="3" height="12"></rect><rect x="15" y="9" width="3" height="9"></rect></svg></span>
+            <div class="mma-card-text"><h3>Measure corporate digital brand progress</h3><p>Progress is measured over time, so you can see what's working and where attention is needed.</p></div>
+          </li>
+          <li class="mma-card">
+            <span class="mma-badge mma-badge-blue"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"></path><path d="M18 2.8v3.8h-3.8M6 21.2v-3.8h3.8"></path></svg></span>
+            <div class="mma-card-text"><h3>Prioritise what needs attention next</h3><p>As the data changes, new opportunities and risks emerge. The strategy is updated and your team moves to the next set of priorities.</p></div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
