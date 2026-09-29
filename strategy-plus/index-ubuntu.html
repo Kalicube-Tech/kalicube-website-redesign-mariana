@@ -225,6 +225,46 @@
     .wwe-close { font-size: 19px; }
   }
 </style>
+<style id="how-it-works">
+  /* How Corporate Digital Brand Engineering works: three steps and a closing band.
+     Colours reuse the page's own values (no CSS variables on this page): navy #1A274E, muted body #3D4660,
+     accent blue #2F7DB0, light-blue section shade #EDF5FB; gold accents #E3A949. Fonts inherit the page font (Ubuntu). */
+  .hiw-sec { background: #FFFFFF; color: #1A274E; padding: 88px 120px 96px; }
+  .hiw-head { text-align: center; }
+  .hiw-sec h2 { display: flex; flex-direction: column; align-items: center; gap: 14px; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #E3A949; }
+  .hiw-sec h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
+  .hiw-display { margin-top: 24px; font-size: 48px; line-height: 1.12; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
+  .hiw-accent { color: #2F7DB0; }
+  .hiw-intro { max-width: 800px; margin: 20px auto 0; font-size: 19px; line-height: 1.55; color: #3D4660; }
+  .hiw-steps { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px; }
+  .hiw-step { display: flex; flex-direction: column; }
+  .hiw-top { display: flex; align-items: center; gap: 18px; }
+  .hiw-num { font-size: 44px; line-height: 1; font-weight: 700; color: #E3A949; }
+  .hiw-line { flex: 1; height: 1.5px; background: #E3A949; position: relative; }
+  .hiw-arrow .hiw-line::after { content: ""; position: absolute; right: 0; top: 50%; width: 10px; height: 10px; border-top: 1.5px solid #E3A949; border-right: 1.5px solid #E3A949; transform: translateY(-50%) rotate(45deg); transform-origin: center; }
+  .hiw-step h3 { margin-top: 20px; font-size: 26px; line-height: 1.2; font-weight: 700; color: #1A274E; }
+  .hiw-body { margin-top: 14px; font-size: 17px; line-height: 1.55; color: #3D4660; }
+  .hiw-foot { margin-top: auto; padding-top: 28px; }
+  .hiw-foot::before { content: ""; display: block; width: 44px; height: 2px; background: #E3A949; margin-bottom: 16px; }
+  .hiw-label { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #1A274E; }
+  .hiw-band { margin-top: 64px; background: #EDF5FB; border-radius: 16px; padding: 32px 40px; text-align: center; font-size: 28px; line-height: 1.3; font-weight: 700; color: #1A274E; }
+  /* Tablet and mobile: steps stack in order, arrows hidden */
+  @media (max-width: 1023px) {
+    .hiw-steps { grid-template-columns: minmax(0, 1fr); gap: 48px; max-width: 760px; margin-left: auto; margin-right: auto; }
+    .hiw-arrow .hiw-line::after { display: none; }
+    .hiw-foot { padding-top: 22px; }
+  }
+  @media (max-width: 759px) {
+    .hiw-sec { padding: 48px 20px 56px; }
+    .hiw-display { font-size: 30px; }
+    .hiw-intro { font-size: 16px; }
+    .hiw-steps { margin-top: 40px; gap: 40px; }
+    .hiw-num { font-size: 36px; }
+    .hiw-step h3 { font-size: 22px; }
+    .hiw-body { font-size: 16px; }
+    .hiw-band { margin-top: 48px; padding: 24px 20px; font-size: 21px; }
+  }
+</style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
   html { background: #0F1830; scroll-behavior: smooth; }
@@ -387,6 +427,36 @@
     </picture>
     <hr class="wwe-divider">
     <p class="wwe-close">Corporate Digital Brand Engineering brings these signals together so your company tells <span class="wwe-accent">one clear, consistent and credible story</span> across search and AI.</p>
+  </section>
+
+  <!-- How Corporate Digital Brand Engineering works: strategy, intelligence, execution -->
+  <section class="hiw-sec" aria-labelledby="hiw-title">
+    <div class="hiw-head">
+      <h2 id="hiw-title">How Corporate Digital Brand Engineering works</h2>
+      <p class="hiw-display">Strategy from Kalicube.<br>Intelligence from Kalicube Pro.<br><span class="hiw-accent">Execution by your team.</span></p>
+      <p class="hiw-intro">Corporate Digital Brand Engineering gives your team the strategy, data and prioritised actions to build and strengthen your corporate digital brand.</p>
+    </div>
+    <ol class="hiw-steps">
+      <li class="hiw-step hiw-arrow">
+        <div class="hiw-top" aria-hidden="true"><span class="hiw-num">01</span><span class="hiw-line"></span></div>
+        <h3>Diagnose and build the corporate digital brand strategy</h3>
+        <p class="hiw-body">Kalicube defines what needs to change. We analyse how your company is understood across its digital ecosystem, identify gaps and inconsistencies, and build the strategy to correct them.</p>
+        <div class="hiw-foot"><p class="hiw-label">Delivered by Kalicube</p></div>
+      </li>
+      <li class="hiw-step hiw-arrow">
+        <div class="hiw-top" aria-hidden="true"><span class="hiw-num">02</span><span class="hiw-line"></span></div>
+        <h3>Prioritise actions with Kalicube Pro</h3>
+        <p class="hiw-body">Kalicube Pro tells your team what to do next. Built on 25 billion data points and 73 million entities, Kalicube Pro turns intelligence about your brand, competitors and digital ecosystem into prioritised actions for your team.</p>
+        <div class="hiw-foot"><p class="hiw-label">Powered by Kalicube Pro</p></div>
+      </li>
+      <li class="hiw-step">
+        <div class="hiw-top" aria-hidden="true"><span class="hiw-num">03</span><span class="hiw-line"></span></div>
+        <h3>Your team implements the corporate digital brand strategy</h3>
+        <p class="hiw-body">Your team puts the strategy into action. Kalicube Pro provides prioritised tasks across SEO, content, PR, websites and brand, and your internal team implements them.</p>
+        <div class="hiw-foot"><p class="hiw-label">Implemented by your team</p></div>
+      </li>
+    </ol>
+    <p class="hiw-band">One strategy. Continuous intelligence. <span class="hiw-accent">Clear priorities your team can act on.</span></p>
   </section>
 
   <!-- What changed -->
