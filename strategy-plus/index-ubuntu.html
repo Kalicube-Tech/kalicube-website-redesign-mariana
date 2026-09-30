@@ -319,6 +319,68 @@
     .mma-card + .mma-card::after { content: ""; position: absolute; left: 50%; top: -18px; width: 8px; height: 8px; border-right: 1.5px solid #E3A949; border-bottom: 1.5px solid #E3A949; transform: translateX(-50%) rotate(45deg); }
   }
 </style>
+<style id="in-practice">
+  /* Corporate Digital Brand Engineering in practice: the Merci Facteur case.
+     Colours reuse the page's own values (no CSS variables on this page): navy #1A274E, muted body #3D4660,
+     accent blue #2F7DB0; gold accents #E3A949. Font: the page font (Ubuntu). The button reuses the hero's primary button classes.
+     Grid areas put the laptop beside the case content on desktop and after the case paragraph on mobile. */
+  .inp-sec { background: #FFFFFF; color: #1A274E; padding: 88px 120px 96px; }
+  .inp-grid { display: grid; grid-template-columns: minmax(0, 60fr) minmax(0, 40fr); column-gap: 56px;
+    grid-template-areas: "head ." "case img" "stats img" "callout img" "btn img"; }
+  .inp-head { grid-area: head; display: flex; flex-direction: column; gap: 20px; }
+  .inp-case { grid-area: case; margin-top: 44px; display: flex; flex-direction: column; gap: 14px; }
+  .inp-img { grid-area: img; align-self: center; margin-top: 44px; }
+  .inp-stats { grid-area: stats; margin-top: 32px; }
+  .inp-callout { grid-area: callout; margin-top: 32px; }
+  .inp-btn { grid-area: btn; margin-top: 32px; justify-self: start; }
+  .inp-sec h2 { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 14px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
+  .inp-sec h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
+  .inp-display { font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
+  .inp-accent { color: #2F7DB0; }
+  .inp-intro { font-size: 19px; line-height: 1.55; color: #3D4660; max-width: 640px; }
+  .inp-case h3 { font-size: 26px; line-height: 1.25; font-weight: 700; color: #1A274E; }
+  .inp-case p { font-size: 17px; line-height: 1.6; color: #3D4660; }
+  .inp-stats { display: flex; align-items: center; gap: 28px; }
+  .inp-logo { flex: 0 0 auto; padding-right: 28px; border-right: 1px solid rgba(26, 39, 78, 0.16); align-self: stretch; display: flex; align-items: center; }
+  .inp-logo img { display: block; width: 170px; height: auto; }
+  .inp-nums { list-style: none; margin: 0; padding: 0; flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .inp-nums li { display: flex; flex-direction: column; gap: 6px; padding: 4px 14px; }
+  .inp-nums li:first-child { padding-left: 0; }
+  .inp-nums li + li { border-left: 1px solid rgba(26, 39, 78, 0.16); }
+  .inp-num { font-size: 32px; line-height: 1; font-weight: 700; color: #2F7DB0; }
+  .inp-label { font-size: 13px; line-height: 1.35; color: #3D4660; }
+  .inp-callout { display: flex; align-items: center; gap: 20px; }
+  .inp-badge { width: 72px; height: 72px; border-radius: 50%; background: rgba(227, 169, 73, 0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .inp-badge svg { width: 36px; height: 36px; stroke: #E3A949; }
+  .inp-callout-rule { align-self: stretch; width: 1.5px; background: #E3A949; flex-shrink: 0; }
+  .inp-callout-text { display: flex; flex-direction: column; gap: 6px; }
+  .inp-callout-label { font-size: 14px; color: #3D4660; }
+  .inp-callout-text p:last-child { font-size: 19px; line-height: 1.45; color: #1A274E; }
+  .inp-img img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); }
+  @media (max-width: 1023px) {
+    .inp-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "case" "img" "stats" "callout" "btn"; }
+    .inp-img { margin-top: 32px; }
+  }
+  @media (max-width: 759px) {
+    .inp-sec { padding: 48px 20px 56px; }
+    .inp-display { font-size: 32px; }
+    .inp-intro { font-size: 16px; }
+    .inp-case { margin-top: 32px; }
+    .inp-case h3 { font-size: 22px; }
+    .inp-case p { font-size: 16px; }
+    .inp-img { margin-top: 28px; }
+    .inp-stats { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .inp-logo { padding-right: 0; border-right: 0; }
+    .inp-logo img { width: 180px; }
+    .inp-nums { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
+    .inp-nums li { padding: 2px 14px; }
+    .inp-nums li:nth-child(odd) { padding-left: 0; border-left: 0; }
+    .inp-num { font-size: 28px; }
+    .inp-callout { gap: 14px; }
+    .inp-badge { width: 56px; height: 56px; } .inp-badge svg { width: 28px; height: 28px; }
+    .inp-callout-text p:last-child { font-size: 17px; }
+  }
+</style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
   html { background: #0F1830; scroll-behavior: smooth; }
@@ -554,6 +616,46 @@
           </li>
         </ol>
       </div>
+    </div>
+  </section>
+
+  <!-- Corporate Digital Brand Engineering in practice: Merci Facteur -->
+  <section class="inp-sec" aria-labelledby="inp-title">
+    <div class="inp-grid">
+      <div class="inp-head">
+        <h2 id="inp-title">Corporate Digital Brand Engineering in practice</h2>
+        <p class="inp-display">A strategy the <span class="inp-accent">internal team could run.</span></p>
+        <p class="inp-intro">We help marketing teams turn corporate brand strategy into measurable progress in AI and search.</p>
+      </div>
+      <div class="inp-case">
+        <h3>From a 37 percent decline to 33 percent growth in organic traffic</h3>
+        <p>Merci Facteur came to Kalicube after organic traffic had fallen 37 percent year over year. Kalicube built a strategy from Kalicube Pro data around the company's digital ecosystem, audience and most effective channels. Two years later, these are the results:</p>
+      </div>
+      <div class="inp-img">
+        <picture>
+          <source srcset="images/laptop_merci_facteur.webp" type="image/webp">
+          <img src="images/laptop_merci_facteur.jpg" width="1100" height="733" loading="lazy" alt="Merci Facteur website on a laptop">
+        </picture>
+      </div>
+      <div class="inp-stats">
+        <div class="inp-logo"><img src="images/Merci_facteur_logo.png" width="800" height="82" loading="lazy" alt="Merci Facteur"></div>
+        <ul class="inp-nums">
+          <li><span class="inp-num">+33%</span><span class="inp-label">Organic traffic</span></li>
+          <li><span class="inp-num">+21%</span><span class="inp-label">Branded searches</span></li>
+          <li><span class="inp-num">+24%</span><span class="inp-label">Visits from branded searches</span></li>
+          <li><span class="inp-num">+28%</span><span class="inp-label">SERP visibility</span></li>
+        </ul>
+      </div>
+      <div class="inp-callout">
+        <span class="inp-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.8"></circle><circle cx="5.5" cy="9.5" r="2.2"></circle><circle cx="18.5" cy="9.5" r="2.2"></circle><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M1.8 18c0-2.3 1.6-4 3.7-4 1 0 1.8.3 2.5.9M22.2 18c0-2.3-1.6-4-3.7-4-1 0-1.8.3-2.5.9"></path></svg></span>
+        <span class="inp-callout-rule" aria-hidden="true"></span>
+        <div class="inp-callout-text">
+          <p class="inp-callout-label">Internal team implementation</p>
+          <p><strong>Two years later, the internal marketing team was implementing the strategy autonomously,</strong> with Kalicube providing quarterly coaching.</p>
+        </div>
+      </div>
+      <!-- TODO: case study URL not provided yet; replace "#" -->
+      <a href="#" class="act cdbe-btn cdbe-btn-primary inp-btn"><span>Read the Merci Facteur case study</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
     </div>
   </section>
 
