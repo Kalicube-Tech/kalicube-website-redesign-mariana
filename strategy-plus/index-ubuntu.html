@@ -217,7 +217,24 @@
     -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent); mask-composite: intersect; }
   .wwe-divider { width: 64px; height: 2px; margin: 36px auto 0; background: #E3A949; border: 0; }
   .wwe-close { max-width: 860px; margin: 28px auto 0; font-size: 24px; line-height: 1.45; font-weight: 500; color: #1A274E; }
+  /* CTA band: edge to edge and flush with the section bottom (negative margins cancel the section padding); navy #1A274E as in the page's other navy sections */
+  .wwe-cta { position: relative; overflow: hidden; margin: 72px -120px -96px; background: #1A274E; color: #FFFFFF; text-align: left; }
+  .wwe-cta-lines { position: absolute; left: 0; bottom: 0; width: 360px; height: 150px; pointer-events: none; }
+  .wwe-cta-inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 32px 120px; }
+  .wwe-cta-text { display: flex; flex-direction: column; gap: 8px; }
+  .wwe-cta-head { font-size: 26px; line-height: 1.25; font-weight: 700; color: #FFFFFF; }
+  .wwe-cta-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; list-style: none; margin: 0; padding: 0; font-size: 16px; color: rgba(255, 255, 255, 0.85); }
+  .wwe-cta-sub li + li::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #E3A949; margin-right: 12px; vertical-align: middle; }
+  .wwe-cta-rule { align-self: stretch; width: 1px; background: rgba(255, 255, 255, 0.2); flex-shrink: 0; margin-left: auto; }
+  .wwe-cta .cdbe-btn { flex-shrink: 0; }
   @media (max-width: 759px) {
+    .wwe-cta { margin: 48px -20px -56px; }
+    .wwe-cta-lines, .wwe-cta-rule { display: none; }
+    .wwe-cta-inner { flex-direction: column; align-items: stretch; gap: 20px; padding: 32px 20px; }
+    .wwe-cta-head { font-size: 22px; }
+    .wwe-cta-sub { font-size: 14px; gap: 4px 8px; flex-wrap: nowrap; white-space: nowrap; }
+    .wwe-cta-sub li + li::before { margin-right: 8px; }
+    .wwe-cta .cdbe-btn { width: 100%; white-space: normal; text-align: center; }
     .wwe-sec { padding: 48px 20px 56px; }
     .wwe-sec h2 { font-size: 30px; }
     .wwe-intro { font-size: 16px; }
@@ -551,6 +568,26 @@
     </picture>
     <hr class="wwe-divider">
     <p class="wwe-close">Corporate Digital Brand Engineering brings these signals together so your company tells <span class="wwe-accent">one clear, consistent and credible story</span> across search and AI.</p>
+    <div class="wwe-cta">
+      <svg class="wwe-cta-lines" viewBox="0 0 360 150" fill="none" aria-hidden="true">
+        <g stroke="#E3A949" stroke-width="1" stroke-linecap="round">
+          <path d="M0 40 C 80 60, 160 110, 300 150" opacity="0.35"></path>
+          <path d="M0 58 C 70 78, 150 120, 260 150" opacity="0.3"></path>
+          <path d="M0 76 C 60 94, 130 128, 220 150" opacity="0.26"></path>
+          <path d="M0 94 C 50 110, 110 136, 180 150" opacity="0.22"></path>
+          <path d="M0 112 C 40 124, 90 142, 140 150" opacity="0.2"></path>
+          <path d="M20 0 C 60 50, 150 100, 360 140" opacity="0.2"></path>
+        </g>
+      </svg>
+      <div class="wwe-cta-inner">
+        <div class="wwe-cta-text">
+          <p class="wwe-cta-head">See how Google and AI understand your company.</p>
+          <ul class="wwe-cta-sub"><li>Free</li><li>Less than 5 minutes</li><li>Personalised strategy</li></ul>
+        </div>
+        <span class="wwe-cta-rule" aria-hidden="true"></span>
+        <a href="https://diagnosis.kalicube.pro/" target="_blank" rel="noopener" class="act cdbe-btn cdbe-btn-primary"><span>Get Your Free AI Audit and Corporate Strategy</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+    </div>
   </section>
 
   <!-- How Corporate Digital Brand Engineering works: strategy, intelligence, execution -->
