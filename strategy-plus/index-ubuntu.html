@@ -419,6 +419,56 @@
     .inp-trust { margin-top: 40px; padding-top: 24px; }
   }
 </style>
+<style id="measurement">
+  /* How Corporate Digital Brand Engineering measures progress. The page has no CSS variables: background-color reuses the navy of the
+     page's other navy sections (#1A274E) under progress_bg (the right-hand waves and bottom-left curves are part of that image).
+     On navy the page uses its lighter blue #5AA5D3 for accents, so 01, the icon and the display gradient use it. Font: page font (Ubuntu). */
+  .measurement-section { background-color: #1A274E; background-image: url("images/progress_bg.png");
+    background-image: image-set(url("images/progress_bg.webp") type("image/webp"), url("images/progress_bg.png") type("image/png"));
+    background-size: cover; background-position: center; background-repeat: no-repeat; color: #FFFFFF; padding: 88px 120px 80px; }
+  .measurement-inner { display: grid; grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); gap: 64px; align-items: start; }
+  .measurement-intro { display: flex; flex-direction: column; gap: 24px; }
+  .measurement-section h2 { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 14px; line-height: 1.6; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
+  .measurement-section h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
+  .measurement-display-heading { font-size: 50px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #FFFFFF; }
+  .measurement-display-heading span { background: linear-gradient(90deg, #5AA5D3, #9CD4F4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .measurement-intro p { font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.85); }
+  .measurement-signals { display: flex; flex-direction: column; }
+  .measurement-signal { max-width: 420px; display: flex; flex-direction: column; gap: 14px; }
+  .signal-label { display: flex; align-items: center; gap: 16px; }
+  .signal-number { font-size: 38px; line-height: 1; font-weight: 700; }
+  .signal-line { width: 44px; height: 1px; }
+  .recognition .signal-number { color: #5AA5D3; } .recognition .signal-line { background: #5AA5D3; }
+  .recommendation .signal-number { color: #E3A949; } .recommendation .signal-line { background: #E3A949; }
+  .signal-name { font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #FFFFFF; }
+  .measurement-signal h3 { font-size: 32px; line-height: 1.18; font-weight: 700; color: #FFFFFF; }
+  .measurement-signal p { font-size: 17px; line-height: 1.6; color: rgba(255, 255, 255, 0.85); }
+  .measurement-divider { height: 1px; margin: 36px 0; background: rgba(227, 169, 73, 0.4); }
+  .measurement-principle { display: flex; align-items: center; gap: 18px; margin-top: 40px; }
+  .measurement-icon { display: flex; flex-shrink: 0; padding-right: 18px; border-right: 1.5px solid #E3A949; }
+  .measurement-icon svg { width: 34px; height: 34px; stroke: #5AA5D3; }
+  .measurement-principle p { font-size: 14px; line-height: 1.6; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF; }
+  .measurement-principle strong { font-weight: 700; }
+  .measurement-principle p span { color: rgba(255, 255, 255, 0.85); }
+  @media (max-width: 1023px) {
+    .measurement-inner { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+    .measurement-signal { max-width: 640px; }
+  }
+  @media (max-width: 759px) {
+    /* Phones: the waves would sit behind the text, so a navy veil keeps it readable */
+    .measurement-section { padding: 48px 20px 56px; background-position: 75% center;
+      background-image: linear-gradient(rgba(26, 39, 78, 0.78), rgba(26, 39, 78, 0.78)), url("images/progress_bg.png");
+      background-image: linear-gradient(rgba(26, 39, 78, 0.78), rgba(26, 39, 78, 0.78)), image-set(url("images/progress_bg.webp") type("image/webp"), url("images/progress_bg.png") type("image/png")); }
+    .measurement-display-heading { font-size: 32px; }
+    .measurement-intro p { font-size: 16px; }
+    .signal-number { font-size: 32px; }
+    .measurement-signal h3 { font-size: 24px; }
+    .measurement-signal p { font-size: 16px; }
+    .measurement-divider { margin: 28px 0; }
+    .measurement-principle { margin-top: 32px; align-items: flex-start; }
+    .measurement-principle p { font-size: 13px; letter-spacing: 0.1em; }
+  }
+</style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
   html { background: #0F1830; scroll-behavior: smooth; }
@@ -683,6 +733,53 @@
       </div>
     </div>
   </section>
+
+<section class="measurement-section">
+  <div class="measurement-inner">
+
+    <div class="measurement-intro">
+      <h2>How Corporate Digital Brand Engineering measures progress</h2>
+
+      <!-- Display heading: NOT an H-tag -->
+      <div class="measurement-display-heading">
+        You can see when Google and AI change
+        <span>their understanding of your brand.</span>
+      </div>
+
+      <p>Kalicube Pro measures how your company is understood across Google and AI against the brand strategy you defined. You can see whether your company is being identified correctly, how it is described and whether it appears when people ask for relevant recommendations.</p>
+    </div>
+
+    <div class="measurement-signals">
+      <article class="measurement-signal recognition">
+        <div class="signal-label">
+          <span class="signal-number">01</span>
+          <span class="signal-line"></span>
+          <span class="signal-name">Recognition</span>
+        </div>
+        <h3>Do Google and AI understand who you are?</h3>
+        <p>See whether your company is identified correctly, associated with the right topics, products, people and expertise, and described in a way that reflects your intended brand narrative.</p>
+      </article>
+
+      <div class="measurement-divider"></div>
+
+      <article class="measurement-signal recommendation">
+        <div class="signal-label">
+          <span class="signal-number">02</span>
+          <span class="signal-line"></span>
+          <span class="signal-name">Recommendation</span>
+        </div>
+        <h3>Do they recommend you when your company should be considered?</h3>
+        <p>Measure whether your company appears for relevant category, solution and buying questions, and how that visibility changes against the goals defined in your strategy.</p>
+      </article>
+
+      <div class="measurement-principle">
+        <span class="measurement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M6 18v-5M10 18V8M14 18v-7M18 18V5"></path></svg></span>
+        <p><strong>Measured over time against your own strategy,</strong> <span>not a generic visibility score.</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- Corporate Digital Brand Engineering in practice: Merci Facteur -->
   <section class="inp-sec" aria-labelledby="inp-title">
