@@ -321,78 +321,71 @@
 </style>
 <style id="in-practice">
   /* Corporate Digital Brand Engineering in practice: the Merci Facteur case.
-     Colours reuse the page's own values (no CSS variables on this page): navy #1A274E, muted body #3D4660,
-     accent blue #2F7DB0; gold accents #E3A949. Font: the page font (Ubuntu). The button reuses the hero's primary button classes.
-     Grid areas put the laptop beside the case content on desktop and after the case paragraph on mobile. */
-  .inp-sec { background: #FFFFFF; color: #1A274E; padding: 88px 120px 96px; }
-  .inp-grid { display: grid; grid-template-columns: minmax(0, 60fr) minmax(0, 40fr); column-gap: 56px;
-    grid-template-areas: "head ." "case img" "stats img" "callout img" "btn img" "trust trust"; }
-  .inp-head { grid-area: head; display: flex; flex-direction: column; gap: 20px; }
-  .inp-case { grid-area: case; margin-top: 44px; display: flex; flex-direction: column; gap: 14px; }
-  .inp-img { grid-area: img; align-self: center; margin-top: 44px; }
-  .inp-stats { grid-area: stats; margin-top: 32px; }
-  .inp-callout { grid-area: callout; margin-top: 32px; }
-  .inp-trust { grid-area: trust; }
-  .inp-btn { grid-area: btn; margin-top: 32px; justify-self: start; }
-  .inp-sec h2 { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 14px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
+     This page has no CSS variables or font classes: every section sets its colours inline and inherits the page font
+     from body (Ubuntu, used for headings and body alike). Colours reuse the page's values: navy #1A274E, muted #3D4660,
+     accent blue #2F7DB0, light-blue section shade #EDF5FB; gold accents #E3A949. The button reuses the hero's primary button classes. */
+  .inp-sec { position: relative; overflow: hidden; isolation: isolate; background: #FFFFFF; color: #1A274E; padding: 88px 120px 80px; }
+  /* Decorative circles: soft tints of the page blues, behind everything */
+  .inp-deco { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+  .inp-deco span { position: absolute; border-radius: 50%; }
+  .inp-deco span:nth-child(1) { width: 720px; height: 720px; right: -260px; top: -280px; background: radial-gradient(circle, rgba(47, 125, 176, 0.10) 0%, rgba(47, 125, 176, 0.05) 45%, rgba(47, 125, 176, 0) 70%); }
+  .inp-deco span:nth-child(2) { width: 460px; height: 460px; right: 220px; top: -120px; background: radial-gradient(circle, rgba(237, 245, 251, 0.95) 0%, rgba(237, 245, 251, 0.5) 45%, rgba(237, 245, 251, 0) 70%); }
+  .inp-deco span:nth-child(3) { width: 520px; height: 520px; right: -140px; top: 460px; background: radial-gradient(circle, rgba(47, 125, 176, 0.07) 0%, rgba(47, 125, 176, 0) 70%); }
+  /* 1. Header */
+  .inp-head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .inp-sec h2 { display: flex; flex-direction: column; align-items: center; gap: 14px; font-size: 14px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
   .inp-sec h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
-  .inp-display { font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
+  .inp-display { font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; white-space: nowrap; }
   .inp-accent { color: #2F7DB0; }
-  .inp-intro { font-size: 19px; line-height: 1.55; color: #3D4660; max-width: 640px; }
-  .inp-case h3 { font-size: 26px; line-height: 1.25; font-weight: 700; color: #1A274E; }
-  .inp-case p { font-size: 17px; line-height: 1.6; color: #3D4660; }
-  .inp-stats { display: flex; align-items: center; gap: 28px; }
-  .inp-logo { flex: 0 0 auto; padding-right: 28px; border-right: 1px solid rgba(26, 39, 78, 0.16); align-self: stretch; display: flex; align-items: center; }
-  .inp-logo img { display: block; width: 170px; height: auto; }
+  .inp-intro { max-width: 760px; font-size: 19px; line-height: 1.55; color: #3D4660; }
+  /* 2. Case block: text left, laptop right; grid areas let the laptop move after the case paragraph on smaller screens */
+  .inp-case { margin-top: 56px; display: grid; grid-template-columns: minmax(0, 58fr) minmax(0, 42fr); column-gap: 56px; row-gap: 24px;
+    grid-template-areas: "text img" "stats img" "callout img" "btn img"; align-content: center; }
+  .inp-text { grid-area: text; display: flex; flex-direction: column; gap: 14px; }
+  .inp-text h3 { font-size: 26px; line-height: 1.25; font-weight: 700; color: #1A274E; }
+  .inp-text p { max-width: 620px; font-size: 17px; line-height: 1.6; color: #3D4660; }
+  .inp-img { grid-area: img; align-self: center; }
+  .inp-img img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 12px 32px rgba(26, 39, 78, 0.12), 0 2px 6px rgba(26, 39, 78, 0.06); }
+  .inp-stats { grid-area: stats; display: flex; align-items: center; }
+  .inp-logo { flex: 0 0 auto; padding-right: 24px; margin-right: 8px; border-right: 1px solid rgba(26, 39, 78, 0.16); align-self: stretch; display: flex; align-items: center; }
+  .inp-logo img { display: block; height: 44px; width: auto; mix-blend-mode: multiply; }
   .inp-nums { list-style: none; margin: 0; padding: 0; flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .inp-nums li { display: flex; flex-direction: column; gap: 6px; padding: 4px 14px; }
-  .inp-nums li:first-child { padding-left: 0; }
+  .inp-nums li { display: flex; flex-direction: column; gap: 6px; padding: 2px 14px; }
   .inp-nums li + li { border-left: 1px solid rgba(26, 39, 78, 0.16); }
-  .inp-num { font-size: 32px; line-height: 1; font-weight: 700; color: #2F7DB0; }
-  .inp-label { font-size: 13px; line-height: 1.35; color: #3D4660; }
-  .inp-callout { display: flex; align-items: center; gap: 20px; }
-  .inp-badge { width: 72px; height: 72px; border-radius: 50%; background: rgba(227, 169, 73, 0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .inp-badge svg { width: 36px; height: 36px; stroke: #E3A949; }
+  .inp-num { font-size: 30px; line-height: 1; font-weight: 700; color: #2F7DB0; }
+  .inp-label { font-size: 13px; line-height: 1.35; color: #3D4660; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .inp-callout { grid-area: callout; display: flex; align-items: center; gap: 18px; }
+  .inp-badge { width: 64px; height: 64px; border-radius: 50%; background: rgba(227, 169, 73, 0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .inp-badge svg { width: 32px; height: 32px; stroke: #E3A949; }
   .inp-callout-rule { align-self: stretch; width: 1.5px; background: #E3A949; flex-shrink: 0; }
   .inp-callout-text { display: flex; flex-direction: column; gap: 6px; }
   .inp-callout-label { font-size: 14px; color: #3D4660; }
-  .inp-callout-text p:last-child { font-size: 19px; line-height: 1.45; color: #1A274E; }
-  .inp-img img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); }
-  /* Trust strip: every logo is drawn in one muted grey-blue by using its file as a mask, so no logo stands out */
-  .inp-trust { margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(26, 39, 78, 0.12); display: flex; flex-direction: column; gap: 22px; }
-  .inp-trust-label { font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6B7591; }
-  .inp-trust-logos { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; align-items: center; }
-  .inp-trust-logos li { display: flex; align-items: center; justify-content: center; }
-  .inp-tlogo { display: block; height: var(--h, 30px); aspect-ratio: var(--ar); background: #7C88A6; opacity: 0.8; transition: opacity 0.2s;
-    -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
-  .inp-tlogo:hover { opacity: 1; }
-  .inp-tph { display: flex; align-items: center; justify-content: center; height: 30px; padding: 0 12px; border: 1.5px dashed #9AA4BD; border-radius: 6px; font-size: 12px; color: #6B7591; white-space: nowrap; }
+  .inp-callout-text p:last-child { font-size: 18px; line-height: 1.45; color: #1A274E; }
+  .inp-btn { grid-area: btn; justify-self: start; }
+  /* 3. Trust strip */
+  .inp-trust { margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(26, 39, 78, 0.12); }
+  .inp-trust img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
   @media (max-width: 1023px) {
-    .inp-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "case" "img" "stats" "callout" "btn" "trust"; }
-    .inp-img { margin-top: 32px; }
+    .inp-case { grid-template-columns: minmax(0, 1fr); grid-template-areas: "text" "img" "stats" "callout" "btn"; }
+    .inp-display { white-space: normal; }
   }
   @media (max-width: 759px) {
     .inp-sec { padding: 48px 20px 56px; }
+    .inp-deco { display: none; }
     .inp-display { font-size: 32px; }
     .inp-intro { font-size: 16px; }
-    .inp-case { margin-top: 32px; }
-    .inp-case h3 { font-size: 22px; }
-    .inp-case p { font-size: 16px; }
-    .inp-img { margin-top: 28px; }
-    .inp-stats { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .inp-logo { padding-right: 0; border-right: 0; }
-    .inp-logo img { width: 180px; }
+    .inp-case { margin-top: 40px; }
+    .inp-text h3 { font-size: 22px; }
+    .inp-text p { font-size: 16px; }
+    .inp-stats { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .inp-logo { padding-right: 0; margin-right: 0; border-right: 0; }
     .inp-nums { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
-    .inp-nums li { padding: 2px 14px; }
     .inp-nums li:nth-child(odd) { padding-left: 0; border-left: 0; }
     .inp-num { font-size: 28px; }
+    .inp-badge { width: 52px; height: 52px; } .inp-badge svg { width: 26px; height: 26px; }
     .inp-callout { gap: 14px; }
-    .inp-badge { width: 56px; height: 56px; } .inp-badge svg { width: 28px; height: 28px; }
     .inp-callout-text p:last-child { font-size: 17px; }
-    .inp-trust { margin-top: 48px; padding-top: 24px; }
-    .inp-trust-logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px 12px; }
-    .inp-tlogo { height: calc(var(--h, 30px) * 0.7); max-width: 100%; }
-    .inp-tph { height: 24px; padding: 0 6px; font-size: 10px; white-space: normal; text-align: center; line-height: 1.2; }
+    .inp-trust { margin-top: 40px; padding-top: 24px; }
   }
 </style>
 <style>
@@ -635,13 +628,14 @@
 
   <!-- Corporate Digital Brand Engineering in practice: Merci Facteur -->
   <section class="inp-sec" aria-labelledby="inp-title">
-    <div class="inp-grid">
-      <div class="inp-head">
-        <h2 id="inp-title">Corporate Digital Brand Engineering in practice</h2>
-        <p class="inp-display">A strategy the <span class="inp-accent">internal team could run.</span></p>
-        <p class="inp-intro">We help marketing teams turn corporate brand strategy into measurable progress in AI and search.</p>
-      </div>
-      <div class="inp-case">
+    <div class="inp-deco" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="inp-head">
+      <h2 id="inp-title">Corporate Digital Brand Engineering in practice</h2>
+      <p class="inp-display">A strategy the <span class="inp-accent">internal team could run.</span></p>
+      <p class="inp-intro">We help marketing teams turn corporate brand strategy into measurable progress in AI and search.</p>
+    </div>
+    <div class="inp-case">
+      <div class="inp-text">
         <h3>From a 37 percent decline to 33 percent growth in organic traffic</h3>
         <p>Merci Facteur came to Kalicube after organic traffic had fallen 37 percent year over year. Kalicube built a strategy from Kalicube Pro data around the company's digital ecosystem, audience and most effective channels. Two years later, these are the results:</p>
       </div>
@@ -652,11 +646,11 @@
         </picture>
       </div>
       <div class="inp-stats">
-        <div class="inp-logo"><img src="images/Merci_facteur_logo.png" width="800" height="82" loading="lazy" alt="Merci Facteur"></div>
+        <div class="inp-logo"><img src="images/Merci_facteur_logo.png" width="248" height="103" loading="lazy" alt="Merci Facteur"></div>
         <ul class="inp-nums">
           <li><span class="inp-num">+33%</span><span class="inp-label">Organic traffic</span></li>
           <li><span class="inp-num">+21%</span><span class="inp-label">Branded searches</span></li>
-          <li><span class="inp-num">+24%</span><span class="inp-label">Visits from branded searches</span></li>
+          <li><span class="inp-num">+24%</span><span class="inp-label">Branded search visits</span></li>
           <li><span class="inp-num">+28%</span><span class="inp-label">SERP visibility</span></li>
         </ul>
       </div>
@@ -670,19 +664,12 @@
       </div>
       <!-- TODO: case study URL not provided yet; replace "#" -->
       <a href="#" class="act cdbe-btn cdbe-btn-primary inp-btn"><span>Read the Merci Facteur case study</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-      <div class="inp-trust">
-        <p class="inp-trust-label">Trusted by leading organisations</p>
-        <ul class="inp-trust-logos">
-          <li><span class="inp-tlogo" role="img" aria-label="Microsoft" style="--src: url(images/logo-microsoft.png); --ar: 167 / 40; --h: 30px;"></span></li>
-          <li><!-- PLACEHOLDER: add images/logo-hp.svg --><span class="inp-tph" role="img" aria-label="HP (logo needed)">HP</span></li>
-          <li><!-- PLACEHOLDER: add images/logo-disney.svg --><span class="inp-tph" role="img" aria-label="Disney (logo needed)">Disney</span></li>
-          <li><!-- PLACEHOLDER: add images/logo-danone.svg --><span class="inp-tph" role="img" aria-label="Danone (logo needed)">Danone</span></li>
-          <li><!-- PLACEHOLDER: add images/logo-emi.svg --><span class="inp-tph" role="img" aria-label="EMI (logo needed)">EMI</span></li>
-          <li><span class="inp-tlogo" role="img" aria-label="Semrush" style="--src: url(images/logo-semrush.png); --ar: 185 / 28; --h: 21px;"></span></li>
-          <li><span class="inp-tlogo" role="img" aria-label="Yoast" style="--src: url(images/logo-yoast.png); --ar: 98 / 43; --h: 32px;"></span></li>
-          <li><!-- PLACEHOLDER: add images/logo-newfold-digital.svg --><span class="inp-tph" role="img" aria-label="Newfold Digital (logo needed)">Newfold Digital</span></li>
-        </ul>
-      </div>
+    </div>
+    <div class="inp-trust">
+      <picture>
+        <source srcset="images/trusted_by_strip.webp" type="image/webp">
+        <img src="images/trusted_by_strip.png" width="2097" height="134" loading="lazy" alt="Trusted by leading organisations: Microsoft, HP, Disney, Danone, EMI, Semrush, Yoast, Newfold Digital">
+      </picture>
     </div>
   </section>
 
