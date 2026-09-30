@@ -6,6 +6,13 @@ This is a copy of the Kalicube redesign drafts, made on 15 September 2026 so Mar
 - Changes made to the main drafts after 15 September 2026 don't arrive here either.
 - Every page is noindexed.
 
+## Where this copy lives now
+
+This copy is hosted at **github.com/Kalicube-Tech/kalicube-website-redesign-mariana**, the org repo.
+
+- Clone/push URL: `https://github.com/Kalicube-Tech/kalicube-website-redesign-mariana.git`
+- If you don't have access yet, ask an org admin to add you as a collaborator under **Settings → Collaborators and teams**.
+
 ## See it
 
 - Font Flip: https://kalicube-tech.github.io/kalicube-website-redesign-mariana/font-flip/?page=home
