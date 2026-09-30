@@ -326,12 +326,13 @@
      Grid areas put the laptop beside the case content on desktop and after the case paragraph on mobile. */
   .inp-sec { background: #FFFFFF; color: #1A274E; padding: 88px 120px 96px; }
   .inp-grid { display: grid; grid-template-columns: minmax(0, 60fr) minmax(0, 40fr); column-gap: 56px;
-    grid-template-areas: "head ." "case img" "stats img" "callout img" "btn img"; }
+    grid-template-areas: "head ." "case img" "stats img" "callout img" "btn img" "trust trust"; }
   .inp-head { grid-area: head; display: flex; flex-direction: column; gap: 20px; }
   .inp-case { grid-area: case; margin-top: 44px; display: flex; flex-direction: column; gap: 14px; }
   .inp-img { grid-area: img; align-self: center; margin-top: 44px; }
   .inp-stats { grid-area: stats; margin-top: 32px; }
   .inp-callout { grid-area: callout; margin-top: 32px; }
+  .inp-trust { grid-area: trust; }
   .inp-btn { grid-area: btn; margin-top: 32px; justify-self: start; }
   .inp-sec h2 { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 14px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
   .inp-sec h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
@@ -357,8 +358,17 @@
   .inp-callout-label { font-size: 14px; color: #3D4660; }
   .inp-callout-text p:last-child { font-size: 19px; line-height: 1.45; color: #1A274E; }
   .inp-img img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); }
+  /* Trust strip: every logo is drawn in one muted grey-blue by using its file as a mask, so no logo stands out */
+  .inp-trust { margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(26, 39, 78, 0.12); display: flex; flex-direction: column; gap: 22px; }
+  .inp-trust-label { font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6B7591; }
+  .inp-trust-logos { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; align-items: center; }
+  .inp-trust-logos li { display: flex; align-items: center; justify-content: center; }
+  .inp-tlogo { display: block; height: var(--h, 30px); aspect-ratio: var(--ar); background: #7C88A6; opacity: 0.8; transition: opacity 0.2s;
+    -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
+  .inp-tlogo:hover { opacity: 1; }
+  .inp-tph { display: flex; align-items: center; justify-content: center; height: 30px; padding: 0 12px; border: 1.5px dashed #9AA4BD; border-radius: 6px; font-size: 12px; color: #6B7591; white-space: nowrap; }
   @media (max-width: 1023px) {
-    .inp-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "case" "img" "stats" "callout" "btn"; }
+    .inp-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "case" "img" "stats" "callout" "btn" "trust"; }
     .inp-img { margin-top: 32px; }
   }
   @media (max-width: 759px) {
@@ -379,6 +389,10 @@
     .inp-callout { gap: 14px; }
     .inp-badge { width: 56px; height: 56px; } .inp-badge svg { width: 28px; height: 28px; }
     .inp-callout-text p:last-child { font-size: 17px; }
+    .inp-trust { margin-top: 48px; padding-top: 24px; }
+    .inp-trust-logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px 12px; }
+    .inp-tlogo { height: calc(var(--h, 30px) * 0.7); max-width: 100%; }
+    .inp-tph { height: 24px; padding: 0 6px; font-size: 10px; white-space: normal; text-align: center; line-height: 1.2; }
   }
 </style>
 <style>
@@ -656,6 +670,19 @@
       </div>
       <!-- TODO: case study URL not provided yet; replace "#" -->
       <a href="#" class="act cdbe-btn cdbe-btn-primary inp-btn"><span>Read the Merci Facteur case study</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      <div class="inp-trust">
+        <p class="inp-trust-label">Trusted by leading organisations</p>
+        <ul class="inp-trust-logos">
+          <li><span class="inp-tlogo" role="img" aria-label="Microsoft" style="--src: url(images/logo-microsoft.png); --ar: 167 / 40; --h: 30px;"></span></li>
+          <li><!-- PLACEHOLDER: add images/logo-hp.svg --><span class="inp-tph" role="img" aria-label="HP (logo needed)">HP</span></li>
+          <li><!-- PLACEHOLDER: add images/logo-disney.svg --><span class="inp-tph" role="img" aria-label="Disney (logo needed)">Disney</span></li>
+          <li><!-- PLACEHOLDER: add images/logo-danone.svg --><span class="inp-tph" role="img" aria-label="Danone (logo needed)">Danone</span></li>
+          <li><!-- PLACEHOLDER: add images/logo-emi.svg --><span class="inp-tph" role="img" aria-label="EMI (logo needed)">EMI</span></li>
+          <li><span class="inp-tlogo" role="img" aria-label="Semrush" style="--src: url(images/logo-semrush.png); --ar: 185 / 28; --h: 21px;"></span></li>
+          <li><span class="inp-tlogo" role="img" aria-label="Yoast" style="--src: url(images/logo-yoast.png); --ar: 98 / 43; --h: 32px;"></span></li>
+          <li><!-- PLACEHOLDER: add images/logo-newfold-digital.svg --><span class="inp-tph" role="img" aria-label="Newfold Digital (logo needed)">Newfold Digital</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
