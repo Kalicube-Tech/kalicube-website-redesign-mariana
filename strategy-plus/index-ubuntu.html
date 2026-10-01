@@ -14,7 +14,6 @@
     h1, h2, h3, p { margin: 0; }
     h1, h2 { text-wrap: balance; }
     p { text-wrap: pretty; }
-    .grid-bg { background-image: linear-gradient(rgba(120,180,230,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(120,180,230,0.07) 1px, transparent 1px); background-size: 48px 48px; }
     .hero { position: relative; overflow: hidden; }
     .hero > * { position: relative; z-index: 1; }
     .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
@@ -26,15 +25,11 @@
   .m-page { width: 100% !important; }
   .m-px { padding-left: 20px !important; padding-right: 20px !important; }
   .m-pt { padding-top: 48px !important; }
-  .m-pb { padding-bottom: 48px !important; }
-  .m-g1 { grid-template-columns: minmax(0, 1fr) !important; }
   .m-g2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .m-gap { gap: 24px !important; }
   .m-stack { flex-direction: column !important; align-items: stretch !important; }
-  .m-w { width: auto !important; max-width: 100% !important; }
-  img.m-w { width: 100% !important; }
-  .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
-  .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
+  .m-f60 { font-size: 38px !important; }
+  .m-f32 { font-size: 25px !important; }
   .m-nw { white-space: normal !important; }
   .m-ha { height: auto !important; }
   .m-ha > [style*="flex: 1"] { min-height: 300px; }
@@ -204,7 +199,8 @@
   /* What we engineer: centred intro, the DNA ecosystem diagram, closing line.
      Colours reuse the page's own values (there are no CSS variables on this page): light section #EDF5FB, navy #1A274E,
      muted body #3D4660, accent blue #2F7DB0; gold accents #E3A949. Fonts inherit the page font (Ubuntu). */
-  .wwe-sec { background: #EDF5FB; color: #1A274E; padding: 88px 120px 96px; text-align: center; }
+  /* The top 60px fades from white (the section above) into the section blue, so there is no hard colour cut */
+  .wwe-sec { background: #EDF5FB linear-gradient(to bottom, #FFFFFF 0, #EDF5FB 60px, #EDF5FB 100%); color: #1A274E; padding: 88px 120px 96px; text-align: center; }
   .wwe-eyebrow { display: flex; flex-direction: column; align-items: center; gap: 14px; font-size: 14px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #E3A949; }
   .wwe-eyebrow::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
   .wwe-sec h2 { margin-top: 24px; font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
@@ -217,7 +213,25 @@
     -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent); mask-composite: intersect; }
   .wwe-divider { width: 64px; height: 2px; margin: 36px auto 0; background: #E3A949; border: 0; }
   .wwe-close { max-width: 860px; margin: 28px auto 0; font-size: 24px; line-height: 1.45; font-weight: 500; color: #1A274E; }
+  /* CTA box: matches the Entrepreneurs page's "Get your free AI Audit" box (navy #1A274E, 20px radius, 40px 48px padding, no shadow,
+     40px above it and 112px of section below it). That box is styled inline there, so there is no shared class to reuse. */
+  .wwe-cta { position: relative; overflow: hidden; margin: 40px 0 16px; background: #1A274E; border-radius: 20px; color: #FFFFFF; text-align: left; }
+  .wwe-cta-lines { position: absolute; left: 0; bottom: 0; width: 360px; height: 150px; pointer-events: none; }
+  .wwe-cta-inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 40px 48px; }
+  .wwe-cta-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+  .wwe-cta-head { font-size: 25px; line-height: 1.25; font-weight: 700; color: #FFFFFF; white-space: nowrap; }
+  .wwe-cta-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; list-style: none; margin: 0; padding: 0; font-size: 16px; color: rgba(255, 255, 255, 0.85); }
+  .wwe-cta-sub li + li::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #E3A949; margin-right: 12px; vertical-align: middle; }
+  .wwe-cta-rule { align-self: stretch; width: 1px; background: rgba(255, 255, 255, 0.2); flex-shrink: 0; }
+  .wwe-cta .cdbe-btn { flex-shrink: 0; }
   @media (max-width: 759px) {
+    .wwe-cta { margin: 40px 0 0; }
+    .wwe-cta-lines, .wwe-cta-rule { display: none; }
+    .wwe-cta-inner { flex-direction: column; align-items: stretch; gap: 20px; padding: 28px 18px; }
+    .wwe-cta-head { font-size: 22px; white-space: normal; }
+    .wwe-cta-sub { font-size: 13px; gap: 4px 5px; flex-wrap: nowrap; white-space: nowrap; }
+    .wwe-cta-sub li + li::before { margin-right: 5px; }
+    .wwe-cta .cdbe-btn { width: 100%; white-space: normal; text-align: center; }
     .wwe-sec { padding: 48px 20px 56px; }
     .wwe-sec h2 { font-size: 30px; }
     .wwe-intro { font-size: 16px; }
@@ -264,59 +278,72 @@
   }
 </style>
 <style id="measurable-action">
-  /* Turn corporate brand strategy into measurable action: statement and callout on the left, a four-step cycle on the right.
-     Colours reuse the page's own values (no CSS variables on this page): light-blue section #EDF5FB, navy #1A274E,
-     muted body #3D4660, accent blue #2F7DB0, card shadow as on the page's existing cards; gold accents #E3A949. Font: the page font (Ubuntu).
+  /* Turn corporate brand strategy into measurable action: text left, an animated Kalicube Pro core with four cards in a clockwise cycle on the right.
+     This page has no CSS variables: colours reuse the page's values (navy #1A274E, muted #3D4660, accent blue #2F7DB0, card shadow as on the
+     page's other cards) with gold accents #E3A949. The font is the page font (Ubuntu) inherited from body, for headings and body alike.
      The desktop design is a fixed 1440px page scaled to fit, so the cycle uses fixed positions and the arrows are drawn to match. */
-  .mma-sec { background: #EDF5FB; color: #1A274E; padding: 88px 120px 96px; }
-  .mma-grid { display: grid; grid-template-columns: minmax(0, 45fr) minmax(0, 55fr); gap: 56px; align-items: center; }
-  .mma-left { display: flex; flex-direction: column; gap: 22px; }
-  .mma-sec h2 { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 14px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
-  .mma-sec h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
-  .mma-display { font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
-  .mma-accent { color: #2F7DB0; }
-  .mma-body { font-size: 18px; line-height: 1.6; color: #3D4660; }
-  .mma-callout { display: flex; align-items: center; gap: 20px; background: linear-gradient(rgba(227, 169, 73, 0.16), rgba(227, 169, 73, 0.16)), #FFFFFF; border-left: 4px solid #E3A949; border-radius: 14px; padding: 22px 24px; margin-top: 6px; }
-  .mma-callout svg { width: 40px; height: 40px; flex-shrink: 0; stroke: #E3A949; }
-  .mma-callout-rule { align-self: stretch; width: 1.5px; background: #E3A949; flex-shrink: 0; }
-  .mma-callout p { font-size: 17px; line-height: 1.5; font-weight: 400; color: #1A274E; }
-  .mma-callout strong { font-weight: 700; }
-  /* The cycle: top, right, bottom, left, joined clockwise by curved gold arrows */
-  .mma-cycle { position: relative; width: 629px; height: 760px; margin: 0 auto; }
-  .mma-cycle::before { content: ""; position: absolute; left: 50%; top: 50%; width: 600px; height: 600px; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(47, 125, 176, 0.16) 0%, rgba(47, 125, 176, 0.07) 45%, rgba(47, 125, 176, 0) 70%); pointer-events: none; }
-  .mma-arrows { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-  .mma-steps { list-style: none; margin: 0; padding: 0; }
-  .mma-card { position: absolute; width: 300px; height: 236px; box-sizing: border-box; background: #FFFFFF; border-radius: 14px; padding: 22px 22px 22px 20px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; align-items: center; gap: 14px; }
-  .mma-card:nth-child(1) { left: 164.5px; top: 0; }
-  .mma-card:nth-child(2) { left: 329px; top: 262px; }
-  .mma-card:nth-child(3) { left: 164.5px; top: 524px; }
-  .mma-card:nth-child(4) { left: 0; top: 262px; }
-  .mma-badge { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .mma-badge svg { width: 24px; height: 24px; }
-  .mma-badge-blue { background: rgba(47, 125, 176, 0.12); } .mma-badge-blue svg { stroke: #2F7DB0; }
-  .mma-badge-gold { background: rgba(227, 169, 73, 0.18); } .mma-badge-gold svg { stroke: #E3A949; }
-  .mma-badge-navy { background: rgba(26, 39, 78, 0.08); } .mma-badge-navy svg { stroke: #1A274E; }
-  .mma-card-text { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-  .mma-card h3 { font-size: 18px; line-height: 1.25; font-weight: 700; color: #1A274E; }
-  .mma-card p { font-size: 15px; line-height: 1.5; color: #3D4660; }
-  /* Tablet: the text goes full width and the cycle sits centred below it */
+  .bsm-sec { background: #EBF6FE; background-image: url("images/brand_strategy_bg.png"); background-image: image-set(url("images/brand_strategy_bg.webp") type("image/webp"), url("images/brand_strategy_bg.png") type("image/png"));
+    background-size: cover; background-position: center right; background-repeat: no-repeat; color: #1A274E; padding: 88px 92px 96px; }
+  .bsm-grid { display: grid; grid-template-columns: minmax(0, 37fr) minmax(0, 63fr); gap: 48px; align-items: center; }
+  .bsm-left { display: flex; flex-direction: column; gap: 22px; }
+  .bsm-sec h2 { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 14px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
+  .bsm-sec h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
+  .display-heading { font-size: 46px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
+  .bsm-accent { color: #2F7DB0; }
+  .bsm-body { max-width: 520px; font-size: 18px; line-height: 1.6; color: #3D4660; }
+  .leadership-callout { display: flex; align-items: center; gap: 18px; margin-top: 6px; padding: 20px 22px; border-radius: 14px; border-left: 4px solid #E3A949; background: linear-gradient(rgba(227, 169, 73, 0.16), rgba(227, 169, 73, 0.16)), #FFFFFF; font-size: 17px; line-height: 1.5; color: #1A274E; }
+  .bsm-callout-icon { width: 38px; height: 38px; flex-shrink: 0; stroke: #E3A949; }
+  .bsm-callout-rule { align-self: stretch; width: 1.5px; background: #E3A949; flex-shrink: 0; }
+  .leadership-callout strong { font-weight: 700; }
+  /* The cycle */
+  .bsm-cycle { position: relative; width: 761px; height: 756px; margin: 0 auto; }
+  .bsm-arrows { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+  .bsm-core { position: absolute; left: 380.5px; top: 378px; width: 300px; height: 300px; transform: translate(-50%, -50%); }
+  /* Centre visual: the supplied circle image, with its white backdrop made transparent in the file */
+  .bsm-core::before { content: ""; position: absolute; inset: -12%; border-radius: 50%; background: radial-gradient(circle, rgba(47, 125, 176, 0.12) 40%, rgba(47, 125, 176, 0) 70%); pointer-events: none; }
+  .bsm-core-art, .bsm-core-art img { position: relative; display: block; width: 100%; height: 100%; border-radius: 50%; }
+  .bsm-core-art { animation: bsm-rotate 120s linear infinite; }
+  .intelligence-core { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 12px; border-radius: 10px; background: rgba(255, 255, 255, 0.92); box-shadow: 0 4px 14px rgba(26, 39, 78, 0.12); text-align: center; white-space: nowrap; }
+  .intelligence-core strong { font-size: 14px; font-weight: 700; letter-spacing: 0.16em; color: #1A274E; }
+  .intelligence-core span { font-size: 11px; color: #3D4660; }
+  .bsm-cards { position: absolute; inset: 0; }
+  .bsm-card { position: absolute; width: 270px; height: 244px; box-sizing: border-box; background: #FFFFFF; border-radius: 16px; padding: 17px 20px 19px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 10px; }
+  .bsm-card:nth-child(1) { left: 245.5px; top: 0; }
+  .bsm-card:nth-child(2) { left: 491px; top: 256px; }
+  .bsm-card:nth-child(3) { left: 245.5px; top: 512px; }
+  .bsm-card:nth-child(4) { left: 0; top: 256px; }
+  .bsm-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
+  .bsm-badge { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .bsm-badge svg { width: 22px; height: 22px; }
+  .bsm-badge-blue { background: rgba(47, 125, 176, 0.12); } .bsm-badge-blue svg { stroke: #2F7DB0; }
+  .bsm-badge-gold { background: rgba(227, 169, 73, 0.18); } .bsm-badge-gold svg { stroke: #E3A949; }
+  .bsm-num { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; color: #E3A949; }
+  .bsm-num::after { content: ""; width: 24px; height: 2px; background: #E3A949; }
+  .bsm-card h3 { font-size: 17px; line-height: 1.25; font-weight: 700; color: #1A274E; }
+  .bsm-card p { font-size: 14px; line-height: 1.5; color: #3D4660; }
+  /* Motion: the centre visual turns very slowly; still for reduced motion */
+  @keyframes bsm-rotate { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .bsm-core-art { animation: none; } }
+  /* Tablet and mobile: text, then a smaller core, then the cards in order with small gold arrows between */
   @media (max-width: 1023px) {
-    .mma-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+    .bsm-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .bsm-cycle { width: auto; height: auto; max-width: 620px; }
+    .bsm-arrows { display: none; }
+    .bsm-core { position: relative; left: auto; top: auto; transform: none; width: 280px; height: 280px; margin: 0 auto 40px; }
+    .bsm-cards { position: static; display: flex; flex-direction: column; gap: 44px; }
+    .bsm-card { position: relative; left: auto !important; top: auto !important; width: auto; height: auto; }
+    .bsm-card + .bsm-card::before { content: ""; position: absolute; left: 50%; top: -34px; width: 1.5px; height: 22px; background: #E3A949; transform: translateX(-50%); }
+    .bsm-card + .bsm-card::after { content: ""; position: absolute; left: 50%; top: -18px; width: 8px; height: 8px; border-right: 1.5px solid #E3A949; border-bottom: 1.5px solid #E3A949; transform: translateX(-50%) rotate(45deg); }
   }
-  /* Mobile: cards stack in cycle order with small gold arrows between; no curves or glow */
   @media (max-width: 759px) {
-    .mma-sec { padding: 48px 20px 56px; }
-    .mma-display { font-size: 32px; }
-    .mma-body { font-size: 16px; }
-    .mma-callout { padding: 18px; gap: 14px; }
-    .mma-callout svg { width: 32px; height: 32px; }
-    .mma-callout p { font-size: 16px; }
-    .mma-cycle { width: auto; height: auto; }
-    .mma-cycle::before, .mma-arrows { display: none; }
-    .mma-steps { display: flex; flex-direction: column; gap: 44px; }
-    .mma-card { position: relative; left: auto !important; top: auto !important; width: auto; height: auto; padding: 22px 20px; }
-    .mma-card + .mma-card::before { content: ""; position: absolute; left: 50%; top: -34px; width: 1.5px; height: 22px; background: #E3A949; transform: translateX(-50%); }
-    .mma-card + .mma-card::after { content: ""; position: absolute; left: 50%; top: -18px; width: 8px; height: 8px; border-right: 1.5px solid #E3A949; border-bottom: 1.5px solid #E3A949; transform: translateX(-50%) rotate(45deg); }
+    .bsm-sec { padding: 48px 20px 56px; background-position: 70% center; }
+    .display-heading { font-size: 32px; }
+    .bsm-body { font-size: 16px; }
+    .leadership-callout { padding: 16px 18px; gap: 14px; font-size: 16px; }
+    .bsm-callout-icon { width: 30px; height: 30px; }
+    .bsm-core { width: 240px; height: 240px; margin-bottom: 36px; }
+    .bsm-card h3 { font-size: 18px; }
+    .bsm-card p { font-size: 15px; }
   }
 </style>
 <style id="in-practice">
@@ -387,6 +414,154 @@
     .inp-callout { gap: 14px; }
     .inp-callout-text p:last-child { font-size: 17px; }
     .inp-trust { margin-top: 40px; padding-top: 24px; }
+  }
+</style>
+<style id="measurement">
+  /* How Corporate Digital Brand Engineering measures progress. The page has no CSS variables: background-color reuses the navy of the
+     page's other navy sections (#1A274E) under progress_bg (the right-hand waves and bottom-left curves are part of that image).
+     On navy the page uses its lighter blue #5AA5D3 for accents, so 01, the icon and the display gradient use it. Font: page font (Ubuntu). */
+  .measurement-section { background-color: #1A274E; background-image: url("images/progress_bg.png");
+    background-image: image-set(url("images/progress_bg.webp") type("image/webp"), url("images/progress_bg.png") type("image/png"));
+    background-size: cover; background-position: center; background-repeat: no-repeat; color: #FFFFFF; padding: 88px 120px 80px; }
+  .measurement-inner { display: grid; grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); gap: 64px; align-items: start; }
+  .measurement-intro { display: flex; flex-direction: column; gap: 24px; }
+  .measurement-section h2 { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 14px; line-height: 1.6; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; }
+  .measurement-section h2::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
+  .measurement-display-heading { font-size: 50px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #FFFFFF; }
+  .measurement-display-heading span { background: linear-gradient(90deg, #5AA5D3, #9CD4F4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .measurement-intro p { font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.85); }
+  .measurement-signals { display: flex; flex-direction: column; }
+  .measurement-signal { max-width: 420px; display: flex; flex-direction: column; gap: 14px; }
+  .signal-label { display: flex; align-items: center; gap: 16px; }
+  .signal-number { font-size: 38px; line-height: 1; font-weight: 700; }
+  .signal-line { width: 44px; height: 1px; }
+  .recognition .signal-number { color: #5AA5D3; } .recognition .signal-line { background: #5AA5D3; }
+  .recommendation .signal-number { color: #E3A949; } .recommendation .signal-line { background: #E3A949; }
+  .signal-name { font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #FFFFFF; }
+  .measurement-signal h3 { font-size: 32px; line-height: 1.18; font-weight: 700; color: #FFFFFF; }
+  .measurement-signal p { font-size: 17px; line-height: 1.6; color: rgba(255, 255, 255, 0.85); }
+  .measurement-divider { height: 1px; margin: 36px 0; background: rgba(227, 169, 73, 0.4); }
+  .measurement-principle { display: flex; align-items: center; gap: 18px; margin-top: 40px; }
+  .measurement-icon { display: flex; flex-shrink: 0; padding-right: 18px; border-right: 1.5px solid #E3A949; }
+  .measurement-icon svg { width: 34px; height: 34px; stroke: #5AA5D3; }
+  .measurement-principle p { font-size: 14px; line-height: 1.6; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF; }
+  .measurement-principle strong { font-weight: 700; }
+  .measurement-principle p span { color: rgba(255, 255, 255, 0.85); }
+  @media (max-width: 1023px) {
+    .measurement-inner { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+    .measurement-signal { max-width: 640px; }
+  }
+  @media (max-width: 759px) {
+    /* Phones: the waves would sit behind the text, so a navy veil keeps it readable */
+    .measurement-section { padding: 48px 20px 56px; background-position: 75% center;
+      background-image: linear-gradient(rgba(26, 39, 78, 0.78), rgba(26, 39, 78, 0.78)), url("images/progress_bg.png");
+      background-image: linear-gradient(rgba(26, 39, 78, 0.78), rgba(26, 39, 78, 0.78)), image-set(url("images/progress_bg.webp") type("image/webp"), url("images/progress_bg.png") type("image/png")); }
+    .measurement-display-heading { font-size: 32px; }
+    .measurement-intro p { font-size: 16px; }
+    .signal-number { font-size: 32px; }
+    .measurement-signal h3 { font-size: 24px; }
+    .measurement-signal p { font-size: 16px; }
+    .measurement-divider { margin: 28px 0; }
+    .measurement-principle { margin-top: 32px; align-items: flex-start; }
+    .measurement-principle p { font-size: 13px; letter-spacing: 0.1em; }
+  }
+</style>
+<style id="why-kalicube-pro">
+  /* Why Kalicube Pro. The page has no CSS variables: colours reuse its values (light-blue section #EDF5FB, navy #1A274E,
+     muted #3D4660, blue-grey #6B7591, accent blue #2F7DB0, card shadow as on the page's other cards); gold accents #E3A949.
+     Font: the page font (Ubuntu), inherited from body. */
+  .why-kalicube-pro { position: relative; overflow: hidden; background: #EDF5FB; color: #1A274E; padding: 88px 120px 0; }
+  .why-kalicube-pro__main { display: grid; grid-template-columns: minmax(0, 52fr) minmax(0, 48fr); gap: 40px; align-items: end; }
+  .why-kalicube-pro__content { display: flex; flex-direction: column; gap: 24px; padding-bottom: 56px; }
+  .section-label { display: flex; align-items: center; gap: 14px; }
+  .section-label__dot { width: 8px; height: 8px; border-radius: 50%; background: #E3A949; flex-shrink: 0; }
+  .why-kalicube-pro h2 { font-size: 14px; line-height: 1; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; white-space: nowrap; }
+  .section-label__line { flex: 1; height: 1px; background: #E3A949; }
+  .why-kalicube-pro__display-heading { font-size: 50px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
+  .why-kalicube-pro__display-heading span { color: #E3A949; }
+  .why-kalicube-pro__content > p { font-size: 18px; line-height: 1.6; color: #1A274E; max-width: 600px; }
+  .why-kalicube-pro__content strong { font-weight: 700; }
+  .why-kalicube-pro__distinction { display: flex; flex-direction: column; gap: 10px; max-width: 600px; padding-left: 20px; border-left: 3px solid #E3A949; }
+  .why-kalicube-pro__distinction p { font-size: 17px; line-height: 1.6; color: #3D4660; }
+  .why-kalicube-pro__distinction p:first-child { font-size: 20px; line-height: 1.4; color: #1A274E; }
+  /* Jason: bottom-aligned onto the proof strip, two soft circles and a gold arc behind him */
+  .why-kalicube-pro__founder { position: relative; align-self: stretch; min-height: 560px; }
+  .founder-visual { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; }
+  .founder-visual__circle { position: absolute; border-radius: 50%; pointer-events: none; }
+  .founder-visual__circle--large { width: 480px; height: 480px; left: 50%; top: 60px; transform: translateX(-50%); background: radial-gradient(circle, rgba(47, 125, 176, 0.2) 0%, rgba(47, 125, 176, 0.12) 50%, rgba(47, 125, 176, 0) 70%); }
+  .founder-visual__circle--small { width: 200px; height: 200px; left: 4%; top: 34%; background: rgba(47, 125, 176, 0.08); }
+  .founder-visual__arc { position: absolute; right: 0; top: 190px; width: 260px; height: 330px; pointer-events: none; }
+  .founder-visual picture { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 560px; }
+  .founder-visual img { display: block; width: 100%; height: auto; }
+  .founder-identification { position: absolute; right: 0; top: 24px; display: flex; gap: 14px; }
+  .founder-identification__line { width: 1.5px; background: #E3A949; }
+  .founder-identification div { display: flex; flex-direction: column; gap: 4px; }
+  .founder-identification strong { font-size: 18px; font-weight: 700; color: #1A274E; }
+  .founder-identification span:not(.founder-identification__line) { font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #6B7591; }
+  /* Proof strip */
+  .why-kalicube-pro__proof-strip { position: relative; display: flex; align-items: center; background: #FFFFFF; border-radius: 16px 16px 0 0; box-shadow: 0 -4px 14px rgba(26,39,78,0.06), 0 4px 14px rgba(26,39,78,0.08); padding: 28px 36px; }
+  .proof-item { flex: 1; display: flex; align-items: center; gap: 18px; }
+  .proof-item__icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(47, 125, 176, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .proof-item__icon svg { width: 28px; height: 28px; }
+  .proof-item > div:last-child { display: flex; flex-direction: column; gap: 6px; }
+  .proof-item strong { font-size: 16px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #1A274E; }
+  .proof-item span { font-size: 15px; line-height: 1.4; color: #3D4660; }
+  .proof-divider { align-self: stretch; width: 1px; margin: 0 32px; background: rgba(26, 39, 78, 0.14); }
+  /* Tablet and mobile: content, then Jason (smaller, centred, name below), then the strip stacked */
+  @media (max-width: 1023px) {
+    .why-kalicube-pro__main { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .why-kalicube-pro__content { padding-bottom: 40px; }
+    .why-kalicube-pro__founder { display: flex; flex-direction: column; align-items: center; min-height: 0; }
+    .founder-visual { position: relative; height: 420px; width: 100%; max-width: 520px; }
+    .founder-visual picture { width: 440px; max-width: 100%; }
+    .founder-identification { position: static; margin: 20px 0 28px; }
+  }
+  @media (max-width: 759px) {
+    .why-kalicube-pro { padding: 48px 20px 0; }
+    .why-kalicube-pro h2 { white-space: normal; line-height: 1.4; }
+    .why-kalicube-pro__display-heading { font-size: 32px; }
+    .why-kalicube-pro__display-heading br { display: none; }
+    .why-kalicube-pro__content > p { font-size: 16px; }
+    .why-kalicube-pro__distinction p { font-size: 16px; }
+    .why-kalicube-pro__distinction p:first-child { font-size: 18px; }
+    .founder-visual__arc { display: none; }
+    .founder-visual { height: 300px; }
+    .founder-visual picture { width: 320px; }
+    .founder-visual__circle--large { width: 320px; height: 320px; top: 10px; }
+    .founder-visual__circle--small { width: 140px; height: 140px; }
+    .why-kalicube-pro__proof-strip { flex-direction: column; align-items: stretch; padding: 8px 20px; }
+    .proof-item { padding: 18px 0; }
+    .proof-divider { width: auto; height: 1px; margin: 0; }
+  }
+</style>
+<style id="final-cta">
+  /* Final CTA. The curves, gold arcs and glow are all in CTA_section_bg; background-color is the page's navy (#1A274E) while it loads.
+     Buttons reuse the hero's button classes. Font: the page font (Ubuntu). A faint gold line separates it from the darker footer. */
+  .fcta-sec { background-color: #1A274E; background-image: url("images/CTA_section_bg.png");
+    background-image: image-set(url("images/CTA_section_bg.webp") type("image/webp"), url("images/CTA_section_bg.png") type("image/png"));
+    background-size: cover; background-position: center; background-repeat: no-repeat; color: #FFFFFF; padding: 120px; text-align: center;
+    border-bottom: 1px solid rgba(227, 169, 73, 0.25); }
+  .fcta-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .fcta-sec h2 { font-size: 56px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #FFFFFF; }
+  .fcta-sec h2 span { color: #E3A949; }
+  .fcta-body { margin-top: 24px; max-width: 720px; font-size: 20px; line-height: 1.6; color: rgba(255, 255, 255, 0.85); }
+  .fcta-body strong { font-weight: 700; color: #FFFFFF; }
+  .fcta-btns { margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .fcta-reassure { margin: 32px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; }
+  .fcta-reassure li { display: flex; align-items: center; gap: 10px; padding: 0 22px; font-size: 15px; color: #FFFFFF; }
+  .fcta-reassure li + li { border-left: 1px solid rgba(255, 255, 255, 0.25); }
+  .fcta-reassure svg { width: 20px; height: 20px; flex-shrink: 0; }
+  @media (max-width: 759px) {
+    /* Phones: a navy veil keeps the text clear of the bright arcs */
+    .fcta-sec { padding: 64px 20px;
+      background-image: linear-gradient(rgba(26, 39, 78, 0.6), rgba(26, 39, 78, 0.6)), url("images/CTA_section_bg.png");
+      background-image: linear-gradient(rgba(26, 39, 78, 0.6), rgba(26, 39, 78, 0.6)), image-set(url("images/CTA_section_bg.webp") type("image/webp"), url("images/CTA_section_bg.png") type("image/png")); }
+    .fcta-sec h2 { font-size: 32px; }
+    .fcta-body { font-size: 16px; }
+    .fcta-btns { width: 100%; flex-direction: column; align-items: stretch; }
+    .fcta-btns .cdbe-btn { width: 100%; white-space: normal; text-align: center; }
+    .fcta-reassure { flex-direction: column; gap: 12px; }
+    .fcta-reassure li + li { border-left: 0; }
   }
 </style>
 <style>
@@ -489,21 +664,6 @@
     </ul>
   </section>
 
-  <!-- Press: pinned to the bottom of the first screen, then scrolls into place -->
-  <section class="m-press m-px m-gap m-stack" style="position: sticky; bottom: 0; z-index: 30; background: #FFFFFF; padding: 28px 120px; display: flex; align-items: center; gap: 56px; border-top: 1.5px solid #5AA5D3; border-bottom: 1.5px solid #5AA5D3; box-shadow: 0 -6px 18px rgba(26,39,78,0.12);">
-    <div class="m-nw" style="font-size: 14px; font-weight: 700; color: #1A274E; white-space: nowrap;">As featured in</div>
-    <div class="m-logos" style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
-      <img src="images/p-forbes.png" alt="Forbes" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
-      <img src="images/p-entrepreneur.png" alt="Entrepreneur" style="height: 22px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
-      <img src="images/p-lemonde.png" alt="Le Monde" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
-      <img src="images/p-skynews.png" alt="Sky News" style="height: 26px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
-      <img src="images/p-usatoday.png" alt="USA Today" style="height: 32px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
-      <img src="images/p-rollingstone.png" alt="Rolling Stone" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
-      <img src="images/p-yahoo.png" alt="Yahoo! News" style="height: 30px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
-      <img src="images/p-msn.png" alt="MSN" style="height: 28px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
-    </div>
-  </section>
-
   <!-- The underlying issue: why corporate brand strategy has changed, with a client quote -->
   <section class="ui-sec" aria-labelledby="ui-title">
     <div class="ui-grid">
@@ -551,6 +711,26 @@
     </picture>
     <hr class="wwe-divider">
     <p class="wwe-close">Corporate Digital Brand Engineering brings these signals together so your company tells <span class="wwe-accent">one clear, consistent and credible story</span> across search and AI.</p>
+    <div class="wwe-cta">
+      <svg class="wwe-cta-lines" viewBox="0 0 360 150" fill="none" aria-hidden="true">
+        <g stroke="#E3A949" stroke-width="1" stroke-linecap="round">
+          <path d="M0 40 C 80 60, 160 110, 300 150" opacity="0.35"></path>
+          <path d="M0 58 C 70 78, 150 120, 260 150" opacity="0.3"></path>
+          <path d="M0 76 C 60 94, 130 128, 220 150" opacity="0.26"></path>
+          <path d="M0 94 C 50 110, 110 136, 180 150" opacity="0.22"></path>
+          <path d="M0 112 C 40 124, 90 142, 140 150" opacity="0.2"></path>
+          <path d="M20 0 C 60 50, 150 100, 360 140" opacity="0.2"></path>
+        </g>
+      </svg>
+      <div class="wwe-cta-inner">
+        <div class="wwe-cta-text">
+          <p class="wwe-cta-head">See how Google and AI understand your company.</p>
+          <ul class="wwe-cta-sub"><li>Free</li><li>Less than 5 minutes</li><li>Personalised strategy</li></ul>
+        </div>
+        <span class="wwe-cta-rule" aria-hidden="true"></span>
+        <a href="https://diagnosis.kalicube.pro/" target="_blank" rel="noopener" class="act cdbe-btn cdbe-btn-primary"><span>Get Your Free AI Audit and Corporate Strategy</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+    </div>
   </section>
 
   <!-- How Corporate Digital Brand Engineering works: strategy, intelligence, execution -->
@@ -570,7 +750,7 @@
       <li class="hiw-step hiw-arrow">
         <div class="hiw-top" aria-hidden="true"><span class="hiw-num">02</span><span class="hiw-line"></span></div>
         <h3>Prioritise actions with Kalicube Pro</h3>
-        <p class="hiw-body">Kalicube Pro tells your team what to do next. Built on 25 billion data points and 73 million entities, Kalicube Pro turns intelligence about your brand, competitors and digital ecosystem into prioritised actions for your team.</p>
+        <p class="hiw-body">Kalicube Pro tells your team what to do next. Built on 25 billion data points and 73 million entities, it analyses your brand, competitors and audience across search, Knowledge Graphs and AI, turning that intelligence into prioritised actions for your team.</p>
         <div class="hiw-foot"><p class="hiw-label">Powered by Kalicube Pro</p></div>
       </li>
       <li class="hiw-step">
@@ -583,46 +763,53 @@
   </section>
 
   <!-- Turn corporate brand strategy into measurable action -->
-  <section class="mma-sec" aria-labelledby="mma-title">
-    <div class="mma-grid">
-      <div class="mma-left">
-        <h2 id="mma-title">Turn corporate brand strategy into measurable action</h2>
-        <p class="mma-display">Give your marketing team direction <span class="mma-accent">you can measure.</span></p>
-        <p class="mma-body">Your marketing team doesn't need more activity. It needs to know what deserves attention, why it matters and whether the work is making a difference. Corporate Digital Brand Engineering turns strategy into prioritised direction your team can execute, with the intelligence to keep that direction current.</p>
-        <div class="mma-callout">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21v-3.5a6.5 6.5 0 1 1 7.5-6.4l1.8 3.2c.2.4-.1.9-.5.9H16v2.3c0 .8-.7 1.5-1.5 1.5H12.5V21"></path><path d="M11 8.2a2 2 0 0 1 3 1.7c0 1.2-1.5 1.5-1.5 2.6"></path></svg>
-          <span class="mma-callout-rule" aria-hidden="true"></span>
-          <p><strong>For marketing leadership</strong>, that means less time deciding where to focus, and <span class="mma-accent">more headspace</span> for the decisions only you can make.</p>
-        </div>
+  <section class="bsm-sec" aria-labelledby="bsm-title">
+    <div class="bsm-grid">
+      <div class="bsm-left">
+        <h2 id="bsm-title">Turn corporate brand strategy into measurable action</h2>
+        <div class="display-heading">Give your marketing team direction <span class="bsm-accent">you can measure.</span></div>
+        <p class="bsm-body">Your marketing team doesn't need more activity. It needs to know what deserves attention, why it matters and whether the work is making a difference. Corporate Digital Brand Engineering turns strategy into prioritised direction your team can execute, with the intelligence to keep that direction current.</p>
+        <div class="leadership-callout"><svg class="bsm-callout-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21v-3.5a6.5 6.5 0 1 1 7.5-6.4l1.8 3.2c.2.4-.1.9-.5.9H16v2.3c0 .8-.7 1.5-1.5 1.5H12.5V21"></path><path d="M11 8.2a2 2 0 0 1 3 1.7c0 1.2-1.5 1.5-1.5 2.6"></path></svg><span class="bsm-callout-rule" aria-hidden="true"></span><span class="bsm-callout-text"><strong>For marketing leadership,</strong> that means less time deciding where to focus, and <span class="bsm-accent">more headspace</span> for the decisions only you can make.</span></div>
       </div>
-      <div class="mma-cycle">
-        <svg class="mma-arrows" viewBox="0 0 629 760" aria-hidden="true">
-          <defs><marker id="mma-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></marker></defs>
-          <g fill="none" stroke="#E3A949" stroke-width="2" stroke-linecap="round" marker-end="url(#mma-head)">
-            <path d="M474 112 Q 564 112 564 252"></path>
-            <path d="M564 508 Q 564 648 474 648"></path>
-            <path d="M155 648 Q 65 648 65 508"></path>
-            <path d="M65 252 Q 65 112 155 112"></path>
+      <div class="bsm-cycle">
+        <svg class="bsm-arrows" viewBox="0 0 761 756" aria-hidden="true">
+          <defs><marker id="bsm-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></marker></defs>
+          <g fill="none" stroke="#E3A949" stroke-width="2" stroke-linecap="round" marker-end="url(#bsm-head)">
+            <path d="M523 122 Q 626 122 626 248"></path>
+            <path d="M626 508 Q 626 634 525 634"></path>
+            <path d="M236 634 Q 135 634 135 508"></path>
+            <path d="M135 248 Q 135 122 236 122"></path>
           </g>
         </svg>
-        <ol class="mma-steps">
-          <li class="mma-card">
-            <span class="mma-badge mma-badge-blue"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"></rect><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h7M8.5 18h4"></path></svg></span>
-            <div class="mma-card-text"><h3>Prioritise what needs attention now</h3><p>Kalicube Pro identifies the most important opportunities and gaps for your brand, based on how it is understood across the digital ecosystem.</p></div>
-          </li>
-          <li class="mma-card">
-            <span class="mma-badge mma-badge-gold"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.8"></circle><circle cx="5.5" cy="9.5" r="2.2"></circle><circle cx="18.5" cy="9.5" r="2.2"></circle><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M1.8 18c0-2.3 1.6-4 3.7-4 1 0 1.8.3 2.5.9M22.2 18c0-2.3-1.6-4-3.7-4-1 0-1.8.3-2.5.9"></path></svg></span>
-            <div class="mma-card-text"><h3>Your team executes the corporate brand strategy</h3><p>Your internal team works on the prioritised actions across SEO, content, PR, websites and brand, with clear direction and context.</p></div>
-          </li>
-          <li class="mma-card">
-            <span class="mma-badge mma-badge-navy"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"></path><rect x="6" y="11" width="3" height="7"></rect><rect x="10.5" y="6" width="3" height="12"></rect><rect x="15" y="9" width="3" height="9"></rect></svg></span>
-            <div class="mma-card-text"><h3>Measure corporate digital brand progress</h3><p>Progress is measured over time, so you can see what's working and where attention is needed.</p></div>
-          </li>
-          <li class="mma-card">
-            <span class="mma-badge mma-badge-blue"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"></path><path d="M18 2.8v3.8h-3.8M6 21.2v-3.8h3.8"></path></svg></span>
-            <div class="mma-card-text"><h3>Prioritise what needs attention next</h3><p>As the data changes, new opportunities and risks emerge. The strategy is updated and your team moves to the next set of priorities.</p></div>
-          </li>
-        </ol>
+        <div class="bsm-core">
+          <picture class="bsm-core-art">
+            <source srcset="images/circle_center_corporate.webp" type="image/webp">
+            <img src="images/circle_center_corporate.png" width="720" height="720" loading="lazy" alt="">
+          </picture>
+          <div class="intelligence-core"><strong>KALICUBE PRO</strong><span>Digital Brand Intelligence</span></div>
+        </div>
+        <div class="bsm-cards">
+          <article class="bsm-card">
+            <div class="bsm-card-top"><span class="bsm-badge bsm-badge-blue"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"></rect><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h7M8.5 18h4"></path></svg></span><span class="bsm-num" aria-hidden="true">01</span></div>
+            <h3>Prioritise what needs attention now</h3>
+            <p>Kalicube Pro identifies the most important opportunities and gaps based on how your brand is understood across search and AI.</p>
+          </article>
+          <article class="bsm-card">
+            <div class="bsm-card-top"><span class="bsm-badge bsm-badge-gold"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.8"></circle><circle cx="5.5" cy="9.5" r="2.2"></circle><circle cx="18.5" cy="9.5" r="2.2"></circle><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M1.8 18c0-2.3 1.6-4 3.7-4 1 0 1.8.3 2.5.9M22.2 18c0-2.3-1.6-4-3.7-4-1 0-1.8.3-2.5.9"></path></svg></span><span class="bsm-num" aria-hidden="true">02</span></div>
+            <h3>Your team executes the corporate brand strategy</h3>
+            <p>Your internal team works on the prioritised actions across SEO, content, PR, websites and brand, with clear direction and context.</p>
+          </article>
+          <article class="bsm-card">
+            <div class="bsm-card-top"><span class="bsm-badge bsm-badge-blue"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"></path><rect x="6" y="11" width="3" height="7"></rect><rect x="10.5" y="6" width="3" height="12"></rect><rect x="15" y="9" width="3" height="9"></rect></svg></span><span class="bsm-num" aria-hidden="true">03</span></div>
+            <h3>Measure how Google and AI understand your brand</h3>
+            <p>See whether Google and AI name your brand, how they describe it, and whether that understanding matches your strategy.</p>
+          </article>
+          <article class="bsm-card">
+            <div class="bsm-card-top"><span class="bsm-badge bsm-badge-blue"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"></path><path d="M18 2.8v3.8h-3.8M6 21.2v-3.8h3.8"></path></svg></span><span class="bsm-num" aria-hidden="true">04</span></div>
+            <h3>Prioritise what needs attention next</h3>
+            <p>As the data changes, new opportunities and gaps emerge. Kalicube Pro updates the priorities so your team knows what to address next.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -674,113 +861,211 @@
     </div>
   </section>
 
-  <!-- What changed -->
-  <section class="m-px m-pt m-pb m-gap" style="padding: 120px 120px 120px; display: flex; flex-direction: column; gap: 56px;">
-    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 860px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">It’s still brand and reputation. <span style="color: #2F7DB0;">What’s changed is who tells the story.</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">How AI search changed brand and reputation management</h2></div>
-      <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: #3D4660;">As Jeff Bezos would say today, your brand is what Google and AI say about you when you’re not in the room.</p>
+<section class="measurement-section">
+  <div class="measurement-inner">
+
+    <div class="measurement-intro">
+      <h2>How Corporate Digital Brand Engineering measures progress</h2>
+
+      <!-- Display heading: NOT an H-tag -->
+      <div class="measurement-display-heading">
+        You can see when Google and AI change
+        <span>their understanding of your brand.</span>
+      </div>
+
+      <p>Kalicube Pro measures how your company is understood across Google and AI against the brand strategy you defined. You can see whether your company is being identified correctly, how it is described and whether it appears when people ask for relevant recommendations.</p>
     </div>
-    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-      <div class="m-px" style="padding: 44px 48px; display: flex; flex-direction: column; gap: 28px; background: #F6F6F6;">
-        <div style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.06em; color: #4A5470; font-weight: 500;">HOW IT USED TO WORK</div>
-        <div style="display: flex; flex-direction: column; gap: 22px;">
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5; color: #4A5470;">Buyers typed a search, saw ten links and did their own research.</p>
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5; color: #4A5470;">Your reputation was the first page of Google.</p>
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5; color: #4A5470;">Reputation management drowned the problem in content.</p>
+
+    <div class="measurement-signals">
+      <article class="measurement-signal recognition">
+        <div class="signal-label">
+          <span class="signal-number">01</span>
+          <span class="signal-line"></span>
+          <span class="signal-name">Recognition</span>
+        </div>
+        <h3>Do Google and AI understand who you are?</h3>
+        <p>See whether your company is identified correctly, associated with the right topics, products, people and expertise, and described in a way that reflects your intended brand narrative.</p>
+      </article>
+
+      <div class="measurement-divider"></div>
+
+      <article class="measurement-signal recommendation">
+        <div class="signal-label">
+          <span class="signal-number">02</span>
+          <span class="signal-line"></span>
+          <span class="signal-name">Recommendation</span>
+        </div>
+        <h3>Do they recommend you when your company should be considered?</h3>
+        <p>Measure whether your company appears for relevant category, solution and buying questions, and how that visibility changes against the goals defined in your strategy.</p>
+      </article>
+
+      <div class="measurement-principle">
+        <span class="measurement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M6 18v-5M10 18V8M14 18v-7M18 18V5"></path></svg></span>
+        <p><strong>Measured over time against your own strategy,</strong> <span>not a generic visibility score.</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="why-kalicube-pro">
+
+  <div class="why-kalicube-pro__main">
+
+    <!-- LEFT: CONTENT -->
+    <div class="why-kalicube-pro__content">
+
+      <div class="section-label">
+        <span class="section-label__dot"></span>
+
+        <h2>Why Kalicube Pro</h2>
+
+        <span class="section-label__line"></span>
+      </div>
+
+      <!-- Display heading — NOT an H-tag -->
+      <div class="why-kalicube-pro__display-heading">
+        Digital brand intelligence<br>
+        built on more than<br>
+        <span>a decade of data.</span>
+      </div>
+
+      <p>
+        Kalicube Pro has tracked how machines understand brands and entities
+        since 2015. Today, its intelligence is built on
+        <strong>25 billion data points across 73 million entities</strong>,
+        giving your corporate brand strategy historical context alongside a
+        current view of your brand, market and competitors.
+      </p>
+
+      <div class="why-kalicube-pro__distinction">
+        <p>
+          <strong>Kalicube Pro doesn't stop at measuring visibility.</strong>
+        </p>
+
+        <p>
+          It connects what Google and AI understand about your company to the
+          strategy your team is implementing, identifies what deserves
+          attention next and measures what changes as the work progresses.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT: JASON -->
+    <div class="why-kalicube-pro__founder">
+
+      <div class="founder-visual">
+        <span class="founder-visual__circle founder-visual__circle--large" aria-hidden="true"></span>
+        <span class="founder-visual__circle founder-visual__circle--small" aria-hidden="true"></span>
+        <svg class="founder-visual__arc" viewBox="0 0 260 330" fill="none" aria-hidden="true"><path d="M150 6 C 232 40, 262 140, 236 236" stroke="#E3A949" stroke-width="1.5" stroke-linecap="round"></path><circle cx="236" cy="236" r="6" fill="#E3A949"></circle></svg>
+        <picture>
+          <source srcset="images/jason-barnard-cutout.webp" type="image/webp">
+          <img
+            src="images/jason-barnard-cutout.png"
+            alt="Jason Barnard, founder and CEO of Kalicube"
+            width="900" height="822" loading="lazy"
+          >
+        </picture>
+      </div>
+
+      <div class="founder-identification">
+        <span class="founder-identification__line"></span>
+
+        <div>
+          <strong>Jason Barnard</strong>
+          <span>Founder and CEO</span>
+          <span>Kalicube</span>
         </div>
       </div>
-      <div class="m-px" style="padding: 44px 48px; display: flex; flex-direction: column; gap: 28px; background: #1A274E; color: #FFFFFF;">
-        <div style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.06em; color: #5AA5D3; font-weight: 500;">HOW IT WORKS NOW</div>
-        <div style="display: flex; flex-direction: column; gap: 22px;">
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5;">Buyers ask an AI assistant and get one answer, already researched for them.</p>
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5;">Your reputation is whatever that answer says.</p>
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5;">Brand engineering corrects the record, because machines don’t count content. They look for the same answer in enough places, for long enough, to believe it.</p>
-        </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- AUTHORITY STRIP -->
+  <div class="why-kalicube-pro__proof-strip">
+
+    <div class="proof-item">
+      <div class="proof-item__icon" aria-hidden="true">
+        <!-- Calendar icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"></path></svg>
       </div>
+
+      <div>
+        <strong>Since 2015</strong>
+        <span>Machine understanding tracked over time.</span>
+      </div>
+    </div>
+
+
+    <div class="proof-divider" aria-hidden="true"></div>
+
+
+    <div class="proof-item">
+      <div class="proof-item__icon" aria-hidden="true">
+        <!-- Database icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"></ellipse><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg>
+      </div>
+
+      <div>
+        <strong>25 billion · 73 million</strong>
+        <span>Data points across entities.</span>
+      </div>
+    </div>
+
+
+    <div class="proof-divider" aria-hidden="true"></div>
+
+
+    <div class="proof-item">
+      <div class="proof-item__icon" aria-hidden="true">
+        <!-- Patent/document icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3H6v18h7"></path><path d="M15 3l4 4v7M15 3v4h4M9 9h6M9 12.5h6"></path><circle cx="17.5" cy="17.5" r="3"></circle><path d="M16 20.2 15.5 23l2-1 2 1-.5-2.8"></path></svg>
+      </div>
+
+      <div>
+        <strong>17</strong>
+        <span>INPI patent applications.</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- Call: final CTA -->
+  <section id="call" class="fcta-sec" aria-labelledby="fcta-title">
+    <div class="fcta-inner">
+      <h2 id="fcta-title">See where your company stands.<br><span>Then build the strategy.</span></h2>
+      <p class="fcta-body">Start with the <strong>free AI Audit</strong> to see how Google and AI understand your company today, where the gaps are and what to prioritise next.</p>
+      <div class="fcta-btns">
+        <a href="https://diagnosis.kalicube.pro/" target="_blank" rel="noopener" class="act cdbe-btn cdbe-btn-primary"><span>Get Your Free AI Audit and Corporate Strategy</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://kalicube.com/about/contact/" target="_blank" rel="noopener" class="act cdbe-btn cdbe-btn-secondary"><span>Speak to a Digital Brand Engineer</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+      <ul class="fcta-reassure">
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="#E3A949" stroke-width="1.5"></circle><path d="M6.5 10.2l2.3 2.3 4.7-4.9" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Free</span></li>
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="#E3A949" stroke-width="1.5"></circle><path d="M6.5 10.2l2.3 2.3 4.7-4.9" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Less than 5 minutes</span></li>
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="#E3A949" stroke-width="1.5"></circle><path d="M6.5 10.2l2.3 2.3 4.7-4.9" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Personalised strategy</span></li>
+      </ul>
     </div>
   </section>
 
-  <!-- The gap: the words beside the photo, as two boxes that stack on a phone -->
-  <section class="m-px m-pt m-pb" style="background: #EDF5FB; padding: 104px 120px;">
-    <div class="m-gap" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 64px; align-items: stretch;">
-      <div style="display: flex; flex-direction: column; gap: 28px; justify-content: center;">
-        <div style="display: flex; flex-direction: column; gap: 14px;"><p class="m-f40" style="font-weight: 500; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 42px; line-height: 1.18; color: #22325F;">AI isn’t being unfair to you. It has assembled a picture from what it can find, <span style="color: #2F7DB0;">and the picture is wrong.</span></p><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Why AI gets your company wrong, or hedges</h2></div>
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-          <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: #3D4660;">Or it’s hedging, which is worse, because nothing looks broken.</p>
-          <p class="m-f20" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; line-height: 1.6; color: #22325F; font-weight: 700;">You already know there’s a gap. We measure it.</p>
-        </div>
-      </div>
+  <!-- Press: "As featured in", just above the footer -->
+  <section class="m-press m-px m-gap m-stack" style="background: #FFFFFF; padding: 28px 120px; display: flex; align-items: center; gap: 56px; border-top: 1.5px solid #5AA5D3; border-bottom: 1.5px solid #5AA5D3; box-shadow: 0 -6px 18px rgba(26,39,78,0.12);">
+    <div class="m-nw" style="font-size: 14px; font-weight: 700; color: #1A274E; white-space: nowrap;">As featured in</div>
+    <div class="m-logos" style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
+      <img src="images/p-forbes.png" alt="Forbes" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-entrepreneur.png" alt="Entrepreneur" style="height: 22px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-lemonde.png" alt="Le Monde" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-skynews.png" alt="Sky News" style="height: 26px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-usatoday.png" alt="USA Today" style="height: 32px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-rollingstone.png" alt="Rolling Stone" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-yahoo.png" alt="Yahoo! News" style="height: 30px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-msn.png" alt="MSN" style="height: 28px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
     </div>
-  </section>
-
-  <!-- What Strategy Plus is -->
-  <section class="m-px m-pt m-pb m-gap" style="padding: 128px 120px 120px; display: flex; flex-direction: column; gap: 56px;">
-    <div class="m-gap m-stack" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 80px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em; max-width: 720px;">How Strategy Plus works, <span style="color: #2F7DB0;">in three steps</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">What Strategy Plus includes: the strategy, the data and a weekly cycle your team runs</h2></div>
-      <p class="m-f21" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; line-height: 1.5; font-weight: 700; color: #22325F; max-width: 460px;">We build the strategy once. The platform keeps it alive: it collects the data, evolves the strategy and tells your team what to do. Your team does the work.</p>
-    </div>
-    <div class="m-g1" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px;">
-      <div style="display: flex; flex-direction: column; gap: 16px; border-top: 3px solid #22325F; padding-top: 24px;">
-        <div class="m-f48" style="font-weight: 500; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 56px; line-height: 1; color: #2F7DB0;">1</div>
-        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2;">We build the strategy</h3>
-        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">In the first month: the aim of the game, one corroborated story for each brand in your group, who it’s for, and the questions that matter. We train your team on it. You validate the facts and the priorities; we own the method.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 16px; border-top: 3px solid #22325F; padding-top: 24px;">
-        <div class="m-f48" style="font-weight: 500; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 56px; line-height: 1; color: #2F7DB0;">2</div>
-        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2;">Kalicube Pro collects the data and evolves the strategy</h3>
-        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">Every week, Kalicube Pro collects data on you, your market and competitors, and your audience, across search, the knowledge graph and LLMs. As the data changes, the strategy evolves with it, so it never goes stale.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 16px; border-top: 3px solid #B98B4E; padding-top: 24px;">
-        <div class="m-f48" style="font-weight: 500; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 56px; line-height: 1; color: #B98B4E;">3</div>
-        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2;">Every week, the machine tells your team what to do</h3>
-        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">Kalicube Pro’s AI knows your strategy, your brands and the data, so every week it tells your team what to do and shows what moved. They never go off track, page by page, ICP by ICP and funnel by funnel, for every brand in your group. We step in only in exceptional, specific circumstances.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- What the CMO gets -->
-  <section class="grid-bg m-px m-pt m-pb m-gap m-stack" style="background-color: #1A274E; color: #FFFFFF; padding: 120px 120px; display: flex; gap: 96px; align-items: flex-start;">
-    <div class="m-w" style="width: 440px; flex-shrink: 0; display: flex; flex-direction: column; gap: 18px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 44px; line-height: 1.08; letter-spacing: -0.01em;">What your marketing leader gets is <span style="color: #5AA5D3;">headspace</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px;">How Strategy Plus takes the strategic weight off your marketing leader</h2></div>
-      <p style="font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.78);">Your team isn’t short of people who can execute. It’s short of certainty about what’s worth executing.</p>
-    </div>
-    <div style="flex: 1; display: flex; flex-direction: column;">
-      <div style="display: flex; gap: 28px; align-items: baseline; padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.16);">
-        <div class="m-w m-f21" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 700; width: 300px; flex-shrink: 0;">Certainty</div>
-        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.8);">What matters, in what order, and why, set in the strategy and updated as the data changes.</p>
-      </div>
-      <div style="display: flex; gap: 28px; align-items: baseline; padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.16);">
-        <div class="m-w m-f21" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 700; width: 300px; flex-shrink: 0;">A weekly answer</div>
-        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.8);">To the question the board will ask: did it move?</p>
-      </div>
-      <div style="display: flex; gap: 28px; align-items: baseline; padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.16); border-bottom: 1px solid rgba(255,255,255,0.16);">
-        <div class="m-w m-f21" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 700; width: 300px; flex-shrink: 0;">A stronger team</div>
-        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.8);">People who get better at this every week, because the machine tells them what to do and shows them what worked.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- How you know it works -->
-  <section class="m-px m-pt m-pb m-gap m-stack" style="padding: 128px 120px 128px; display: flex; gap: 96px; align-items: center;">
-    <div style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">How you’ll know <span style="color: #2F7DB0;">it’s working</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">How we measure results and demonstrate what moved</h2></div>
-      <p class="m-f20" style="font-size: 20px; line-height: 1.65; color: #3D4660;">Every week you see whether Google and AI named you, how they described you, and whether the answer matched your story. Kalicube Pro tracks how AI understands, trusts and recommends each of your brands, and demonstrates what moved, measured against your own goal.</p>
-    </div>
-    <div class="m-w m-px" style="width: 520px; flex-shrink: 0; background: #F6F6F6; border-radius: 14px; padding: 36px 40px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-      <div style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.06em; color: #2F7DB0; font-weight: 500;">EVERY SUNDAY</div>
-      <p class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 26px; line-height: 1.35; font-weight: 700; color: #22325F;">Collect the data. Evolve the strategy. Tell your team what to do. They do the work. See what moved. <span style="color: #2F7DB0;">Next Sunday, again.</span></p>
-    </div>
-  </section>
-
-  <!-- Call -->
-  <section id="call" class="grid-bg m-px m-pt m-pb" style="background-color: #1A274E; color: #FFFFFF; padding: 120px 120px 128px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center;">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;"><div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 56px; line-height: 1.05; letter-spacing: -0.0125em;">See where you stand. <span style="color: #5AA5D3;">Then build the strategy.</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px;">Get a free AI audit and strategy for your brands</h2></div>
-    <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.8); max-width: 680px;">The first step is a free AI audit and The Kalicube Process strategy for your brands. From there, the full strategy is built in the first month.</p>
-    <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 20px 32px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; margin-top: 8px; letter-spacing: 0;">
-      <span>Get your free audit and strategy</span>
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-    </a>
-    <a href="../kalicubepro/" style="color: #FFFFFF; font-size: 16px; font-weight: 700; padding-bottom: 3px; border-bottom: 2px solid rgba(255,255,255,0.55);">Want every detail first? See how Kalicube Pro works</a>
   </section>
 
   <!-- Footer -->
