@@ -537,6 +537,36 @@
     .proof-divider { width: auto; height: 1px; margin: 0; }
   }
 </style>
+<style id="final-cta">
+  /* Final CTA. The curves, gold arcs and glow are all in CTA_section_bg; background-color is the page's navy (#1A274E) while it loads.
+     Buttons reuse the hero's button classes. Font: the page font (Ubuntu). A faint gold line separates it from the darker footer. */
+  .fcta-sec { background-color: #1A274E; background-image: url("images/CTA_section_bg.png");
+    background-image: image-set(url("images/CTA_section_bg.webp") type("image/webp"), url("images/CTA_section_bg.png") type("image/png"));
+    background-size: cover; background-position: center; background-repeat: no-repeat; color: #FFFFFF; padding: 120px; text-align: center;
+    border-bottom: 1px solid rgba(227, 169, 73, 0.25); }
+  .fcta-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .fcta-sec h2 { font-size: 56px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #FFFFFF; }
+  .fcta-sec h2 span { color: #E3A949; }
+  .fcta-body { margin-top: 24px; max-width: 720px; font-size: 20px; line-height: 1.6; color: rgba(255, 255, 255, 0.85); }
+  .fcta-body strong { font-weight: 700; color: #FFFFFF; }
+  .fcta-btns { margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .fcta-reassure { margin: 32px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; }
+  .fcta-reassure li { display: flex; align-items: center; gap: 10px; padding: 0 22px; font-size: 15px; color: #FFFFFF; }
+  .fcta-reassure li + li { border-left: 1px solid rgba(255, 255, 255, 0.25); }
+  .fcta-reassure svg { width: 20px; height: 20px; flex-shrink: 0; }
+  @media (max-width: 759px) {
+    /* Phones: a navy veil keeps the text clear of the bright arcs */
+    .fcta-sec { padding: 64px 20px;
+      background-image: linear-gradient(rgba(26, 39, 78, 0.6), rgba(26, 39, 78, 0.6)), url("images/CTA_section_bg.png");
+      background-image: linear-gradient(rgba(26, 39, 78, 0.6), rgba(26, 39, 78, 0.6)), image-set(url("images/CTA_section_bg.webp") type("image/webp"), url("images/CTA_section_bg.png") type("image/png")); }
+    .fcta-sec h2 { font-size: 32px; }
+    .fcta-body { font-size: 16px; }
+    .fcta-btns { width: 100%; flex-direction: column; align-items: stretch; }
+    .fcta-btns .cdbe-btn { width: 100%; white-space: normal; text-align: center; }
+    .fcta-reassure { flex-direction: column; gap: 12px; }
+    .fcta-reassure li + li { border-left: 0; }
+  }
+</style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
   html { background: #0F1830; scroll-behavior: smooth; }
@@ -1122,15 +1152,21 @@
     </div>
   </section>
 
-  <!-- Call -->
-  <section id="call" class="grid-bg m-px m-pt m-pb" style="background-color: #1A274E; color: #FFFFFF; padding: 120px 120px 128px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center;">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;"><div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 56px; line-height: 1.05; letter-spacing: -0.0125em;">See where you stand. <span style="color: #5AA5D3;">Then build the strategy.</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px;">Get a free AI audit and strategy for your brands</h2></div>
-    <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.8); max-width: 680px;">The first step is a free AI audit and The Kalicube Process strategy for your brands. From there, the full strategy is built in the first month.</p>
-    <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 20px 32px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; margin-top: 8px; letter-spacing: 0;">
-      <span>Get your free audit and strategy</span>
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-    </a>
-    <a href="../kalicubepro/" style="color: #FFFFFF; font-size: 16px; font-weight: 700; padding-bottom: 3px; border-bottom: 2px solid rgba(255,255,255,0.55);">Want every detail first? See how Kalicube Pro works</a>
+  <!-- Call: final CTA -->
+  <section id="call" class="fcta-sec" aria-labelledby="fcta-title">
+    <div class="fcta-inner">
+      <h2 id="fcta-title">See where your company stands.<br><span>Then build the strategy.</span></h2>
+      <p class="fcta-body">Start with the <strong>free AI Audit</strong> to see how Google and AI understand your company today, where the gaps are and what to prioritise next.</p>
+      <div class="fcta-btns">
+        <a href="https://diagnosis.kalicube.pro/" target="_blank" rel="noopener" class="act cdbe-btn cdbe-btn-primary"><span>Get Your Free AI Audit and Corporate Strategy</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://kalicube.com/about/contact/" target="_blank" rel="noopener" class="act cdbe-btn cdbe-btn-secondary"><span>Speak to a Digital Brand Engineer</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+      <ul class="fcta-reassure">
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="#E3A949" stroke-width="1.5"></circle><path d="M6.5 10.2l2.3 2.3 4.7-4.9" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Free</span></li>
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="#E3A949" stroke-width="1.5"></circle><path d="M6.5 10.2l2.3 2.3 4.7-4.9" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Less than 5 minutes</span></li>
+        <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="#E3A949" stroke-width="1.5"></circle><path d="M6.5 10.2l2.3 2.3 4.7-4.9" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Personalised strategy</span></li>
+      </ul>
+    </div>
   </section>
 
   <!-- Footer -->
