@@ -106,9 +106,37 @@
     // The window height in page units, so a hero can fill the first screen exactly (var(--fold)).
     root.style.setProperty('--fold', (window.innerHeight / (parseFloat(body.style.zoom) || 1)) + 'px');
   }
+  function drawEcoLines() {
+    var wrap = document.querySelector('.m-eco-mobile-diagram');
+    if (!wrap || !wrap.offsetParent) return;
+    var svg = wrap.querySelector('.m-eco-svg');
+    var grid = wrap.children[1], hubBox = wrap.children[2].querySelector('div'), rows = wrap.children[3];
+    var searchIcon = rows.children[0].querySelector('div'), aiIcon = rows.children[1].querySelector('div');
+    var mediaIcon = grid.children[3].querySelector('svg'), reviewsIcon = grid.children[4].querySelector('svg'), trustedIcon = grid.children[5].querySelector('svg');
+    var wrapRect = wrap.getBoundingClientRect();
+    function rel(el) {
+      var r = el.getBoundingClientRect();
+      return { cx: (r.left + r.right) / 2 - wrapRect.left, top: r.top - wrapRect.top, bottom: r.bottom - wrapRect.top };
+    }
+    var media = rel(mediaIcon), reviews = rel(reviewsIcon), trusted = rel(trustedIcon), hub = rel(hubBox), search = rel(searchIcon), ai = rel(aiIcon);
+    var hubR = (hub.bottom - hub.top) / 2, hubTop = hub.top, hubBottom = hub.bottom, hubCx = hub.cx;
+    var entryY = hubTop + hubR * 0.14, leftX = hubCx - hubR * 0.46, rightX = hubCx + hubR * 0.46;
+    svg.querySelector('#eco-p-media').setAttribute('d', 'M' + media.cx + ',' + media.bottom + ' C' + media.cx + ',' + (media.bottom + (entryY - media.bottom) * 0.7) + ' ' + (leftX - 24) + ',' + (entryY - 12) + ' ' + leftX + ',' + entryY);
+    svg.querySelector('#eco-p-reviews').setAttribute('d', 'M' + reviews.cx + ',' + reviews.bottom + ' L' + hubCx + ',' + (hubTop + hubR * 0.06));
+    svg.querySelector('#eco-p-trusted').setAttribute('d', 'M' + trusted.cx + ',' + trusted.bottom + ' C' + trusted.cx + ',' + (trusted.bottom + (entryY - trusted.bottom) * 0.7) + ' ' + (rightX + 24) + ',' + (entryY - 12) + ' ' + rightX + ',' + entryY);
+    svg.querySelector('#eco-dot-media').setAttribute('cx', leftX); svg.querySelector('#eco-dot-media').setAttribute('cy', entryY);
+    svg.querySelector('#eco-dot-reviews').setAttribute('cx', hubCx); svg.querySelector('#eco-dot-reviews').setAttribute('cy', hubTop + hubR * 0.06);
+    svg.querySelector('#eco-dot-trusted').setAttribute('cx', rightX); svg.querySelector('#eco-dot-trusted').setAttribute('cy', entryY);
+    var exitY = hubBottom - hubR * 0.14;
+    svg.querySelector('#eco-p-search').setAttribute('d', 'M' + hubCx + ',' + exitY + ' C' + hubCx + ',' + (exitY + 38) + ' ' + (search.cx + 26) + ',' + (search.top - 6) + ' ' + (search.cx + 8) + ',' + search.top);
+    svg.querySelector('#eco-p-ai').setAttribute('d', 'M' + hubCx + ',' + exitY + ' C' + hubCx + ',' + (exitY + 38) + ' ' + (ai.cx - 26) + ',' + (ai.top - 6) + ' ' + (ai.cx - 8) + ',' + ai.top);
+  }
   window.addEventListener('resize', fitPage);
   document.addEventListener('DOMContentLoaded', fitPage);
   window.addEventListener('load', function () { requestAnimationFrame(fitPage); });
+  window.addEventListener('resize', drawEcoLines);
+  document.addEventListener('DOMContentLoaded', drawEcoLines);
+  window.addEventListener('load', function () { requestAnimationFrame(drawEcoLines); });
 </script>
 <script>
   document.addEventListener('click', function (e) {
@@ -437,6 +465,18 @@
 
     <!-- Mobile: bare icon grid + hub + arrow rows -->
     <div class="m-eco-mobile" style="display: none;">
+<div class="m-eco-mobile-diagram" style="position: relative;">
+      <svg class="m-eco-svg" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;" aria-hidden="true">
+        <defs><marker id="eco-m-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E3A949"></path></marker></defs>
+        <path id="eco-p-media" fill="none" stroke="#E3A949" stroke-width="1.6"></path>
+        <path id="eco-p-reviews" fill="none" stroke="#E3A949" stroke-width="1.6"></path>
+        <path id="eco-p-trusted" fill="none" stroke="#E3A949" stroke-width="1.6"></path>
+        <circle id="eco-dot-media" r="3" fill="#E3A949"></circle>
+        <circle id="eco-dot-reviews" r="3" fill="#E3A949"></circle>
+        <circle id="eco-dot-trusted" r="3" fill="#E3A949"></circle>
+        <path id="eco-p-search" fill="none" stroke="#E3A949" stroke-width="1.6" marker-end="url(#eco-m-arrow)"></path>
+        <path id="eco-p-ai" fill="none" stroke="#E3A949" stroke-width="1.6" marker-end="url(#eco-m-arrow)"></path>
+      </svg>
       <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 10px; text-align: center;">
         <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="7" cy="8.5" r="0.6" fill="#E3A949"></circle><circle cx="9.5" cy="8.5" r="0.6" fill="#E3A949"></circle><path d="M3 11h18"></path></svg><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">Website</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Your official content hub</div></div>
         <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">Profiles</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Social and professional profiles</div></div>
@@ -458,10 +498,11 @@
         </div>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 18px;">
-        <div style="display: flex; align-items: center; gap: 12px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 19 18 6M9 6h9v9"></path></svg><div style="width: 52px; height: 52px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6BACDA" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div><div><div style="font-size: 16px; font-weight: 700; color: #1A274E;">Search Engines</div><div style="font-size: 13px; color: #4A5470;">Google and beyond</div></div></div>
-        <div style="display: flex; align-items: center; gap: 12px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M5 5 18 18M18 9v9H9"></path></svg><div style="width: 52px; height: 52px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6BACDA" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div><div><div style="font-size: 16px; font-weight: 700; color: #1A274E;">AI systems</div><div style="font-size: 13px; color: #4A5470;">ChatGPT, Gemini, Perplexity and others</div></div></div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; text-align: center;">
+        <div><div style="width: 52px; height: 52px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; margin: 0 auto;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6BACDA" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div><div style="font-size: 15px; font-weight: 700; color: #1A274E; margin-top: 10px;">Search Engines</div><div style="font-size: 12px; color: #4A5470; margin-top: 2px;">Google and beyond</div></div>
+        <div><div style="width: 52px; height: 52px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; margin: 0 auto;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6BACDA" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div><div style="font-size: 15px; font-weight: 700; color: #1A274E; margin-top: 10px;">AI systems</div><div style="font-size: 12px; color: #4A5470; margin-top: 2px;">ChatGPT, Gemini, Perplexity and others</div></div>
       </div>
+    </div>
     </div>
 
     <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px;">
