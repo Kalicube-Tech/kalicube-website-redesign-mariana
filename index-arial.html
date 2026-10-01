@@ -78,8 +78,10 @@
   .m-eco [style*="height: 78px"] { height: auto !important; margin-bottom: 8px; }
   .m-svc-row { grid-template-columns: 1fr !important; grid-template-areas: 'text' 'right' !important; gap: 24px !important; padding: 28px !important; }
   .m-svc-divider { border-left: none !important; padding-left: 0 !important; }
-  /* The Narrative Gap: drop the background art and centered label, stack the two columns (m-g1 handles the stack) */
+  /* The Narrative Gap: drop the background art and centered label, stack the two columns */
   .m-ng-bg, .m-ng-gaplabel { display: none !important; }
+  .m-ng-cols { flex-direction: column !important; }
+  .m-ng-cols > div { flex-basis: auto !important; max-width: none !important; }
 }
 </style>
 <style>
@@ -207,8 +209,8 @@
       <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.82); max-width: 760px;">Search engines and AI systems build their understanding of your brand from information across your digital ecosystem. When that information is incomplete, inconsistent or unclear, what they understand can differ from who you are, what you do and what you're known for.</p>
     </div>
 
-    <div class="m-g1 m-ng-cols" style="position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; width: 100%;">
-      <div style="display: flex; flex-direction: column; gap: 36px;">
+    <div class="m-ng-cols" style="position: relative; z-index: 1; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; max-width: 1200px; margin: 0 auto; width: 100%;">
+      <div style="display: flex; flex-direction: column; gap: 36px; flex: 0 1 360px; min-width: 260px;">
         <div>
           <div style="font-size: 20px; font-weight: 700; letter-spacing: 0.02em; color: #FFFFFF; text-transform: uppercase;">Your Actual Brand</div>
           <span style="display: block; width: 56px; height: 3px; background: #E3A949; margin-top: 10px; border-radius: 2px;"></span>
@@ -222,7 +224,7 @@
           <li style="display: flex; align-items: center; gap: 18px;"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true" style="flex-shrink: 0;"><circle cx="24" cy="24" r="21" stroke="#E3A949" stroke-width="1.8"></circle><circle cx="24" cy="24" r="8.5" stroke="#E3A949" stroke-width="1.8"></circle><circle cx="24" cy="24" r="4" stroke="#E3A949" stroke-width="1.8"></circle><circle cx="24" cy="24" r="1" fill="#E3A949"></circle></svg><span style="font-size: 18px; color: #FFFFFF;">What you want to be known for</span></li>
         </ul>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 36px;">
+      <div style="display: flex; flex-direction: column; gap: 36px; flex: 0 1 360px; min-width: 260px;">
         <div>
           <div style="font-size: 20px; font-weight: 700; letter-spacing: 0.02em; color: #FFFFFF; text-transform: uppercase;">What AI Understands</div>
           <span style="display: block; width: 56px; height: 3px; background: #6BACDA; margin-top: 10px; border-radius: 2px;"></span>
