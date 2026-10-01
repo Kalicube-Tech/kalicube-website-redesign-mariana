@@ -199,7 +199,8 @@
   /* What we engineer: centred intro, the DNA ecosystem diagram, closing line.
      Colours reuse the page's own values (there are no CSS variables on this page): light section #EDF5FB, navy #1A274E,
      muted body #3D4660, accent blue #2F7DB0; gold accents #E3A949. Fonts inherit the page font (Ubuntu). */
-  .wwe-sec { background: #EDF5FB; color: #1A274E; padding: 88px 120px 96px; text-align: center; }
+  /* The top 60px fades from white (the section above) into the section blue, so there is no hard colour cut */
+  .wwe-sec { background: #EDF5FB linear-gradient(to bottom, #FFFFFF 0, #EDF5FB 60px, #EDF5FB 100%); color: #1A274E; padding: 88px 120px 96px; text-align: center; }
   .wwe-eyebrow { display: flex; flex-direction: column; align-items: center; gap: 14px; font-size: 14px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #E3A949; }
   .wwe-eyebrow::after { content: ""; width: 48px; height: 2px; background: #E3A949; }
   .wwe-sec h2 { margin-top: 24px; font-size: 48px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
