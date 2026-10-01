@@ -469,6 +469,74 @@
     .measurement-principle p { font-size: 13px; letter-spacing: 0.1em; }
   }
 </style>
+<style id="why-kalicube-pro">
+  /* Why Kalicube Pro. The page has no CSS variables: colours reuse its values (light-blue section #EDF5FB, navy #1A274E,
+     muted #3D4660, blue-grey #6B7591, accent blue #2F7DB0, card shadow as on the page's other cards); gold accents #E3A949.
+     Font: the page font (Ubuntu), inherited from body. */
+  .why-kalicube-pro { position: relative; overflow: hidden; background: #EDF5FB; color: #1A274E; padding: 88px 120px 0; }
+  .why-kalicube-pro__main { display: grid; grid-template-columns: minmax(0, 52fr) minmax(0, 48fr); gap: 40px; align-items: end; }
+  .why-kalicube-pro__content { display: flex; flex-direction: column; gap: 24px; padding-bottom: 56px; }
+  .section-label { display: flex; align-items: center; gap: 14px; }
+  .section-label__dot { width: 8px; height: 8px; border-radius: 50%; background: #E3A949; flex-shrink: 0; }
+  .why-kalicube-pro h2 { font-size: 14px; line-height: 1; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949; white-space: nowrap; }
+  .section-label__line { flex: 1; height: 1px; background: #E3A949; }
+  .why-kalicube-pro__display-heading { font-size: 50px; line-height: 1.1; font-weight: 700; letter-spacing: -0.0125em; color: #1A274E; }
+  .why-kalicube-pro__display-heading span { color: #E3A949; }
+  .why-kalicube-pro__content > p { font-size: 18px; line-height: 1.6; color: #1A274E; max-width: 600px; }
+  .why-kalicube-pro__content strong { font-weight: 700; }
+  .why-kalicube-pro__distinction { display: flex; flex-direction: column; gap: 10px; max-width: 600px; padding-left: 20px; border-left: 3px solid #E3A949; }
+  .why-kalicube-pro__distinction p { font-size: 17px; line-height: 1.6; color: #3D4660; }
+  .why-kalicube-pro__distinction p:first-child { font-size: 20px; line-height: 1.4; color: #1A274E; }
+  /* Jason: bottom-aligned onto the proof strip, two soft circles and a gold arc behind him */
+  .why-kalicube-pro__founder { position: relative; align-self: stretch; min-height: 560px; }
+  .founder-visual { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; }
+  .founder-visual__circle { position: absolute; border-radius: 50%; pointer-events: none; }
+  .founder-visual__circle--large { width: 480px; height: 480px; left: 50%; top: 60px; transform: translateX(-50%); background: radial-gradient(circle, rgba(47, 125, 176, 0.2) 0%, rgba(47, 125, 176, 0.12) 50%, rgba(47, 125, 176, 0) 70%); }
+  .founder-visual__circle--small { width: 200px; height: 200px; left: 4%; top: 34%; background: rgba(47, 125, 176, 0.08); }
+  .founder-visual__arc { position: absolute; right: 0; top: 190px; width: 260px; height: 330px; pointer-events: none; }
+  .founder-visual picture { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 560px; }
+  .founder-visual img { display: block; width: 100%; height: auto; }
+  .founder-identification { position: absolute; right: 0; top: 24px; display: flex; gap: 14px; }
+  .founder-identification__line { width: 1.5px; background: #E3A949; }
+  .founder-identification div { display: flex; flex-direction: column; gap: 4px; }
+  .founder-identification strong { font-size: 18px; font-weight: 700; color: #1A274E; }
+  .founder-identification span:not(.founder-identification__line) { font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #6B7591; }
+  /* Proof strip */
+  .why-kalicube-pro__proof-strip { position: relative; display: flex; align-items: center; background: #FFFFFF; border-radius: 16px 16px 0 0; box-shadow: 0 -4px 14px rgba(26,39,78,0.06), 0 4px 14px rgba(26,39,78,0.08); padding: 28px 36px; }
+  .proof-item { flex: 1; display: flex; align-items: center; gap: 18px; }
+  .proof-item__icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(47, 125, 176, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .proof-item__icon svg { width: 28px; height: 28px; }
+  .proof-item > div:last-child { display: flex; flex-direction: column; gap: 6px; }
+  .proof-item strong { font-size: 16px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #1A274E; }
+  .proof-item span { font-size: 15px; line-height: 1.4; color: #3D4660; }
+  .proof-divider { align-self: stretch; width: 1px; margin: 0 32px; background: rgba(26, 39, 78, 0.14); }
+  /* Tablet and mobile: content, then Jason (smaller, centred, name below), then the strip stacked */
+  @media (max-width: 1023px) {
+    .why-kalicube-pro__main { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .why-kalicube-pro__content { padding-bottom: 40px; }
+    .why-kalicube-pro__founder { display: flex; flex-direction: column; align-items: center; min-height: 0; }
+    .founder-visual { position: relative; height: 420px; width: 100%; max-width: 520px; }
+    .founder-visual picture { width: 440px; max-width: 100%; }
+    .founder-identification { position: static; margin: 20px 0 28px; }
+  }
+  @media (max-width: 759px) {
+    .why-kalicube-pro { padding: 48px 20px 0; }
+    .why-kalicube-pro h2 { white-space: normal; line-height: 1.4; }
+    .why-kalicube-pro__display-heading { font-size: 32px; }
+    .why-kalicube-pro__display-heading br { display: none; }
+    .why-kalicube-pro__content > p { font-size: 16px; }
+    .why-kalicube-pro__distinction p { font-size: 16px; }
+    .why-kalicube-pro__distinction p:first-child { font-size: 18px; }
+    .founder-visual__arc { display: none; }
+    .founder-visual { height: 300px; }
+    .founder-visual picture { width: 320px; }
+    .founder-visual__circle--large { width: 320px; height: 320px; top: 10px; }
+    .founder-visual__circle--small { width: 140px; height: 140px; }
+    .why-kalicube-pro__proof-strip { flex-direction: column; align-items: stretch; padding: 8px 20px; }
+    .proof-item { padding: 18px 0; }
+    .proof-divider { width: auto; height: 1px; margin: 0; }
+  }
+</style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
   html { background: #0F1830; scroll-behavior: smooth; }
@@ -826,6 +894,134 @@
     </div>
 
   </div>
+</section>
+
+<section class="why-kalicube-pro">
+
+  <div class="why-kalicube-pro__main">
+
+    <!-- LEFT: CONTENT -->
+    <div class="why-kalicube-pro__content">
+
+      <div class="section-label">
+        <span class="section-label__dot"></span>
+
+        <h2>Why Kalicube Pro</h2>
+
+        <span class="section-label__line"></span>
+      </div>
+
+      <!-- Display heading — NOT an H-tag -->
+      <div class="why-kalicube-pro__display-heading">
+        Digital brand intelligence<br>
+        built on more than<br>
+        <span>a decade of data.</span>
+      </div>
+
+      <p>
+        Kalicube Pro has tracked how machines understand brands and entities
+        since 2015. Today, its intelligence is built on
+        <strong>25 billion data points across 73 million entities</strong>,
+        giving your corporate brand strategy historical context alongside a
+        current view of your brand, market and competitors.
+      </p>
+
+      <div class="why-kalicube-pro__distinction">
+        <p>
+          <strong>Kalicube Pro doesn't stop at measuring visibility.</strong>
+        </p>
+
+        <p>
+          It connects what Google and AI understand about your company to the
+          strategy your team is implementing, identifies what deserves
+          attention next and measures what changes as the work progresses.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT: JASON -->
+    <div class="why-kalicube-pro__founder">
+
+      <div class="founder-visual">
+        <span class="founder-visual__circle founder-visual__circle--large" aria-hidden="true"></span>
+        <span class="founder-visual__circle founder-visual__circle--small" aria-hidden="true"></span>
+        <svg class="founder-visual__arc" viewBox="0 0 260 330" fill="none" aria-hidden="true"><path d="M150 6 C 232 40, 262 140, 236 236" stroke="#E3A949" stroke-width="1.5" stroke-linecap="round"></path><circle cx="236" cy="236" r="6" fill="#E3A949"></circle></svg>
+        <picture>
+          <source srcset="images/jason-barnard-cutout.webp" type="image/webp">
+          <img
+            src="images/jason-barnard-cutout.png"
+            alt="Jason Barnard, founder and CEO of Kalicube"
+            width="900" height="822" loading="lazy"
+          >
+        </picture>
+      </div>
+
+      <div class="founder-identification">
+        <span class="founder-identification__line"></span>
+
+        <div>
+          <strong>Jason Barnard</strong>
+          <span>Founder and CEO</span>
+          <span>Kalicube</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- AUTHORITY STRIP -->
+  <div class="why-kalicube-pro__proof-strip">
+
+    <div class="proof-item">
+      <div class="proof-item__icon" aria-hidden="true">
+        <!-- Calendar icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"></path></svg>
+      </div>
+
+      <div>
+        <strong>Since 2015</strong>
+        <span>Machine understanding tracked over time.</span>
+      </div>
+    </div>
+
+
+    <div class="proof-divider" aria-hidden="true"></div>
+
+
+    <div class="proof-item">
+      <div class="proof-item__icon" aria-hidden="true">
+        <!-- Database icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"></ellipse><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg>
+      </div>
+
+      <div>
+        <strong>25 billion · 73 million</strong>
+        <span>Data points across entities.</span>
+      </div>
+    </div>
+
+
+    <div class="proof-divider" aria-hidden="true"></div>
+
+
+    <div class="proof-item">
+      <div class="proof-item__icon" aria-hidden="true">
+        <!-- Patent/document icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3H6v18h7"></path><path d="M15 3l4 4v7M15 3v4h4M9 9h6M9 12.5h6"></path><circle cx="17.5" cy="17.5" r="3"></circle><path d="M16 20.2 15.5 23l2-1 2 1-.5-2.8"></path></svg>
+      </div>
+
+      <div>
+        <strong>17</strong>
+        <span>INPI patent applications.</span>
+      </div>
+    </div>
+
+  </div>
+
 </section>
 
   <!-- What changed -->
