@@ -14,7 +14,6 @@
     h1, h2, h3, p { margin: 0; }
     h1, h2 { text-wrap: balance; }
     p { text-wrap: pretty; }
-    .grid-bg { background-image: linear-gradient(rgba(120,180,230,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(120,180,230,0.07) 1px, transparent 1px); background-size: 48px 48px; }
     .hero { position: relative; overflow: hidden; }
     .hero > * { position: relative; z-index: 1; }
     .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
@@ -26,15 +25,11 @@
   .m-page { width: 100% !important; }
   .m-px { padding-left: 20px !important; padding-right: 20px !important; }
   .m-pt { padding-top: 48px !important; }
-  .m-pb { padding-bottom: 48px !important; }
-  .m-g1 { grid-template-columns: minmax(0, 1fr) !important; }
   .m-g2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .m-gap { gap: 24px !important; }
   .m-stack { flex-direction: column !important; align-items: stretch !important; }
-  .m-w { width: auto !important; max-width: 100% !important; }
-  img.m-w { width: 100% !important; }
-  .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
-  .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
+  .m-f60 { font-size: 38px !important; }
+  .m-f32 { font-size: 25px !important; }
   .m-nw { white-space: normal !important; }
   .m-ha { height: auto !important; }
   .m-ha > [style*="flex: 1"] { min-height: 300px; }
@@ -1053,104 +1048,6 @@
   </div>
 
 </section>
-
-  <!-- What changed -->
-  <section class="m-px m-pt m-pb m-gap" style="padding: 120px 120px 120px; display: flex; flex-direction: column; gap: 56px;">
-    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 860px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">It’s still brand and reputation. <span style="color: #2F7DB0;">What’s changed is who tells the story.</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">How AI search changed brand and reputation management</h2></div>
-      <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: #3D4660;">As Jeff Bezos would say today, your brand is what Google and AI say about you when you’re not in the room.</p>
-    </div>
-    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-      <div class="m-px" style="padding: 44px 48px; display: flex; flex-direction: column; gap: 28px; background: #F6F6F6;">
-        <div style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.06em; color: #4A5470; font-weight: 500;">HOW IT USED TO WORK</div>
-        <div style="display: flex; flex-direction: column; gap: 22px;">
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5; color: #4A5470;">Buyers typed a search, saw ten links and did their own research.</p>
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5; color: #4A5470;">Your reputation was the first page of Google.</p>
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5; color: #4A5470;">Reputation management drowned the problem in content.</p>
-        </div>
-      </div>
-      <div class="m-px" style="padding: 44px 48px; display: flex; flex-direction: column; gap: 28px; background: #1A274E; color: #FFFFFF;">
-        <div style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.06em; color: #5AA5D3; font-weight: 500;">HOW IT WORKS NOW</div>
-        <div style="display: flex; flex-direction: column; gap: 22px;">
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5;">Buyers ask an AI assistant and get one answer, already researched for them.</p>
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5;">Your reputation is whatever that answer says.</p>
-          <p class="m-f20" style="font-size: 20px; line-height: 1.5;">Brand engineering corrects the record, because machines don’t count content. They look for the same answer in enough places, for long enough, to believe it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- The gap: the words beside the photo, as two boxes that stack on a phone -->
-  <section class="m-px m-pt m-pb" style="background: #EDF5FB; padding: 104px 120px;">
-    <div class="m-gap" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 64px; align-items: stretch;">
-      <div style="display: flex; flex-direction: column; gap: 28px; justify-content: center;">
-        <div style="display: flex; flex-direction: column; gap: 14px;"><p class="m-f40" style="font-weight: 500; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 42px; line-height: 1.18; color: #22325F;">AI isn’t being unfair to you. It has assembled a picture from what it can find, <span style="color: #2F7DB0;">and the picture is wrong.</span></p><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Why AI gets your company wrong, or hedges</h2></div>
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-          <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: #3D4660;">Or it’s hedging, which is worse, because nothing looks broken.</p>
-          <p class="m-f20" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; line-height: 1.6; color: #22325F; font-weight: 700;">You already know there’s a gap. We measure it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What Strategy Plus is -->
-  <section class="m-px m-pt m-pb m-gap" style="padding: 128px 120px 120px; display: flex; flex-direction: column; gap: 56px;">
-    <div class="m-gap m-stack" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 80px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em; max-width: 720px;">How Strategy Plus works, <span style="color: #2F7DB0;">in three steps</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">What Strategy Plus includes: the strategy, the data and a weekly cycle your team runs</h2></div>
-      <p class="m-f21" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; line-height: 1.5; font-weight: 700; color: #22325F; max-width: 460px;">We build the strategy once. The platform keeps it alive: it collects the data, evolves the strategy and tells your team what to do. Your team does the work.</p>
-    </div>
-    <div class="m-g1" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px;">
-      <div style="display: flex; flex-direction: column; gap: 16px; border-top: 3px solid #22325F; padding-top: 24px;">
-        <div class="m-f48" style="font-weight: 500; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 56px; line-height: 1; color: #2F7DB0;">1</div>
-        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2;">We build the strategy</h3>
-        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">In the first month: the aim of the game, one corroborated story for each brand in your group, who it’s for, and the questions that matter. We train your team on it. You validate the facts and the priorities; we own the method.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 16px; border-top: 3px solid #22325F; padding-top: 24px;">
-        <div class="m-f48" style="font-weight: 500; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 56px; line-height: 1; color: #2F7DB0;">2</div>
-        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2;">Kalicube Pro collects the data and evolves the strategy</h3>
-        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">Every week, Kalicube Pro collects data on you, your market and competitors, and your audience, across search, the knowledge graph and LLMs. As the data changes, the strategy evolves with it, so it never goes stale.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 16px; border-top: 3px solid #B98B4E; padding-top: 24px;">
-        <div class="m-f48" style="font-weight: 500; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 56px; line-height: 1; color: #B98B4E;">3</div>
-        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2;">Every week, the machine tells your team what to do</h3>
-        <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">Kalicube Pro’s AI knows your strategy, your brands and the data, so every week it tells your team what to do and shows what moved. They never go off track, page by page, ICP by ICP and funnel by funnel, for every brand in your group. We step in only in exceptional, specific circumstances.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- What the CMO gets -->
-  <section class="grid-bg m-px m-pt m-pb m-gap m-stack" style="background-color: #1A274E; color: #FFFFFF; padding: 120px 120px; display: flex; gap: 96px; align-items: flex-start;">
-    <div class="m-w" style="width: 440px; flex-shrink: 0; display: flex; flex-direction: column; gap: 18px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 44px; line-height: 1.08; letter-spacing: -0.01em;">What your marketing leader gets is <span style="color: #5AA5D3;">headspace</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px;">How Strategy Plus takes the strategic weight off your marketing leader</h2></div>
-      <p style="font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.78);">Your team isn’t short of people who can execute. It’s short of certainty about what’s worth executing.</p>
-    </div>
-    <div style="flex: 1; display: flex; flex-direction: column;">
-      <div style="display: flex; gap: 28px; align-items: baseline; padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.16);">
-        <div class="m-w m-f21" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 700; width: 300px; flex-shrink: 0;">Certainty</div>
-        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.8);">What matters, in what order, and why, set in the strategy and updated as the data changes.</p>
-      </div>
-      <div style="display: flex; gap: 28px; align-items: baseline; padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.16);">
-        <div class="m-w m-f21" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 700; width: 300px; flex-shrink: 0;">A weekly answer</div>
-        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.8);">To the question the board will ask: did it move?</p>
-      </div>
-      <div style="display: flex; gap: 28px; align-items: baseline; padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.16); border-bottom: 1px solid rgba(255,255,255,0.16);">
-        <div class="m-w m-f21" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 700; width: 300px; flex-shrink: 0;">A stronger team</div>
-        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.8);">People who get better at this every week, because the machine tells them what to do and shows them what worked.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- How you know it works -->
-  <section class="m-px m-pt m-pb m-gap m-stack" style="padding: 128px 120px 128px; display: flex; gap: 96px; align-items: center;">
-    <div style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">How you’ll know <span style="color: #2F7DB0;">it’s working</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">How we measure results and demonstrate what moved</h2></div>
-      <p class="m-f20" style="font-size: 20px; line-height: 1.65; color: #3D4660;">Every week you see whether Google and AI named you, how they described you, and whether the answer matched your story. Kalicube Pro tracks how AI understands, trusts and recommends each of your brands, and demonstrates what moved, measured against your own goal.</p>
-    </div>
-    <div class="m-w m-px" style="width: 520px; flex-shrink: 0; background: #F6F6F6; border-radius: 14px; padding: 36px 40px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
-      <div style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.06em; color: #2F7DB0; font-weight: 500;">EVERY SUNDAY</div>
-      <p class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 26px; line-height: 1.35; font-weight: 700; color: #22325F;">Collect the data. Evolve the strategy. Tell your team what to do. They do the work. See what moved. <span style="color: #2F7DB0;">Next Sunday, again.</span></p>
-    </div>
-  </section>
 
   <!-- Call: final CTA -->
   <section id="call" class="fcta-sec" aria-labelledby="fcta-title">
