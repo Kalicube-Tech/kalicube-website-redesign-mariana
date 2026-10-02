@@ -73,7 +73,23 @@
   .m-hero > img[src*="jason-barnard-hero"] { position: relative !important; right: auto !important; bottom: auto !important; order: 2; display: block !important; height: 200px !important; width: auto !important; max-width: 100% !important; align-self: center; margin: 4px 0 28px; }
   .m-hero br { display: none; }
   .m-hero div[style*="width: fit-content"] { max-width: 100% !important; }
-  .m-hero a.act { box-sizing: border-box !important; }
+  .m-hero div[style*="max-width: 440px"] { white-space: normal !important; }
+  /* Primary gold pill CTAs (hero + final CTA band): compact premium sizing, label+arrow centred as one group, no monospace */
+  a.act[style*="border-radius: 999px"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 14px 20px !important;
+    min-height: 50px !important;
+    height: auto !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
   /* The numbers band: two by two, compact so it reads as supporting proof rather than a second headline */
   .m-nums { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px !important; padding: 14px 20px !important; }
   .m-nums > div { gap: 8px !important; }
@@ -194,7 +210,7 @@
       <p class="m-f48" style="font-family: 'Google Sans Flex', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">Engineer How AI <br><span style="color: #E3A949;">Understands, <br>Trusts and <br>Recommends</span> <br>Your Brand</p>
       <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 680px; margin-top: 14px;">Digital Brand Engineering for business leaders and companies: your brand and reputation in Google, ChatGPT and AI search.</h1>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 6px; width: fit-content;">
-        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-px m-f21 m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 14px; background: #E3A949; color: #1A274E; padding: 18px 42px; border-radius: 999px; font-size: 22px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-px m-f21 m-nw" style="display: flex; align-items: center; gap: 14px; background: #E3A949; color: #1A274E; padding: 18px 42px; border-radius: 999px; font-size: 22px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
         <div style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.82); max-width: 440px; text-align: center; white-space: nowrap;">Free · Less than 5 minutes · A detailed audit and strategy</div>
       </div>
     </div>
@@ -530,7 +546,7 @@
         <p style="font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.88);">The audit and strategy apply The Kalicube Process to your brand, and show you what to address first.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; flex-shrink: 0;">
-        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 20px 34px; border-radius: 999px; font-size: 19px; font-weight: 500; white-space: nowrap; letter-spacing: 0;"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 20px 34px; border-radius: 999px; font-size: 19px; font-weight: 500; white-space: nowrap; letter-spacing: 0;"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
         <div style="font-size: 14px; color: rgba(255,255,255,0.78); text-align: center;">Free · Less than 5 minutes · Personalised strategy</div>
       </div>
     </div>
