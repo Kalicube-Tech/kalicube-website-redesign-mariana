@@ -65,19 +65,23 @@
   .hero > .m-nav { order: 1; }
   .hero > div.hero-bg { display: none !important; }
   .hero > img.hero-bg { position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; height: 240px !important; order: 3; }
-  /* The homepage hero: text, then the caption, then Jason; no floating icons */
+  /* The homepage hero: copy on a clean background, then Jason emerging below the CTA, then numbers/press below the hero; no floating icons */
   .m-hero { height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column; }
   .m-hero > div[aria-hidden] { display: none !important; }
   .m-hero > div[style*="linear-gradient"] { background: rgba(6,14,38,0.62) !important; }
-  .m-hero > div[style*="position: relative"] { order: 1; height: auto !important; padding: 36px 20px 20px !important; max-width: none !important; }
-  .m-hero > p { position: relative !important; right: auto !important; bottom: auto !important; width: auto !important; text-align: left !important; order: 2; padding: 0 20px 16px; font-size: 15px !important; }
-  .m-hero > img[src*="cutout"] { position: relative !important; right: auto !important; order: 3; height: 250px !important; align-self: center; }
+  .m-hero > div[style*="position: relative"] { order: 1; height: auto !important; padding: 36px 20px 8px !important; max-width: none !important; }
+  .m-hero > img[src*="jason-barnard-hero"] { position: relative !important; right: auto !important; bottom: auto !important; order: 2; display: block !important; height: 200px !important; width: auto !important; max-width: 100% !important; align-self: center; margin: 4px 0 28px; }
   .m-hero br { display: none; }
-  /* The numbers band: two by two */
-  .m-nums { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 12px !important; padding: 18px 20px !important; }
-  .m-nums > div > div:first-child { width: 44px !important; height: 44px !important; }
-  .m-nums svg { width: 24px; height: 24px; }
-  .m-nums > div > div + div > span:first-child { font-size: 22px !important; }
+  .m-hero div[style*="width: fit-content"] { max-width: 100% !important; }
+  .m-hero a.act { box-sizing: border-box !important; }
+  /* The numbers band: two by two, compact so it reads as supporting proof rather than a second headline */
+  .m-nums { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px !important; padding: 14px 20px !important; }
+  .m-nums > div { gap: 8px !important; }
+  .m-nums > div > div:first-child { width: 34px !important; height: 34px !important; }
+  .m-nums svg { width: 18px; height: 18px; }
+  .m-nums > div > div + div { gap: 1px !important; }
+  .m-nums > div > div + div > span:first-child { font-size: 19px !important; }
+  .m-nums > div > div + div > span:last-child { font-size: 11.5px !important; line-height: 1.25 !important; white-space: normal !important; }
   /* The pinned press strip: slim, two rows of four, no label */
   .m-press { padding: 8px 12px !important; gap: 0 !important; }
   .m-press > div:first-child { display: none !important; }
