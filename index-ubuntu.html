@@ -88,8 +88,9 @@
   /* Digital ecosystem: swap the absolute-positioned diagram for the bare mobile layout */
   .m-eco-desktop { display: none !important; }
   .m-eco-mobile { display: block !important; }
-  .m-eco-panel-gold { background: #FBF3E3 !important; }
-  .m-eco-panel-blue { background: #EAF2FA !important; }
+  .m-eco-footer { grid-template-columns: minmax(0, 1fr) !important; gap: 16px !important; }
+  .m-eco-footer > div { background: #FFFFFF !important; border-radius: 14px !important; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06) !important; padding: 20px !important; border-left: none !important; padding-left: 20px !important; }
+  .m-eco-divider { display: none !important; }
 }
 </style>
 <style>
@@ -108,37 +109,9 @@
     // The window height in page units, so a hero can fill the first screen exactly (var(--fold)).
     root.style.setProperty('--fold', (window.innerHeight / (parseFloat(body.style.zoom) || 1)) + 'px');
   }
-  function drawEcoLines() {
-    var wrap = document.querySelector('.m-eco-mobile-diagram');
-    if (!wrap || !wrap.offsetParent) return;
-    var svg = wrap.querySelector('.m-eco-svg');
-    var grid = wrap.children[1], hubBox = wrap.children[2].querySelector('div'), rows = wrap.children[3];
-    var searchIcon = rows.children[0].querySelector('div'), aiIcon = rows.children[1].querySelector('div');
-    var mediaIcon = grid.children[3].querySelector('svg'), reviewsIcon = grid.children[4].querySelector('svg'), trustedIcon = grid.children[5].querySelector('svg');
-    var wrapRect = wrap.getBoundingClientRect();
-    function rel(el) {
-      var r = el.getBoundingClientRect();
-      return { cx: (r.left + r.right) / 2 - wrapRect.left, top: r.top - wrapRect.top, bottom: r.bottom - wrapRect.top };
-    }
-    var media = rel(mediaIcon), reviews = rel(reviewsIcon), trusted = rel(trustedIcon), hub = rel(hubBox), search = rel(searchIcon), ai = rel(aiIcon);
-    var hubR = (hub.bottom - hub.top) / 2, hubTop = hub.top, hubBottom = hub.bottom, hubCx = hub.cx;
-    var entryY = hubTop + hubR * 0.14, leftX = hubCx - hubR * 0.46, rightX = hubCx + hubR * 0.46;
-    svg.querySelector('#eco-p-media').setAttribute('d', 'M' + media.cx + ',' + media.bottom + ' C' + media.cx + ',' + (media.bottom + (entryY - media.bottom) * 0.7) + ' ' + (leftX - 24) + ',' + (entryY - 12) + ' ' + leftX + ',' + entryY);
-    svg.querySelector('#eco-p-reviews').setAttribute('d', 'M' + reviews.cx + ',' + reviews.bottom + ' L' + hubCx + ',' + (hubTop + hubR * 0.06));
-    svg.querySelector('#eco-p-trusted').setAttribute('d', 'M' + trusted.cx + ',' + trusted.bottom + ' C' + trusted.cx + ',' + (trusted.bottom + (entryY - trusted.bottom) * 0.7) + ' ' + (rightX + 24) + ',' + (entryY - 12) + ' ' + rightX + ',' + entryY);
-    svg.querySelector('#eco-dot-media').setAttribute('cx', leftX); svg.querySelector('#eco-dot-media').setAttribute('cy', entryY);
-    svg.querySelector('#eco-dot-reviews').setAttribute('cx', hubCx); svg.querySelector('#eco-dot-reviews').setAttribute('cy', hubTop + hubR * 0.06);
-    svg.querySelector('#eco-dot-trusted').setAttribute('cx', rightX); svg.querySelector('#eco-dot-trusted').setAttribute('cy', entryY);
-    var exitY = hubBottom - hubR * 0.14;
-    svg.querySelector('#eco-p-search').setAttribute('d', 'M' + hubCx + ',' + exitY + ' C' + hubCx + ',' + (exitY + 38) + ' ' + (search.cx + 26) + ',' + (search.top - 6) + ' ' + (search.cx + 8) + ',' + search.top);
-    svg.querySelector('#eco-p-ai').setAttribute('d', 'M' + hubCx + ',' + exitY + ' C' + hubCx + ',' + (exitY + 38) + ' ' + (ai.cx - 26) + ',' + (ai.top - 6) + ' ' + (ai.cx - 8) + ',' + ai.top);
-  }
   window.addEventListener('resize', fitPage);
   document.addEventListener('DOMContentLoaded', fitPage);
   window.addEventListener('load', function () { requestAnimationFrame(fitPage); });
-  window.addEventListener('resize', drawEcoLines);
-  document.addEventListener('DOMContentLoaded', drawEcoLines);
-  window.addEventListener('load', function () { requestAnimationFrame(drawEcoLines); });
 </script>
 <script>
   document.addEventListener('click', function (e) {
@@ -391,144 +364,112 @@
       <p style="font-size: 19px; line-height: 1.6; font-weight: 700; color: #3D4660; max-width: 860px; text-align: center;">Search engines and AI systems build their understanding from information across your digital ecosystem. Your website matters, but so do profiles, third-party sources, knowledge systems, media coverage, reviews and the relationships between them.</p>
     </div>
 
-    <!-- Desktop/tablet network diagram -->
-    <div class="m-eco-desktop" style="position: relative; width: 100%; max-width: 1200px; height: 340px; margin: 0 auto;">
-      <svg width="1200" height="340" viewBox="0 0 1200 340" style="position: absolute; left: 0; top: 0; z-index: 0;" aria-hidden="true">
-        <circle cx="760" cy="170" r="140" fill="none" stroke="rgba(26,39,78,0.10)" stroke-width="1" stroke-dasharray="3 6"></circle>
-        <circle cx="760" cy="170" r="182" fill="none" stroke="rgba(26,39,78,0.08)" stroke-width="1" stroke-dasharray="3 6"></circle>
-        <path d="M220,48 C420,48 540,85 682,150" fill="none" stroke="#6BACDA" stroke-width="1.5"></path>
-        <path d="M210,272 C420,272 540,235 682,190" fill="none" stroke="#6BACDA" stroke-width="1.5"></path>
-        <path d="M470,34 C550,34 610,40 650,55 C665,62 675,100 682,130" fill="none" stroke="#E3A949" stroke-width="1.5"></path>
-        <path d="M650,40 C660,70 672,100 682,115" fill="none" stroke="#E3A949" stroke-width="1.5"></path>
-        <path d="M420,284 C520,284 590,275 640,267 C655,262 672,220 682,195" fill="none" stroke="#E3A949" stroke-width="1.5"></path>
-        <path d="M640,282 C658,260 672,240 682,225" fill="none" stroke="#E3A949" stroke-width="1.5"></path>
-        <path d="M838,160 C870,130 880,115 900,115" fill="none" stroke="#E3A949" stroke-width="1.5"></path>
-        <path d="M838,180 C870,215 880,245 900,245" fill="none" stroke="#E3A949" stroke-width="1.5"></path>
-        <circle cx="473" cy="75" r="3.5" fill="#6BACDA"></circle>
-        <circle cx="472" cy="248" r="3.5" fill="#6BACDA"></circle>
-        <circle cx="551" cy="34" r="3.5" fill="#E3A949"></circle>
-        <circle cx="666" cy="75" r="3.5" fill="#E3A949"></circle>
-        <circle cx="521" cy="284" r="3.5" fill="#E3A949"></circle>
-        <circle cx="661" cy="250" r="3.5" fill="#E3A949"></circle>
-        <circle cx="870" cy="124" r="3.5" fill="#E3A949"></circle>
-        <circle cx="870" cy="232" r="3.5" fill="#E3A949"></circle>
+    <!-- Desktop/tablet: single row of 6 nodes, wave graphic, hub, satellites -->
+    <div class="m-eco-desktop" style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; gap: 8px;">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; width: 178px;">
+          <div style="min-height: 72px;"><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Website</div><div style="font-size: 12.5px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Your official content hub</div></div>
+          <div style="width: 58px; height: 58px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"></path></svg></div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; width: 178px;">
+          <div style="min-height: 72px;"><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Profiles</div><div style="font-size: 12.5px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Social and professional profiles</div></div>
+          <div style="width: 58px; height: 58px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; width: 178px;">
+          <div style="min-height: 72px;"><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Content</div><div style="font-size: 12.5px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Articles, blogs, publications and resources</div></div>
+          <div style="width: 58px; height: 58px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v4h4M9 12h7M9 16h7"></path></svg></div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; width: 178px;">
+          <div style="min-height: 72px;"><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Media</div><div style="font-size: 12.5px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Press coverage and mentions</div></div>
+          <div style="width: 58px; height: 58px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="M7 9h6v4H7zM15 9h2M15 13h2M7 16h10"></path></svg></div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; width: 178px;">
+          <div style="min-height: 72px;"><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Reviews</div><div style="font-size: 12.5px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Ratings and customer feedback</div></div>
+          <div style="width: 58px; height: 58px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; width: 178px;">
+          <div style="min-height: 72px;"><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Trusted sources</div><div style="font-size: 12.5px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Directories, partners and authoritative platforms</div></div>
+          <div style="width: 58px; height: 58px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div>
+        </div>
+      </div>
+
+      <svg width="1200" height="150" viewBox="0 0 1200 150" style="display: block; margin-top: -4px;" aria-hidden="true">
+        <path d="M0,55 C100,20 200,90 300,55 C400,20 500,90 600,55 C700,20 800,90 900,55 C1000,20 1100,90 1200,55" fill="none" stroke="#6BACDA" stroke-width="1.1" opacity="0.55"></path>
+        <path d="M0,75 C100,100 200,40 300,75 C400,100 500,40 600,75 C700,100 800,40 900,75 C1000,100 1100,40 1200,75" fill="none" stroke="#E3A949" stroke-width="1.1" opacity="0.55"></path>
+        <path d="M0,65 C120,35 220,105 340,65 C460,25 560,105 680,65 C800,25 900,105 1020,65 C1100,35 1150,65 1200,65" fill="none" stroke="#6BACDA" stroke-width="1" opacity="0.35"></path>
+        <path d="M0,90 C120,115 220,55 340,90 C460,125 560,55 680,90 C800,125 900,55 1020,90 C1100,115 1150,90 1200,90" fill="none" stroke="#E3A949" stroke-width="1" opacity="0.35"></path>
+        <circle cx="150" cy="40" r="2.5" fill="#6BACDA"></circle>
+        <circle cx="450" cy="95" r="2.5" fill="#E3A949"></circle>
+        <circle cx="750" cy="40" r="2.5" fill="#6BACDA"></circle>
+        <circle cx="1050" cy="95" r="2.5" fill="#E3A949"></circle>
       </svg>
 
-      <div style="position: absolute; left: 0px; top: 14px; width: 220px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; z-index: 2;">
-        <div style="width: 46px; height: 46px; border-radius: 11px; background: #FBF6EC; border: 1px solid #F0E2BE; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="7" cy="8.5" r="0.6" fill="#1A274E"></circle><circle cx="9.5" cy="8.5" r="0.6" fill="#1A274E"></circle><path d="M3 11h18"></path></svg></div>
-        <div><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Website</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Your official content hub</div></div>
+      <div style="display: flex; justify-content: center; margin-top: -55px; position: relative; z-index: 2;">
+        <div style="width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle at 50% 42%, #22304f 0%, #1A274E 70%); border: 2px solid #E3A949; box-shadow: 0 0 0 5px rgba(227,169,73,0.18), 0 0 46px 10px rgba(227,169,73,0.3); display: flex; align-items: center; justify-content: center;">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 22px; line-height: 1.3; letter-spacing: 0.02em; color: #FFFFFF; text-align: center;">YOUR<br>BRAND</span>
+            <span style="display: block; width: 30px; height: 2px; background: #E3A949; border-radius: 2px;"></span>
+          </div>
+        </div>
       </div>
 
-      <div style="position: absolute; left: 250px; top: 0px; width: 220px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; z-index: 2;">
-        <div style="width: 46px; height: 46px; border-radius: 11px; background: #FBF6EC; border: 1px solid #F0E2BE; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div>
-        <div><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Profiles</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Social and professional profiles</div></div>
+      <div style="display: flex; justify-content: center; gap: 460px; margin-top: -28px; position: relative; z-index: 1;">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;">
+          <div><div style="font-size: 16px; font-weight: 700; color: #1A274E;">Search Engines</div><div style="font-size: 13px; color: #4A5470; margin-top: 2px;">Google and beyond</div></div>
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 6px 16px rgba(26,39,78,0.14); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;">
+          <div><div style="font-size: 16px; font-weight: 700; color: #1A274E;">AI systems</div><div style="font-size: 13px; color: #4A5470; margin-top: 2px;">ChatGPT, Gemini, Perplexity and others</div></div>
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 6px 16px rgba(26,39,78,0.14); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile: 2-col icon+text grid, hub, satellites -->
+    <div class="m-eco-mobile" style="display: none;">
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px;">
+        <div style="display: flex; align-items: flex-start; gap: 12px;"><div style="width: 46px; height: 46px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"></path></svg></div><div><div style="font-size: 14px; font-weight: 700; color: #1A274E;">Website</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Your official content hub</div></div></div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;"><div style="width: 46px; height: 46px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div><div><div style="font-size: 14px; font-weight: 700; color: #1A274E;">Profiles</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Social and professional profiles</div></div></div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;"><div style="width: 46px; height: 46px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v4h4M9 12h7M9 16h7"></path></svg></div><div><div style="font-size: 14px; font-weight: 700; color: #1A274E;">Content</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Articles, blogs, publications and resources</div></div></div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;"><div style="width: 46px; height: 46px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="M7 9h6v4H7zM15 9h2M15 13h2M7 16h10"></path></svg></div><div><div style="font-size: 14px; font-weight: 700; color: #1A274E;">Media</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Press coverage and mentions</div></div></div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;"><div style="width: 46px; height: 46px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></div><div><div style="font-size: 14px; font-weight: 700; color: #1A274E;">Reviews</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Ratings and customer feedback</div></div></div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;"><div style="width: 46px; height: 46px; border-radius: 50%; background: #1A274E; border: 2px solid #E3A949; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div><div><div style="font-size: 14px; font-weight: 700; color: #1A274E;">Trusted sources</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Directories, partners and authoritative platforms</div></div></div>
       </div>
 
-      <div style="position: absolute; left: 480px; top: 6px; width: 170px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; z-index: 2;">
-        <div style="width: 46px; height: 46px; border-radius: 11px; background: #FBF6EC; border: 1px solid #F0E2BE; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v4h4M9 12h7M9 16h7"></path></svg></div>
-        <div><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Content</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Articles, blogs, publications and resources</div></div>
-      </div>
-
-      <div style="position: absolute; left: 0px; top: 238px; width: 210px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; z-index: 2;">
-        <div style="width: 46px; height: 46px; border-radius: 11px; background: #FBF6EC; border: 1px solid #F0E2BE; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.5"></circle><path d="M3 16l5-4 4 3 3-3 6 5"></path></svg></div>
-        <div><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Media</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Press coverage and mentions</div></div>
-      </div>
-
-      <div style="position: absolute; left: 230px; top: 250px; width: 190px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; z-index: 2;">
-        <div style="width: 46px; height: 46px; border-radius: 11px; background: #FBF6EC; border: 1px solid #F0E2BE; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></div>
-        <div><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Reviews</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Ratings and customer feedback</div></div>
-      </div>
-
-      <div style="position: absolute; left: 450px; top: 248px; width: 190px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; z-index: 2;">
-        <div style="width: 46px; height: 46px; border-radius: 11px; background: #FBF6EC; border: 1px solid #F0E2BE; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div>
-        <div><div style="font-size: 15px; font-weight: 700; color: #1A274E;">Trusted sources</div><div style="font-size: 13px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Directories, partners and authoritative references</div></div>
-      </div>
-
-      <div style="position: absolute; left: 682px; top: 92px; width: 156px; height: 156px; z-index: 2;">
-        <div style="position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed rgba(26,39,78,0.22);"></div>
-        <div style="position: absolute; inset: 12px; border-radius: 50%; background: radial-gradient(circle at 50% 38%, #FFFFFF 0%, #FBF3E3 60%, #F2E0BC 100%); border: 1.5px solid #E3A949; box-shadow: 0 0 36px 6px rgba(227,169,73,0.28), 0 12px 24px rgba(26,39,78,0.14); display: flex; align-items: center; justify-content: center;">
+      <div style="display: flex; justify-content: center; padding: 28px 0;">
+        <div style="width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle at 50% 42%, #22304f 0%, #1A274E 70%); border: 2px solid #E3A949; box-shadow: 0 0 0 4px rgba(227,169,73,0.18), 0 0 36px 8px rgba(227,169,73,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-            <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.3; letter-spacing: 0.03em; color: #1A274E; text-align: center;">YOUR<br>BRAND</span>
+            <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.3; letter-spacing: 0.02em; color: #FFFFFF; text-align: center;">YOUR<br>BRAND</span>
             <span style="display: block; width: 26px; height: 2px; background: #E3A949; border-radius: 2px;"></span>
           </div>
         </div>
       </div>
 
-      <div style="position: absolute; left: 900px; top: 70px; width: 300px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); padding: 16px 20px; display: flex; align-items: center; gap: 14px; z-index: 2;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6BACDA" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div>
-        <div><div style="font-size: 17px; font-weight: 700; color: #1A274E;">Search Engines</div><div style="font-size: 14px; color: #4A5470;">Google and beyond</div></div>
-      </div>
-
-      <div style="position: absolute; left: 900px; top: 200px; width: 300px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); padding: 16px 20px; display: flex; align-items: center; gap: 14px; z-index: 2;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6BACDA" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div>
-        <div><div style="font-size: 17px; font-weight: 700; color: #1A274E;">AI systems</div><div style="font-size: 14px; color: #4A5470;">ChatGPT, Gemini, Perplexity and others</div></div>
-      </div>
-    </div>
-
-    <!-- Mobile: bare icon grid + hub + arrow rows -->
-    <div class="m-eco-mobile" style="display: none;">
-<div class="m-eco-mobile-diagram" style="position: relative;">
-      <svg class="m-eco-svg" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;" aria-hidden="true">
-        <defs><marker id="eco-m-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E3A949"></path></marker></defs>
-        <path id="eco-p-media" fill="none" stroke="#E3A949" stroke-width="1.6"></path>
-        <path id="eco-p-reviews" fill="none" stroke="#E3A949" stroke-width="1.6"></path>
-        <path id="eco-p-trusted" fill="none" stroke="#E3A949" stroke-width="1.6"></path>
-        <circle id="eco-dot-media" r="3" fill="#E3A949"></circle>
-        <circle id="eco-dot-reviews" r="3" fill="#E3A949"></circle>
-        <circle id="eco-dot-trusted" r="3" fill="#E3A949"></circle>
-        <path id="eco-p-search" fill="none" stroke="#E3A949" stroke-width="1.6" marker-end="url(#eco-m-arrow)"></path>
-        <path id="eco-p-ai" fill="none" stroke="#E3A949" stroke-width="1.6" marker-end="url(#eco-m-arrow)"></path>
-      </svg>
-      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 10px; text-align: center;">
-        <div style="position: relative;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="7" cy="8.5" r="0.6" fill="#E3A949"></circle><circle cx="9.5" cy="8.5" r="0.6" fill="#E3A949"></circle><path d="M3 11h18"></path></svg><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">Website</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Your official content hub</div><span style="position: absolute; left: 50%; bottom: -22px; width: 1.5px; height: 22px; background: #E3A949; transform: translateX(-50%);"></span></div>
-        <div style="position: relative;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">Profiles</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Social and professional profiles</div><span style="position: absolute; left: 50%; bottom: -22px; width: 1.5px; height: 22px; background: #E3A949; transform: translateX(-50%);"></span></div>
-        <div style="position: relative;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v4h4M9 12h7M9 16h7"></path></svg><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">Content</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Articles, blogs, publications and resources</div><span style="position: absolute; left: 50%; bottom: -22px; width: 1.5px; height: 22px; background: #E3A949; transform: translateX(-50%);"></span></div>
-        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.5"></circle><path d="M3 16l5-4 4 3 3-3 6 5"></path></svg><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">Media</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Press coverage and mentions</div></div>
-        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">Reviews</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Ratings and customer feedback</div></div>
-        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">Trusted sources</div><div style="font-size: 12px; line-height: 1.3; color: #4A5470; margin-top: 2px;">Directories, partners and authoritative references</div></div>
-      </div>
-
-      <div style="display: flex; justify-content: center; padding: 28px 0;">
-        <div style="position: relative; width: 156px; height: 156px; flex-shrink: 0;">
-          <div style="position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed rgba(26,39,78,0.22);"></div>
-          <div style="position: absolute; inset: 12px; border-radius: 50%; background: radial-gradient(circle at 50% 38%, #FFFFFF 0%, #FBF3E3 60%, #F2E0BC 100%); border: 1.5px solid #E3A949; box-shadow: 0 0 36px 6px rgba(227,169,73,0.28), 0 12px 24px rgba(26,39,78,0.14); display: flex; align-items: center; justify-content: center;">
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-              <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.3; letter-spacing: 0.03em; color: #1A274E; text-align: center;">YOUR<br>BRAND</span>
-              <span style="display: block; width: 26px; height: 2px; background: #E3A949; border-radius: 2px;"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; text-align: center;">
-        <div><div style="width: 52px; height: 52px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; margin: 0 auto;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6BACDA" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div><div style="font-size: 15px; font-weight: 700; color: #1A274E; margin-top: 10px;">Search Engines</div><div style="font-size: 12px; color: #4A5470; margin-top: 2px;">Google and beyond</div></div>
-        <div><div style="width: 52px; height: 52px; border-radius: 50%; background: #1A274E; display: flex; align-items: center; justify-content: center; margin: 0 auto;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6BACDA" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div><div style="font-size: 15px; font-weight: 700; color: #1A274E; margin-top: 10px;">AI systems</div><div style="font-size: 12px; color: #4A5470; margin-top: 2px;">ChatGPT, Gemini, Perplexity and others</div></div>
+        <div><div style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 6px 16px rgba(26,39,78,0.14); display: flex; align-items: center; justify-content: center; margin: 0 auto;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">Search Engines</div><div style="font-size: 12px; color: #4A5470; margin-top: 2px;">Google and beyond</div></div>
+        <div><div style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 6px 16px rgba(26,39,78,0.14); display: flex; align-items: center; justify-content: center; margin: 0 auto;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A274E" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div><div style="font-size: 14px; font-weight: 700; color: #1A274E; margin-top: 8px;">AI systems</div><div style="font-size: 12px; color: #4A5470; margin-top: 2px;">ChatGPT, Gemini, Perplexity and others</div></div>
       </div>
-    </div>
     </div>
 
-    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px;">
-      <div class="m-px m-eco-panel-gold" style="position: relative; background: #FFFFFF; border: 1px solid #EDE7D6; border-radius: 14px; padding: 36px 40px;">
-        <div style="display: flex; align-items: center; gap: 18px;">
-          <div style="width: 68px; height: 68px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F0BD5E, #C98A2E); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></div>
-          <div>
-            <h3 style="font-family: 'Source Serif 4', Georgia, serif; font-size: 26px; font-weight: 700; color: #C9922F; margin: 0;">Digital Brand Engineering</h3>
-            <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #C9922F; margin-top: 4px;">The Process</div>
-          </div>
+    <!-- Footer: Digital Brand Engineering / Kalicube Pro -->
+    <div class="m-g1 m-eco-footer" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0;">
+      <div style="display: flex; align-items: flex-start; gap: 20px; padding-right: 40px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F0BD5E, #C98A2E); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></div>
+        <div class="m-eco-divider" style="width: 1.5px; align-self: stretch; background: #E1E8F0; flex-shrink: 0;"></div>
+        <div>
+          <h3 style="font-size: 22px; line-height: 1.25; font-weight: 700; color: #C9922F; margin: 0;">Digital Brand Engineering</h3>
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #C9922F; margin-top: 2px;">The Process</div>
+          <p style="font-size: 15px; line-height: 1.55; color: #3D4660; margin-top: 10px;">Engineers the information and signals across your digital ecosystem to create a clear, consistent and credible understanding of your brand.</p>
         </div>
-        <div style="height: 1.5px; background: #E8D7AE; margin: 22px 0 18px;"></div>
-        <p style="font-size: 17px; line-height: 1.6; color: #1A274E;">Engineers the information and signals across your digital ecosystem to create a clear, consistent and credible understanding of your brand.</p>
       </div>
-      <div class="m-px m-eco-panel-blue" style="position: relative; background: #FFFFFF; border: 1px solid #DCE7F2; border-radius: 14px; padding: 36px 40px;">
-        <div style="display: flex; align-items: center; gap: 18px;">
-          <div style="width: 68px; height: 68px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #7FB3DC, #3E72A6); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></svg></div>
-          <div>
-            <h3 style="font-family: 'Source Serif 4', Georgia, serif; font-size: 26px; font-weight: 700; color: #1A274E; margin: 0;">Kalicube Pro</h3>
-            <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5B86AE; margin-top: 4px;">The Intelligence</div>
-          </div>
+      <div class="m-eco-footer-col2" style="display: flex; align-items: flex-start; gap: 20px; padding-left: 40px; border-left: 1.5px solid #E1E8F0;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #7FB3DC, #3E72A6); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></svg></div>
+        <div class="m-eco-divider" style="width: 1.5px; align-self: stretch; background: #CBDCEB; flex-shrink: 0;"></div>
+        <div>
+          <h3 style="font-size: 22px; line-height: 1.25; font-weight: 700; color: #1A274E; margin: 0;">Kalicube Pro</h3>
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5B86AE; margin-top: 2px;">The Intelligence</div>
+          <p style="font-size: 15px; line-height: 1.55; color: #3D4660; margin-top: 10px;">Analyses the information and relationships across your digital ecosystem to identify what supports or contradicts the brand you want to establish.</p>
         </div>
-        <div style="height: 1.5px; background: #CBDCEB; margin: 22px 0 18px;"></div>
-        <p style="font-size: 17px; line-height: 1.6; color: #1A274E;">Analyses the information and relationships across your digital ecosystem to identify what supports or contradicts the brand you want to establish.</p>
       </div>
     </div>
   </section>
