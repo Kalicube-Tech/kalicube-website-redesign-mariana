@@ -14,6 +14,18 @@
     h1, h2, h3, p { margin: 0; }
     h1, h2, h3 { text-wrap: balance; }
     p { text-wrap: pretty; }
+    /* Digital ecosystem infographic: fade the raster edges into the section background */
+    .m-eco-img-wrap { overflow: hidden; --mask-left: 24px; --mask-right: 8px; --mask-top: 10px; --mask-bottom: 6px; }
+    .m-eco-img-wrap img {
+      mask-image: linear-gradient(to bottom, transparent 0, #000 var(--mask-top), #000 calc(100% - var(--mask-bottom)), transparent 100%), linear-gradient(to right, transparent 0, #000 var(--mask-left), #000 calc(100% - var(--mask-right)), transparent 100%);
+      mask-composite: intersect;
+      mask-repeat: no-repeat;
+      mask-size: 100% 100%;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 var(--mask-top), #000 calc(100% - var(--mask-bottom)), transparent 100%), linear-gradient(to right, transparent 0, #000 var(--mask-left), #000 calc(100% - var(--mask-right)), transparent 100%);
+      -webkit-mask-composite: source-in;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 100% 100%;
+    }
   </style>
 <style id="mobile-layout">
 @media (max-width: 759px) {
@@ -71,6 +83,8 @@
   .m-press > div:first-child { display: none !important; }
   .m-press > div:last-child { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 14px !important; justify-items: center; align-items: center; }
   .m-press img { height: auto !important; max-height: 17px; max-width: 100%; }
+  /* Digital ecosystem infographic: smaller fade distances at mobile width */
+  .m-eco-img-wrap { --mask-left: 16px; --mask-right: 6px; --mask-top: 5px; --mask-bottom: 5px; }
   /* The ecosystem diagram: three by two, then the brand and where it goes */
   .m-eco { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; row-gap: 22px; }
   .m-eco > div:first-child { display: none !important; }
@@ -396,10 +410,12 @@
     </div>
 
     <!-- Ecosystem diagram: responsive <picture>, mobile-specific image below the tablet breakpoint -->
-    <picture>
-      <source media="(max-width: 759px)" srcset="images/homepage_ecosystem_mobile.png">
-      <img src="images/homepage_ecosystem.png" alt="Diagram showing how a brand's website, profiles, content, media, reviews, and trusted sources feed into how search engines and AI systems understand the brand." style="display: block; width: 100%; height: auto; max-width: 100%; margin: 0 auto;">
-    </picture>
+    <div class="m-eco-img-wrap">
+      <picture>
+        <source media="(max-width: 759px)" srcset="images/homepage_ecosystem_mobile.png">
+        <img src="images/homepage_ecosystem.png" alt="Diagram showing how a brand's website, profiles, content, media, reviews, and trusted sources feed into how search engines and AI systems understand the brand." style="display: block; width: 100%; height: auto; max-width: 100%; margin: 0 auto;">
+      </picture>
+    </div>
 
     <!-- Footer: Digital Brand Engineering / Kalicube Pro -->
     <div class="m-g1 m-eco-footer" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0;">
