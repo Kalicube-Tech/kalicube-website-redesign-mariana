@@ -21,6 +21,8 @@
     .hero > * { position: relative; z-index: 1; }
     .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
     .hero > img.hero-bg { left: var(--split, 50%); width: calc(100% - var(--split, 50%)); }
+    .hero-name a:hover { color: #FFFFFF; }
+    .hero-name a.act:hover { color: #1A274E; }
   </style>
 <style id="mobile-layout">
 @media (max-width: 759px) {
@@ -59,6 +61,7 @@
   .hero > * { order: 2; }
   .hero > .m-nav { order: 1; }
   .hero > div.hero-bg { display: none !important; }
+  .hero-name { background-image: linear-gradient(180deg, #021A41 0%, #021A41 50%, rgba(2,26,65,0) 60%), url('../../images/Name_change_hero_bg.png') !important; background-size: 100% 100%, auto 52% !important; background-position: 0 0, 78% 100% !important; }
   .hero > img.hero-bg { position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; height: 240px !important; order: 3; }
   /* The homepage hero: text, then the caption, then Jason; no floating icons */
   .m-hero { height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column; }
@@ -150,26 +153,17 @@
   </header>
 
   <!-- Hero: the prospect is the hero, bright on the right; Jason small under the buttons -->
-  <section class="hero" style="--split: 54%; background: #1A274E; color: #FFFFFF;">
-    <img src="images/hero-name-change.jpg" class="hero-bg" alt="" style="object-fit: cover; object-position: center 35%; display: block;">
-    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(26,39,78) 0%, rgb(26,39,78) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
+  <section class="hero hero-name" style="background-color: #021A41; background-image: url('../../images/Name_change_hero_bg.png'); background-size: cover; background-position: right center; background-repeat: no-repeat; color: #FFFFFF;">
     <div class="m-px m-pb m-g1 m-gap" style="padding: 64px 120px 80px; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 72px; align-items: center;">
-      <div style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.32); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700; background: rgba(6,14,38,0.35);">
-        <a href="../../strategy-plus/" style="color: #FFFFFF; border-radius: 999px; padding: 8px 18px;">For companies</a>
-        <span style="background: #FFFFFF; color: #1A274E; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</span>
+      <div style="display: flex; flex-direction: column;">
+      <h1 class="m-f48" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em; text-wrap: pretty;">I've changed my name, <span style="color: #E3A949;">and AI still uses the old one.</span></h1>
+      <p class="m-f26" style="margin-top: 1.25rem; font-size: 24px; line-height: 1.4; font-weight: 400; color: #FFFFFF; max-width: 640px;">Get Google, ChatGPT, Gemini and Perplexity to understand your new name and connect it correctly to you.</p>
+      <p style="margin-top: 1.5rem; font-size: 18px; line-height: 1.6; color: #A9B6CE; max-width: 40rem;">Your new name is already on your website, your profiles and the things you publish, but Google can still show the old one and AI can still introduce you by it. That creates a disconnect between who you are now and the version of you people find when they search your name or ask AI about you.</p>
+      <div style="margin-top: 2rem; display: flex; flex-direction: column; align-items: flex-start;">
+        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 17px 30px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <div style="margin-top: 0.75rem; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.72);">Free · Less than 5 minutes · Personalised strategy</div>
+        <a href="../../apply/" style="margin-top: 1.5rem; font-size: 16px; line-height: 1.5; color: #FFFFFF; text-decoration: underline; text-underline-offset: 4px;">Already know what you need? Book a call</a>
       </div>
-      <p class="m-f48" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">I’ve changed my name, <span style="color: #E3A949;">and AI still uses the old one.</span></p>
-      <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 640px;">Name change in Google and AI: update your name in your Knowledge Panel, ChatGPT and Gemini</h1>
-      <p style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 640px;">You changed your name for a reason: marriage, a divorce, a fresh start, or the name you actually go by. Google still shows the old one in your Knowledge Panel. ChatGPT and Gemini introduce you by it. Your personal brand is split in two, because the machines found the old name first and nobody told them.</p>
-      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 6px;">
-        <div style="display: flex; align-items: center; gap: 14px;">
-          <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 17px 30px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-          <a href="../../apply/" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.85); padding: 15px 28px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; background: rgba(6,14,38,0.35);">Book a call</a>
-        </div>
-        <div style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.82); max-width: 440px;">Free · Less than 5 minutes · A detailed audit and strategy based on The Kalicube Process</div>
-      </div>
-      <div style="display: flex; align-items: center; gap: 14px; padding-top: 16px; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.16); max-width: 640px;"><img src="images/jason-friendly.jpg" alt="Jason Barnard" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.85);"><p style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.86);"><span style="font-weight: 700; color: #FFFFFF;">Led by Jason Barnard.</span> Hired by Google to speak on the future of AI Search and how brands win at organic optimization. <a href="../../jasonbarnard/#reel" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px;">Watch Jason in action.</a></p></div>
       </div>
       <!-- The example, on the photo -->
       <div style="display: flex; flex-direction: column; gap: 16px;">
