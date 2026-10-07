@@ -8,6 +8,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400&amp;family=Caveat:wght@600&amp;family=Google+Sans+Code:wght@500&amp;display=swap">
   <style>
+    :root { --kc-red: #B83A2E; --kc-green: #0F5B3A; --kc-green-tint: #E8F1EC; }
     html, body { margin: 0; background: #1A274E; }
     body { font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased;}
     a { color: #1A274E; text-decoration: none; } a:hover { color: #8C6230; }
@@ -76,6 +77,13 @@
   .m-nums > div > div:first-child { width: 30.8px !important; height: 30.8px !important; }
   .m-what { padding: 3.5rem 20px !important; }
   .m-steps { gap: 2.5rem !important; }
+  .hist { padding: 3.5rem 20px !important; background-position: 20% center !important; }
+  .hist-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 1.25rem 0; }
+  .hist-arrow-d { display: none !important; }
+  .hist-arrow-m { display: block !important; }
+  .hist-cols { gap: 0 16px !important; }
+  .hist-name { font-size: 20px !important; }
+  .hist-list { font-size: 15px !important; line-height: 1.8 !important; }
   .m-nums svg { width: 16.8px; height: 16.8px; }
   .m-nums > div > div + div > span:first-child { font-size: 13.3px !important; }
   .m-nums > div > div + div > span + span { font-size: 12.5px !important; }
@@ -245,6 +253,42 @@
         <p style="margin-top: 1rem; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We make sure the work, achievements and authority attached to your previous name remain connected to you, while your new name becomes the one that represents you now.</p>
       </li>
     </ol>
+  </section>
+
+  <!-- Your history doesn't start again: before and after -->
+  <section class="m-px hist" style="background-color: #EEF3FB; background-image: url('../../generic_lb_bg.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; padding: 80px 120px;">
+    <p style="text-align: center; font-size: 14px; line-height: 1.4; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #6B7A99;">Your history doesn't start again</p>
+    <h2 class="m-f40" style="font-family: Arial, Helvetica, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #1A274E;">Same person. One story. <span style="display: block; color: #B98B4E;">Both names.</span></h2>
+    <div style="max-width: 50rem; margin: 28px auto 0; text-align: center;">
+      <p style="font-size: 18px; line-height: 1.6; color: #3D4660;">Changing your name shouldn't disconnect you from everything you built before it. Articles, interviews, companies, awards, publications and other parts of your professional history may still carry your previous name, and in many cases, they should.</p>
+      <p style="margin-top: 1.25rem; font-size: 18px; line-height: 1.6; color: #3D4660;">The job isn't to replace your old name everywhere. It's to make the relationship unmistakable: both names belong to you, your history remains connected to you, and your new name is the one that represents you now.</p>
+    </div>
+    <div class="hist-grid" style="margin-top: 3.5rem; display: grid; grid-template-columns: minmax(0, 1fr) 120px minmax(0, 1fr); align-items: start;">
+      <div class="hist-before">
+        <div style="display: flex; align-items: center; gap: 18px;"><p style="font-size: 13px; line-height: 1; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #1A274E;">Before</p><span aria-hidden="true" style="flex: 1; height: 1px; background: #C5D4E3;"></span></div>
+        <div class="hist-cols" style="margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); gap: 0 32px;">
+          <div style="min-width: 0;"><p class="m-f26 hist-name" style="font-family: Arial, Helvetica, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #1A274E;">Morgan Hart</p><span aria-hidden="true" style="display: block; width: 4rem; height: 2px; margin: 14px 0 12px; background: linear-gradient(90deg, #E3A949, rgba(227,169,73,0));"></span><ul class="hist-list" style="margin: 0; padding: 0; list-style: none; font-size: 17px; line-height: 1.9; color: #4A5470;"><li>Articles and interviews</li><li>Awards and recognition</li><li>Past companies</li><li>Publications</li><li>Professional history</li></ul></div>
+          <span class="hist-vr" aria-hidden="true" style="background: #D5DFEA;"></span>
+          <div style="min-width: 0;"><p class="m-f26 hist-name" style="font-family: Arial, Helvetica, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #1A274E;">Morgan Ellis</p><span aria-hidden="true" style="display: block; width: 4rem; height: 2px; margin: 14px 0 12px; background: linear-gradient(90deg, #E3A949, rgba(227,169,73,0));"></span><ul class="hist-list" style="margin: 0; padding: 0; list-style: none; font-size: 17px; line-height: 1.9; color: #4A5470;"><li>Current website</li><li>Social profiles</li><li>New projects</li><li>Recent interviews</li><li>Latest content</li></ul></div>
+        </div>
+        <div aria-hidden="true" style="margin-top: 24px; border-top: 1px dashed #C5D4E3;"></div>
+        <p style="margin-top: 18px; text-align: center; font-size: 18px; line-height: 1.5; color: var(--kc-red);">Two names. Two disconnected records.</p>
+      </div>
+      <div style="align-self: stretch; display: flex; justify-content: center;">
+        <svg class="hist-arrow-d" aria-hidden="true" width="120" height="150" viewBox="0 0 120 150" fill="none" style="margin-top: 52px; overflow: visible;"><path d="M-6 8 C 50 8, 70 110, 112 112" stroke="#E3A949" stroke-width="2" stroke-linecap="round"/><path d="M100 102 L113 112 L100 122" stroke="#E3A949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="hist-arrow-m" aria-hidden="true" width="24" height="48" viewBox="0 0 24 48" fill="none" style="display: none;"><path d="M12 2 V44 M4 36 L12 45 L20 36" stroke="#E3A949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="hist-after">
+        <div style="display: flex; align-items: center; gap: 18px;"><p style="font-size: 13px; line-height: 1; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #1A274E;">After</p><span aria-hidden="true" style="flex: 1; height: 1px; background: #C5D4E3;"></span></div>
+        <div style="margin-top: 28px; display: flex; justify-content: space-between; gap: 16px;"><p class="m-f26 hist-name" style="font-family: Arial, Helvetica, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #1A274E;">Morgan Hart</p><p class="m-f26 hist-name" style="font-family: Arial, Helvetica, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #1A274E; text-align: right;">Morgan Ellis</p></div>
+        <svg aria-hidden="true" viewBox="0 0 400 56" preserveAspectRatio="none" style="display: block; width: 100%; height: 56px; margin-top: 10px;" fill="none"><path d="M40 2 C 40 22, 60 24, 120 24 C 180 24, 200 30, 200 54 M360 2 C 360 22, 340 24, 280 24 C 220 24, 200 30, 200 54" stroke="#E3A949" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
+        <div aria-hidden="true" style="width: 1.25rem; height: 1.25rem; margin: -2px auto 0; border-radius: 50%; background: #E3A949; box-shadow: 0 0 0 8px rgba(227,169,73,0.16), 0 0 28px 8px rgba(227,169,73,0.28);"></div>
+        <p style="margin-top: 22px; text-align: center; font-size: 15px; line-height: 1.3; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #B98B4E;">One person</p>
+        <p style="margin-top: 12px; text-align: center; font-size: 17px; line-height: 1.6; color: #4A5470;">Work <span aria-hidden="true" style="margin: 0 0.5em;">·</span> achievements <span aria-hidden="true" style="margin: 0 0.5em;">·</span> publications <span aria-hidden="true" style="margin: 0 0.5em;">·</span> companies <span aria-hidden="true" style="margin: 0 0.5em;">·</span> authority</p>
+        <span aria-hidden="true" style="display: block; width: 1px; height: 1.5rem; margin: 10px auto; background: #A9B6CE;"></span>
+        <div style="max-width: 30rem; margin: 0 auto; padding: 1rem 2rem; border-radius: 0.75rem; background: var(--kc-green-tint); text-align: center; color: var(--kc-green);"><p style="font-size: 19px; line-height: 1.4; font-weight: 700;">One connected history.</p><p style="font-size: 16px; line-height: 1.5;">Your new name represents you now.</p></div>
+      </div>
+    </div>
   </section>
 
   <!-- Trust, straight after the first screen: the right people for this reader -->
