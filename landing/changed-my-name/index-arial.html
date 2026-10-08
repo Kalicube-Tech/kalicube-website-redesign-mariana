@@ -9,6 +9,18 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400&amp;family=Caveat:wght@600&amp;family=Google+Sans+Code:wght@500&amp;display=swap">
   <style>
     :root { --kc-beige: #F7EFE3; --kc-navy-2: #1E3A66; }
+    .nb-cta { position: relative; overflow: hidden; margin-top: 64px; background: #1A274E; border-radius: 20px; color: #FFFFFF; }
+    .nb-cta-lines { position: absolute; left: 0; bottom: 0; width: 360px; height: 150px; pointer-events: none; }
+    .nb-cta-inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 44px 48px; }
+    .nb-cta-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+    .nb-cta-head { font-size: 27px; line-height: 1.25; font-weight: 700; color: #FFFFFF; white-space: nowrap; }
+    .nb-cta-sub { display: flex; flex-wrap: wrap; align-items: center; list-style: none; margin: 0; padding: 0; font-size: 17px; line-height: 1.3; color: rgba(255,255,255,0.9); }
+    .nb-cta-sub li { display: flex; align-items: center; gap: 8px; padding: 0 18px; }
+    .nb-cta-sub li:first-child { padding-left: 0; }
+    .nb-cta-sub li + li { border-left: 1px solid rgba(255,255,255,0.28); }
+    .nb-cta-rule { align-self: stretch; width: 1px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
+    .nb-cta-btn { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; gap: 12px; box-sizing: border-box; background: #E3A949; color: #1A274E; padding: 18px 32px; border-radius: 999px; font-family: inherit; font-size: 18px; font-weight: 700; white-space: nowrap; box-shadow: 0 8px 22px rgba(0,0,0,0.32); }
+    .nb-cta-btn:hover { color: #1A274E; }
     .wk-step { position: relative; display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); column-gap: 1.5rem; }
     .wk-step + .wk-step { margin-top: 2.5rem; }
     .wk-num { display: flex; justify-content: center; }
@@ -85,6 +97,13 @@
   .m-nums > div > div:first-child { width: 30.8px !important; height: 30.8px !important; }
   .m-what { padding: 3.5rem 20px !important; }
   .m-steps { gap: 2.5rem !important; }
+  .nb-cta { margin-top: 40px; }
+  .nb-cta-lines, .nb-cta-rule { display: none; }
+  .nb-cta-inner { flex-direction: column; align-items: stretch; gap: 20px; padding: 28px 20px; }
+  .nb-cta-head { font-size: 22px; white-space: normal; }
+  .nb-cta-sub { font-size: 14px; row-gap: 8px; }
+  .nb-cta-sub li { padding: 0 12px 0 0 !important; border-left: 0 !important; }
+  .nb-cta-btn { width: 100%; white-space: normal; text-align: center; font-size: 17px; padding: 16px 20px; }
   .why { padding: 3.5rem 20px 0 !important; }
   .why-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 24px !important; }
   .why-text { padding-bottom: 0 !important; }
@@ -316,6 +335,17 @@
         <p style="margin-top: 12px; text-align: center; font-size: 13px; line-height: 1; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #E3A949;">One person</p>
         <div aria-hidden="true" style="margin-top: 0.75rem; height: 1px; background: #E3E7EE;"></div>
         <div class="hy-strip" style="margin-top: 14px; display: flex; font-size: 11.5px; line-height: 1.3; color: #1A274E;"><div class="hy-item" style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5M16 13H8M16 17H8M10 9H8"/></svg><span>Work</span></div><div class="hy-item" style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg><span>Achievements</span></div><div class="hy-item" style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Publications</span></div><div class="hy-item" style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg><span>Companies</span></div><div class="hy-item" style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Authority</span></div></div>
+      </div>
+    </div>
+      <div class="nb-cta">
+      <svg class="nb-cta-lines" viewBox="0 0 360 150" fill="none" aria-hidden="true"><g stroke="#E3A949" stroke-width="1" stroke-linecap="round"><path d="M0 40 C 80 60, 160 110, 300 150" opacity="0.35"/><path d="M0 58 C 70 78, 150 120, 260 150" opacity="0.3"/><path d="M0 76 C 60 94, 130 128, 220 150" opacity="0.26"/><path d="M0 94 C 50 110, 110 136, 180 150" opacity="0.22"/><path d="M0 112 C 40 124, 90 142, 140 150" opacity="0.2"/><path d="M20 0 C 60 50, 150 100, 360 140" opacity="0.2"/></g></svg>
+      <div class="nb-cta-inner">
+        <div class="nb-cta-text">
+          <p class="nb-cta-head">See how Google and AI understand your new name.</p>
+          <ul class="nb-cta-sub"><li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Free</span></li><li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Less than 5 minutes</span></li><li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Personalised strategy</span></li></ul>
+        </div>
+        <span class="nb-cta-rule" aria-hidden="true"></span>
+        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act nb-cta-btn"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
       </div>
     </div>
   </section>
