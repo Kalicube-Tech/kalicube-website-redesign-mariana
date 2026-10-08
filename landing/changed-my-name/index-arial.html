@@ -86,14 +86,14 @@
   .m-what { padding: 3.5rem 20px !important; }
   .m-steps { gap: 2.5rem !important; }
   .wk { padding: 4rem 20px !important; }
-  .wk-arc { display: none; }
   .wk-step { grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: 1rem; }
   .wk-num span { width: 3.25rem; height: 3.25rem; font-size: 1.1rem; }
   .wk-h3 { font-size: 1.5rem !important; }
   .wk-body { padding-top: calc(1.625rem - 0.75em); }
   .wk-step:not(:last-child)::after { left: calc(1.75rem - 1px); top: 3.25rem; }
   .wk-step:not(:last-child)::before { left: calc(1.75rem - 0.375rem); top: calc(50% + 2.875rem - 0.375rem); }
-  .cs { padding: 3.5rem 20px !important; background-position: left center !important; }
+  .cs { padding: 3.5rem 20px !important; }
+  .cs-deco { display: none; }
   .cs-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 1.5rem !important; }
   .cs-pill { padding: 0.55rem 0.6rem !important; font-size: 14px !important; }
   .cs-pills { gap: 8px !important; }
@@ -251,7 +251,7 @@
   </section>
 
   <!-- What we do about it: first section after the hero -->
-  <section class="m-px m-what" style="background-color: #031D45; background-image: url('../../generic_bg.png'); background-size: cover; background-position: right center; background-repeat: no-repeat; color: #FFFFFF; padding: 80px 120px;">
+  <section class="m-px m-what" style="background: radial-gradient(circle at 0% 0%, rgba(96,140,220,0.16), rgba(96,140,220,0) 32%), radial-gradient(circle at 100% 100%, rgba(96,140,220,0.14), rgba(96,140,220,0) 32%), linear-gradient(135deg, #22346A 0%, #1A274E 50%, #101B3A 100%); color: #FFFFFF; padding: 80px 120px;">
     <p style="text-align: center; font-size: 14px; line-height: 1.4; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #A9B6CE;">What we do about it</p>
     <h2 class="m-f40" style="font-family: Arial, Helvetica, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #FFFFFF;">Make your new name the one <span style="display: block; color: #E3A949;">Google and AI understand.</span></h2>
     <div style="max-width: 50rem; margin: 28px auto 0; text-align: center;">
@@ -303,11 +303,13 @@
   </section>
 
   <!-- Case studies: we've already connected the dots -->
-  <section class="m-px cs" style="background-color: #EBF6FE; background-image: url('../../images/brand_strategy_bg.png'); background-size: cover; background-position: right center; background-repeat: no-repeat; padding: 80px 120px;">
-    <p style="text-align: center; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949;">Real name changes. Real results.</p>
-    <h2 class="m-f40" style="font-family: Arial, Helvetica, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #1A274E;">We've already <span style="color: #E3A949;">connected the dots.</span></h2>
-    <p style="max-width: 46rem; margin: 20px auto 0; text-align: center; font-size: 18px; line-height: 1.6; color: #4A5470;">People change their names for many reasons. What shouldn't change is the recognition of everything they have built. Here are three examples of how Kalicube has helped connect different names to the same person, across Google and AI.</p>
-    <div class="cs-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem;">
+  <section class="m-px cs" style="position: relative; overflow: hidden; background: linear-gradient(160deg, #F1F7FD 0%, #EAF3FC 55%, #E4EFFA 100%); padding: 80px 120px;">
+    <svg class="cs-deco" aria-hidden="true" width="1800" height="1800" viewBox="0 0 1800 1800" fill="none" style="position: absolute; right: -1350px; top: -420px; pointer-events: none;"><circle cx="900" cy="900" r="899" fill="rgba(214,230,246,0.3)" stroke="rgba(190,212,236,0.35)" stroke-width="1"/></svg>
+    <svg class="cs-deco" aria-hidden="true" width="260" height="70" viewBox="0 0 260 70" fill="none" style="position: absolute; right: 0; bottom: 0; pointer-events: none;"><path d="M260 6 C 190 18, 120 40, 40 70" stroke="rgba(227,169,73,0.45)" stroke-width="1"/></svg>
+    <p style="position: relative; text-align: center; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949;">Real name changes. Real results.</p>
+    <h2 class="m-f40" style="position: relative; font-family: Arial, Helvetica, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #1A274E;">We've already <span style="color: #E3A949;">connected the dots.</span></h2>
+    <p style="position: relative; max-width: 46rem; margin: 20px auto 0; text-align: center; font-size: 18px; line-height: 1.6; color: #4A5470;">People change their names for many reasons. What shouldn't change is the recognition of everything they have built. Here are three examples of how Kalicube has helped connect different names to the same person, across Google and AI.</p>
+    <div class="cs-grid" style="position: relative; margin-top: 3rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem;">
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
         <div style="padding: 0.75rem 0.75rem 0;"><img src="../../images/Mariana%20Franco11425_resized.jpg" alt="Portrait of Maryanna Franco" loading="lazy" style="display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; object-position: center 25%; border-radius: 0.5rem;"></div>
         <div style="flex: 1; display: flex; flex-direction: column; padding: 1.25rem 1.5rem 1.5rem;">
@@ -348,12 +350,10 @@
   </section>
 
   <!-- What working with us looks like -->
-  <section class="m-px wk" style="position: relative; overflow: hidden; color: #FFFFFF; background: radial-gradient(circle at 0% 0%, rgba(96,140,220,0.16), rgba(96,140,220,0) 32%), radial-gradient(circle at 100% 100%, rgba(96,140,220,0.14), rgba(96,140,220,0) 32%), linear-gradient(135deg, #22346A 0%, #1A274E 50%, #101B3A 100%); padding: 88px 120px;">
-    <svg class="wk-arc" aria-hidden="true" width="560" height="560" viewBox="0 0 560 560" fill="none" style="position: absolute; left: -300px; top: -300px; pointer-events: none;"><circle cx="280" cy="280" r="279" stroke="rgba(227,169,73,0.6)" stroke-width="1"/></svg>
-    <svg class="wk-arc" aria-hidden="true" width="620" height="620" viewBox="0 0 620 620" fill="none" style="position: absolute; right: -330px; bottom: -330px; pointer-events: none;"><circle cx="310" cy="310" r="309" stroke="rgba(227,169,73,0.6)" stroke-width="1"/></svg>
+  <section class="m-px wk" style="position: relative; overflow: hidden; color: #FFFFFF; background: linear-gradient(170deg, #1A274E 0%, #16224A 60%, #131D40 100%); padding: 88px 120px;">
     <div style="position: relative; max-width: 54rem; margin: 0 auto; text-align: center;">
       <p style="font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #E3A949;">What working with us looks like</p>
-      <h2 class="m-f40" style="font-family: Arial, Helvetica, sans-serif; margin-top: 16px; font-size: 46px; line-height: 1.12; font-weight: 700; color: #FFFFFF;">We do the work. <span style="display: block; color: #E3A949;">You stay in control of your name.</span></h2>
+      <h2 class="m-f40" style="font-family: Arial, Helvetica, sans-serif; margin-top: 16px; font-size: 46px; line-height: 1.12; font-weight: 700; color: #FFFFFF;">We do the work. <span style="display: block;">You stay in control of <span style="color: #E3A949;">your name.</span></span></h2>
       <p style="margin-top: 24px; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We start by understanding how your old and new names are currently represented across Google, AI and the wider web. From there, your Digital Brand Engineer builds and executes the strategy needed to connect the two identities and establish your new name.</p>
       <p style="margin-top: 1.25rem; font-size: 18px; line-height: 1.6; color: #C9D3E6;">You don't need to work out which profiles matter, which publishers need updating or what Google and AI need to see. We identify the priorities, handle the work we can do directly and guide you through anything that requires your involvement.</p>
     </div>
