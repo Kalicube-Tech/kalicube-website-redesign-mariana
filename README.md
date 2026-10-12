@@ -47,6 +47,7 @@ Edit `index-ubuntu.html` first. Make the same change in the other three if you w
 | One bad story | `landing/reputation/` |
 | Lead your field | `landing/lead-your-field/` |
 | AI underestimates me | `landing/ai-underestimates-me/` |
+| AI gets me wrong | `landing/ai-gets-me-wrong/` |
 | jasonbarnard.com | `jasonbarnard/` |
 | kalicube.pro | `kalicubepro/` |
 | Mind, Machine, Practice | `mind-machine-practice/` |
