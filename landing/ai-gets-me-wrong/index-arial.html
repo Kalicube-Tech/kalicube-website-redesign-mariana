@@ -56,7 +56,12 @@
   .agw-trust > span:not(.agw-dot) { white-space: nowrap; }
   /* The correction is longer than the master's: rotate it from its left end so it rides above the struck words instead of dipping into them. */
   .agw-struck .fix { transform-origin: left bottom; }
+  /* Case studies on this page: a circular avatar beside the number and name, as on the sibling page (AI underestimates me). */
+  .agw-cs .agw-cs-head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1rem; }
+  .agw-cs .agw-avatar { width: 6.5rem; height: 6.5rem; border-radius: 50%; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 2px #E3A949; }
+  .agw-cs .agw-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
   @media (max-width: 759px) {
+    .agw-cs .agw-avatar { width: 5.5rem; height: 5.5rem; }
     /* Phones: the gold sentence starts its own line; the correction ends where the struck words end, so it stays inside the card. */
     .agw-h1-2 { display: block; }
     .agw-struck .fix { left: auto; right: 0; max-width: none; }
@@ -345,7 +350,7 @@
   </section>
 
   <!-- Case studies: we've helped people correct how Google represents them -->
-  <section class="m-px cs" style="position: relative; overflow: hidden; background: linear-gradient(160deg, #F1F7FD 0%, #EAF3FC 55%, #E4EFFA 100%); padding: 80px 120px;">
+  <section class="m-px cs agw-cs" style="position: relative; overflow: hidden; background: linear-gradient(160deg, #F1F7FD 0%, #EAF3FC 55%, #E4EFFA 100%); padding: 80px 120px;">
     <svg class="cs-deco" aria-hidden="true" width="1800" height="1800" viewBox="0 0 1800 1800" fill="none" style="position: absolute; right: -1350px; top: -420px; pointer-events: none;"><circle cx="900" cy="900" r="899" fill="rgba(214,230,246,0.3)" stroke="rgba(190,212,236,0.35)" stroke-width="1"/></svg>
     <svg class="cs-deco" aria-hidden="true" width="260" height="70" viewBox="0 0 260 70" fill="none" style="position: absolute; right: 0; bottom: 0; pointer-events: none;"><path d="M260 6 C 190 18, 120 40, 40 70" stroke="rgba(227,169,73,0.45)" stroke-width="1"/></svg>
     <p style="position: relative; text-align: center; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949;">REAL PEOPLE. CLEARER INFORMATION.</p>
@@ -353,10 +358,14 @@
     <p style="position: relative; max-width: 46rem; margin: 20px auto 0; text-align: center; font-size: 18px; line-height: 1.6; color: #4A5470;">From incorrect photographs to confused identities, our work helps establish clearer, more accurate information about people across search and AI.</p>
     <div class="cs-grid" style="position: relative; margin-top: 3rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem;">
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
-        <div style="padding: 0.75rem 0.75rem 0;"><div style="overflow: hidden; border-radius: 0.5rem; background: #FFFFFF;"><img src="../../images/jcron.webp" alt="Portrait of Jonathan Cronstedt (J Cron)" loading="lazy" style="display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: contain; object-position: 69% center; background: #FFFFFF; transform: scale(1.6); transform-origin: 50% 2%; -webkit-mask-image: linear-gradient(90deg, transparent 38%, #000 45%); mask-image: linear-gradient(90deg, transparent 38%, #000 45%);"></div></div>
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.25rem 1.5rem 1.5rem;">
-          <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">01</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
-          <h3 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Jonathan Cronstedt (J Cron)</h3>
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
+          <div class="agw-cs-head">
+            <div class="agw-avatar"><img src="../../images/jcron.webp" alt="Portrait of Jonathan Cronstedt (J Cron)" loading="lazy" style="object-position: 27% 0; transform: scale(1.7); transform-origin: 27% 14%;"></div>
+            <div style="min-width: 0;">
+            <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">01</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
+            <h3 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Jonathan Cronstedt (J Cron)</h3>
+            </div>
+          </div>
           <!-- DRAFT: needs review -->
           <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">The wrong photo, replaced in 16 days.</p>
           <!-- DRAFT: needs review -->
@@ -365,22 +374,32 @@
           <a href="https://kalicube.com/case-studies/knowledge-panel/how-to-change-a-photo-in-a-knowledge-panel/" target="_blank" rel="noopener" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 6px; border-bottom: 2px solid #E3A949; font-size: 16px; font-weight: 700; color: #1A274E;">Read the J Cron case study<svg aria-hidden="true" width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h15M11 2l5 5-5 5"/></svg></a>
         </div>
       </article>
-      <!-- MISSING: approved portrait of Sam Jones (none in the repository or project resources), and no published case study or verified URL. The source is his action plan (proposal), which documents the problem only: no result is claimed here. Add the portrait as on card 01 when approved. -->
+      <!-- MISSING: no published case study or verified URL for Sam Jones. The source is his action plan (proposal), which documents the problem only: no result is claimed here. -->
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.75rem 1.5rem 1.5rem;">
-          <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">02</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
-          <h3 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Sam Jones</h3>
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
+          <div class="agw-cs-head">
+            <div class="agw-avatar"><img src="../../images/sam_jones.jfif" alt="Portrait of Sam Jones" loading="lazy"></div>
+            <div style="min-width: 0;">
+            <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">02</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
+            <h3 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Sam Jones</h3>
+            </div>
+          </div>
           <!-- DRAFT: needs review -->
           <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">Someone else's photo against his name.</p>
           <!-- DRAFT: needs review -->
           <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">Sam Jones, The Niche Doctor, is a positioning strategist in the United Kingdom. His Google Knowledge Graph entry showed a photo of someone else, and a search for his name returned very little.</p>
         </div>
       </article>
-      <!-- MISSING: approved portrait of Steven Litz, MD (none in the repository or project resources), and no published case study or verified URL. The source is his action plan (proposal), which documents the problem only: no resolution is claimed here. Add the portrait as on card 01 when approved. -->
+      <!-- MISSING: no published case study or verified URL for Steven Litz, MD. The source is his action plan (proposal), which documents the problem only: no resolution is claimed here. -->
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.75rem 1.5rem 1.5rem;">
-          <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">03</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
-          <h3 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Steven Litz, MD</h3>
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
+          <div class="agw-cs-head">
+            <div class="agw-avatar"><img src="../../images/steven_litz.jpg" alt="Portrait of Steven Litz, MD" loading="lazy"></div>
+            <div style="min-width: 0;">
+            <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">03</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
+            <h3 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Steven Litz, MD</h3>
+            </div>
+          </div>
           <!-- DRAFT: needs review -->
           <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">Another person's review, attributed to him.</p>
           <!-- DRAFT: needs review -->
