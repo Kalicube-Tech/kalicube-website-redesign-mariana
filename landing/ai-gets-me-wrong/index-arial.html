@@ -59,6 +59,8 @@
   /* Case studies on this page: a circular avatar beside the number and name, as on the sibling page (AI underestimates me). */
   .agw-cs .agw-cs-head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1rem; }
   .agw-cs .agw-avatar { width: 6.5rem; height: 6.5rem; border-radius: 50%; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 2px #E3A949; }
+  /* Why Kalicube: the patent label is longer than the row allows on one line, so it wraps onto two balanced lines. */
+  .why-stat:last-child span + span { white-space: normal !important; text-wrap: balance; }
   .agw-cs .agw-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
   @media (max-width: 759px) {
     .agw-cs .agw-avatar { width: 5.5rem; height: 5.5rem; }
@@ -356,7 +358,7 @@
     <p style="position: relative; text-align: center; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949;">REAL PEOPLE. CLEARER INFORMATION.</p>
     <h2 class="m-f40" style="position: relative; font-family: Arial, Helvetica, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #1A274E;">We've helped people <span style="color: #E3A949;">correct how Google represents them.</span></h2>
     <p style="position: relative; max-width: 46rem; margin: 20px auto 0; text-align: center; font-size: 18px; line-height: 1.6; color: #4A5470;">From incorrect photographs to confused identities, our work helps establish clearer, more accurate information about people across search and AI.</p>
-    <div class="cs-grid" style="position: relative; margin-top: 3rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem;">
+    <div class="cs-grid" style="position: relative; max-width: 56rem; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); gap: 1.75rem;">
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
         <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
           <div class="agw-cs-head">
@@ -369,41 +371,26 @@
           <!-- DRAFT: needs review -->
           <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">The wrong photo, replaced in 16 days.</p>
           <!-- DRAFT: needs review -->
-          <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">Jonathan Cronstedt is an investor, advisor and author. When Kalicube's monitoring detected a photo change in his Knowledge Panel, our team identified why Google had changed the image and replaced it in 16 days.</p>
+          <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">Jonathan Cronstedt is an investor, advisor and author. When a photo change appeared in his Knowledge Panel, our team identified why Google had changed the image and replaced it in 16 days.</p>
           <span style="display: block; height: 1.25rem; flex-shrink: 0;"></span>
           <a href="https://kalicube.com/case-studies/knowledge-panel/how-to-change-a-photo-in-a-knowledge-panel/" target="_blank" rel="noopener" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 6px; border-bottom: 2px solid #E3A949; font-size: 16px; font-weight: 700; color: #1A274E;">Read the J Cron case study<svg aria-hidden="true" width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h15M11 2l5 5-5 5"/></svg></a>
         </div>
       </article>
-      <!-- MISSING: no published case study or verified URL for Sam Jones. The source is his action plan (proposal), which documents the problem only: no result is claimed here. -->
+      <!-- MISSING: Mike Morse case study not published yet, so no link. -->
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
         <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
           <div class="agw-cs-head">
-            <div class="agw-avatar"><img src="../../images/sam_jones.jfif" alt="Portrait of Sam Jones" loading="lazy"></div>
+            <div class="agw-avatar"><img src="../../images/Mike_Morse.jfif" alt="Portrait of Mike Morse" loading="lazy" style="object-position: 45% center;"></div>
             <div style="min-width: 0;">
             <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">02</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
-            <h3 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Sam Jones</h3>
+            <h3 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Mike Morse</h3>
             </div>
           </div>
           <!-- DRAFT: needs review -->
-          <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">Someone else's photo against his name.</p>
+          <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">The founder, separated from his firm.</p>
           <!-- DRAFT: needs review -->
-          <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">Sam Jones, The Niche Doctor, is a positioning strategist in the United Kingdom. His Google Knowledge Graph entry showed a photo of someone else, and a search for his name returned very little.</p>
-        </div>
-      </article>
-      <!-- MISSING: no published case study or verified URL for Steven Litz, MD. The source is his action plan (proposal), which documents the problem only: no resolution is claimed here. -->
-      <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
-          <div class="agw-cs-head">
-            <div class="agw-avatar"><img src="../../images/steven_litz.jpg" alt="Portrait of Steven Litz, MD" loading="lazy"></div>
-            <div style="min-width: 0;">
-            <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">03</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
-            <h3 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Steven Litz, MD</h3>
-            </div>
-          </div>
-          <!-- DRAFT: needs review -->
-          <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">Another person's review, attributed to him.</p>
-          <!-- DRAFT: needs review -->
-          <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">Steven Litz, MD, is a retired allergist and immunologist. Google's AI Mode connected a negative Yelp review about someone else to his name, through ambiguous wording and a past professional connection.</p>
+          <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">Google and AI confused Mike Morse the person with his own firm, Mike Morse Law Firm, and blended the two into one identity. Kalicube separated the founder from the firm, so each has its own clear, accurate record while staying correctly connected to the other.</p>
+          <span style="display: block; height: 1.25rem; flex-shrink: 0;"></span>
         </div>
       </article>
     </div>
@@ -425,7 +412,7 @@
   <section class="m-px wk" style="position: relative; overflow: hidden; color: #FFFFFF; background: linear-gradient(170deg, #1A274E 0%, #16224A 60%, #131D40 100%); padding: 88px 120px;">
     <div style="position: relative; max-width: 54rem; margin: 0 auto; text-align: center;">
       <p style="font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #E3A949;">WHAT WORKING WITH US LOOKS LIKE</p>
-      <h2 class="m-f40" style="font-family: Arial, Helvetica, sans-serif; margin-top: 16px; font-size: 46px; line-height: 1.12; font-weight: 700; color: #FFFFFF;">We find the problem, correct the evidence <span style="display: block;">and <span style="color: #E3A949;">track the results.</span></span></h2>
+      <h2 class="m-f40" style="font-family: Arial, Helvetica, sans-serif; margin-top: 16px; font-size: 46px; line-height: 1.12; font-weight: 700; color: #FFFFFF;">We find the problem, correct the evidence <span style="display: block;">and <span style="color: #E3A949;">keep the record consistent.</span></span></h2>
       <p style="margin-top: 24px; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We start by examining what Google and AI currently say about you. Then we identify the sources behind inaccurate or missing information and engineer a clearer, more consistent digital identity.</p>
     </div>
     <ol class="wk-list" style="position: relative; list-style: none; margin: 3.5rem auto 0; padding: 0; max-width: 48rem;">
@@ -443,7 +430,7 @@
       </li>
       <li class="wk-step">
         <div class="wk-num"><span aria-hidden="true">04</span></div>
-        <div class="wk-body"><h3 class="wk-h3" style="font-family: Arial, Helvetica, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Measure <span style="color: #E3A949;">the changes</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We track how Google and AI represent you over time.</p></div>
+        <div class="wk-body"><h3 class="wk-h3" style="font-family: Arial, Helvetica, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Keep <span style="color: #E3A949;">the record consistent</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We keep engineering your information as Google and AI respond, so the correct account holds over time.</p></div>
       </li>
     </ol>
   </section>
@@ -454,9 +441,9 @@
       <div class="why-text" style="padding-bottom: 96px;">
         <p style="font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #E3A949;">WHY KALICUBE</p>
         <h2 class="m-f40" style="font-family: Arial, Helvetica, sans-serif; margin-top: 16px; font-size: 50px; line-height: 1.1; font-weight: 700; color: #1A274E; max-width: 720px;">We've been engineering how Google understands <span style="color: #E3A949;">people since 2015.</span></h2>
-        <p class="m-f20" style="margin-top: 28px; max-width: 680px; font-size: 19px; line-height: 1.6; color: #3D4660;">Kalicube combines more than a decade of research with Kalicube Pro intelligence to understand how Google and AI build their picture of a person, and what needs to change when that picture is inaccurate or incomplete.</p>
+        <p class="m-f20" style="margin-top: 28px; max-width: 680px; font-size: 19px; line-height: 1.6; color: #3D4660;">Kalicube combines its research with Kalicube Pro intelligence to understand how Google and AI build their picture of a person, and what needs to change when that picture is inaccurate or incomplete.</p>
         <p class="m-f20" style="margin-top: 18px; max-width: 680px; font-size: 19px; line-height: 1.6; color: #3D4660;">Founded by <strong style="font-weight: 700; color: #1A274E;">Jason Barnard</strong>, Kalicube developed the methodology and technology our Digital Brand Engineers use to engineer how people and companies are understood across search and AI.</p>
-        <div class="why-stats" style="margin-top: 40px; display: flex; align-items: center;"><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; padding-left: 0;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">25 billion</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">data points</span></div></div><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M10.8 7.2 6.2 16.8M13.2 7.2l4.6 9.6"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">73 million</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">entities</span></div></div><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 10h3M9 17h6"/><path d="M10.5 13.5a1.5 1.5 0 1 1 3 0c0 1-1.5 1.5-1.5 1.5"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">17</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">patent applications</span></div></div></div>
+        <div class="why-stats" style="margin-top: 40px; display: flex; align-items: center;"><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; padding-left: 0;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">25 billion</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">data points</span></div></div><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M10.8 7.2 6.2 16.8M13.2 7.2l4.6 9.6"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">73 million</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">entities</span></div></div><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 10h3M9 17h6"/><path d="M10.5 13.5a1.5 1.5 0 1 1 3 0c0 1-1.5 1.5-1.5 1.5"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">17</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">patent applications filed with INPI</span></div></div></div>
       </div>
       <div class="why-photo" style="position: relative; align-self: end; height: 560px;">
         <img src="../../images/jason-barnard-hero.png" alt="Jason Barnard, Founder and CEO of Kalicube" style="position: absolute; left: -90px; bottom: 0; height: 100%; width: auto; display: block;">
