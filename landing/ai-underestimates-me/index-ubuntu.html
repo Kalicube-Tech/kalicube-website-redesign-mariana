@@ -53,9 +53,14 @@
   /* The middle banner headline is longer than the master's: let it wrap onto two balanced lines at the master's size. */
   .nb-cta-head { white-space: normal; text-wrap: balance; }
   .aum-trust > span:not(.aum-dot) { white-space: nowrap; }
+  /* Case studies on this page: a circular avatar beside the number and name, instead of the wide photo frame. */
+  .aum-cs .aum-cs-head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1rem; }
+  .aum-cs .aum-avatar { width: 6.5rem; height: 6.5rem; border-radius: 50%; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 2px #E3A949; }
+  .aum-cs .aum-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
   @media (max-width: 759px) {
     /* Phones: the gold sentence starts its own line; the correction ends where the struck words end, so it stays inside the card. */
     .aum-h1-2 { display: block; }
+    .aum-cs .aum-avatar { width: 5.5rem; height: 5.5rem; }
     .aum-struck .fix { left: auto; right: 0; max-width: none; }
     .aum-sub { font-size: 15px !important; }
     .aum-list { font-size: 15px !important; }
@@ -347,7 +352,7 @@
   </section>
 
   <!-- Case studies: we've helped people make their achievements visible -->
-  <section class="m-px cs" style="position: relative; overflow: hidden; background: linear-gradient(160deg, #F1F7FD 0%, #EAF3FC 55%, #E4EFFA 100%); padding: 80px 120px;">
+  <section class="m-px cs aum-cs" style="position: relative; overflow: hidden; background: linear-gradient(160deg, #F1F7FD 0%, #EAF3FC 55%, #E4EFFA 100%); padding: 80px 120px;">
     <svg class="cs-deco" aria-hidden="true" width="1800" height="1800" viewBox="0 0 1800 1800" fill="none" style="position: absolute; right: -1350px; top: -420px; pointer-events: none;"><circle cx="900" cy="900" r="899" fill="rgba(214,230,246,0.3)" stroke="rgba(190,212,236,0.35)" stroke-width="1"/></svg>
     <svg class="cs-deco" aria-hidden="true" width="260" height="70" viewBox="0 0 260 70" fill="none" style="position: absolute; right: 0; bottom: 0; pointer-events: none;"><path d="M260 6 C 190 18, 120 40, 40 70" stroke="rgba(227,169,73,0.45)" stroke-width="1"/></svg>
     <p style="position: relative; text-align: center; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949;">Real expertise. Stronger recognition.</p>
@@ -355,10 +360,14 @@
     <p style="position: relative; max-width: 46rem; margin: 20px auto 0; text-align: center; font-size: 18px; line-height: 1.6; color: #4A5470;">Your experience deserves to be recognised for what it is. These examples show how strengthening the evidence behind a person's professional reputation can help Google and AI build a more complete understanding of their authority.</p>
     <div class="cs-grid" style="position: relative; max-width: 56rem; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); gap: 1.75rem;">
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
-        <div style="padding: 0.75rem 0.75rem 0;"><img src="../../images/G_Scott_Graham_fhdzk8.png" alt="Portrait of G. Scott Graham" loading="lazy" style="display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; object-position: center 30%; border-radius: 0.5rem;"></div>
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.25rem 1.5rem 1.5rem;">
-          <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">01</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
-          <h3 style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">G. Scott Graham</h3>
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
+          <div class="aum-cs-head">
+            <div class="aum-avatar"><img src="../../images/G_Scott_Graham_fhdzk8.png" alt="Portrait of G. Scott Graham" loading="lazy"></div>
+            <div style="min-width: 0;">
+            <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">01</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
+            <h3 style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">G. Scott Graham</h3>
+            </div>
+          </div>
           <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">Building recognition beyond a basic professional profile.</p>
           <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">G. Scott Graham, an author and coach in Boston, had no Knowledge Panel despite his published books. After a one-hour consultation with Jason Barnard at Kalicube, he made his website the clear source of truth and aligned his profiles. Within four months, he had a Knowledge Panel.</p>
           <span style="display: block; height: 1.25rem; flex-shrink: 0;"></span>
@@ -366,10 +375,14 @@
         </div>
       </article>
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
-        <div style="padding: 0.75rem 0.75rem 0;"><img src="../../images/Alexandre-Peisse_0.jpg" alt="Portrait of Alexandre Peisse" loading="lazy" style="display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; object-position: center 30%; border-radius: 0.5rem;"></div>
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.25rem 1.5rem 1.5rem;">
-          <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">02</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
-          <h3 style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Alexandre Peisse</h3>
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
+          <div class="aum-cs-head">
+            <div class="aum-avatar"><img src="../../images/Alexandre-Peisse_0.jpg" alt="Portrait of Alexandre Peisse" loading="lazy"></div>
+            <div style="min-width: 0;">
+            <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">02</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
+            <h3 style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">Alexandre Peisse</h3>
+            </div>
+          </div>
           <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">Real authority the machines couldn't see.</p>
           <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">Alexandre Peisse founded a cross-border M&amp;A boutique and has taught private equity at HEC Paris since 2012, yet ChatGPT saw a credible professional with no signature expertise. Kalicube built his website into a source of truth Google could verify, then strengthened independent corroboration. By September 2026, ChatGPT's credibility score for him had risen from 38 to 70.</p>
           <span style="display: block; height: 1.25rem; flex-shrink: 0;"></span>
