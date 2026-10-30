@@ -48,7 +48,7 @@
     .hero-name a.act:hover { color: #1A274E; }
   </style>
 <style id="rep-page">
-  /* This page only (Reputation): the separators, the hero insertions, the screen-reader answer and the anonymous case-study panels. */
+  /* This page only (Reputation): the separators, the hero insertions, the screen-reader answer, the case-study cards and the Why Kalicube quote. */
   .rep-dot { display: inline-block; width: 3px; height: 3px; margin: 0 0.5em; border-radius: 50%; background: currentColor; vertical-align: middle; }
   .rep-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   /* The middle banner headline is longer than the master's: let it wrap onto two balanced lines at the master's size. */
@@ -62,9 +62,12 @@
   .rep-answer .fix { transform: rotate(-2deg); transform-origin: left bottom; }
   .rep-answer .rep-fix-1 { left: 0; }
   .rep-answer .rep-fix-2 { left: -0.4em; }
-  /* Case studies on this page: the clients are anonymous, so a navy panel stands in for the portrait. */
-  .rep-anon { aspect-ratio: 2 / 1; border-radius: 0.5rem; background: #1A274E; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
-  .rep-anon span { font-size: 13px; line-height: 1.3; font-weight: 700; letter-spacing: 0.15em; color: #FFFFFF; }
+  /* Why Kalicube: a client quote between the body text and the metrics row. */
+  .rep-quote { margin: 1.5rem 0 0; max-width: 680px; padding-left: 1.25rem; border-left: 3px solid #E3A949; }
+  .rep-quote blockquote { margin: 0; font-size: 1.1rem; line-height: 1.5; font-weight: 500; color: #1A274E; }
+  .rep-quote figcaption { margin-top: 0.5rem; font-size: 0.875rem; line-height: 1.4; color: #1A274E; }
+  .rep-quote figcaption strong { font-weight: 700; }
+  .why .rep-quote ~ .why-stats { margin-top: 1.5rem !important; }
   /* Why Kalicube: the patent label is longer than the row allows on one line, so it wraps onto two balanced lines. */
   .why-stat:last-child span + span { white-space: normal !important; text-wrap: balance; }
   @media (max-width: 759px) {
@@ -359,17 +362,16 @@
     </div>
   </section>
 
-  <!-- Case studies: real clients, names withheld. Reputation work is confidential, so no names, portraits or person markup. -->
+  <!-- Case studies: real clients, real outcomes. Reputation work is confidential, so no names, portraits or person markup. -->
   <section class="m-px cs rep-cs" style="position: relative; overflow: hidden; background: linear-gradient(160deg, #F1F7FD 0%, #EAF3FC 55%, #E4EFFA 100%); padding: 80px 120px;">
     <svg class="cs-deco" aria-hidden="true" width="1800" height="1800" viewBox="0 0 1800 1800" fill="none" style="position: absolute; right: -1350px; top: -420px; pointer-events: none;"><circle cx="900" cy="900" r="899" fill="rgba(214,230,246,0.3)" stroke="rgba(190,212,236,0.35)" stroke-width="1"/></svg>
     <svg class="cs-deco" aria-hidden="true" width="260" height="70" viewBox="0 0 260 70" fill="none" style="position: absolute; right: 0; bottom: 0; pointer-events: none;"><path d="M260 6 C 190 18, 120 40, 40 70" stroke="rgba(227,169,73,0.45)" stroke-width="1"/></svg>
-    <p style="position: relative; text-align: center; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949;">REAL CLIENTS. NAMES WITHHELD.</p>
+    <p style="position: relative; text-align: center; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E3A949;">REAL CLIENTS. REAL OUTCOMES.</p>
     <h2 class="m-f40" style="position: relative; font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #1A274E;">We've helped people <span style="color: #E3A949;">put one story in proportion.</span></h2>
     <p style="position: relative; max-width: 46rem; margin: 20px auto 0; text-align: center; font-size: 18px; line-height: 1.6; color: #4A5470;">Reputation work is confidential, so these clients are not named. Each case shows how a fuller, accurate record changed what people find first.</p>
     <div class="cs-grid" style="position: relative; margin-top: 3rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem;">
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
-        <div style="padding: 0.75rem 0.75rem 0;"><div class="rep-anon"><svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><span>CLIENT NAME WITHHELD</span></div></div>
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.25rem 1.5rem 1.5rem;">
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
           <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">01</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
           <h3 style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">An executive after a public incident</h3>
           <!-- DRAFT: needs review -->
@@ -381,8 +383,7 @@
         </div>
       </article>
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
-        <div style="padding: 0.75rem 0.75rem 0;"><div class="rep-anon"><svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><span>CLIENT NAME WITHHELD</span></div></div>
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.25rem 1.5rem 1.5rem;">
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
           <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">02</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
           <h3 style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">A sustainability consultant</h3>
           <!-- DRAFT: needs review -->
@@ -394,8 +395,7 @@
         </div>
       </article>
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
-        <div style="padding: 0.75rem 0.75rem 0;"><div class="rep-anon"><svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><span>CLIENT NAME WITHHELD</span></div></div>
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.25rem 1.5rem 1.5rem;">
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
           <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #E3A949;">03</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
           <h3 style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; text-transform: uppercase; color: #1A274E;">A US company CEO</h3>
           <!-- DRAFT: needs review -->
@@ -456,6 +456,12 @@
         <h2 class="m-f40" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; font-size: 50px; line-height: 1.1; font-weight: 700; color: #1A274E; max-width: 720px;">We've been engineering how Google understands <span style="color: #E3A949;">people since 2015.</span></h2>
         <p class="m-f20" style="margin-top: 28px; max-width: 680px; font-size: 19px; line-height: 1.6; color: #3D4660;">Kalicube combines its research with Kalicube Pro intelligence to understand how Google and AI build their picture of a person, and what needs to change when one story outweighs the rest of their record.</p>
         <p class="m-f20" style="margin-top: 18px; max-width: 680px; font-size: 19px; line-height: 1.6; color: #3D4660;">Founded by <strong style="font-weight: 700; color: #1A274E;">Jason Barnard</strong>, Kalicube developed the methodology and technology our Digital Brand Engineers use to engineer how people and companies are understood across search and AI.</p>
+        <!-- TESTIMONIAL: CHECK BEFORE LAUNCH (permission, current title) -->
+        <figure class="rep-quote">
+          <blockquote>"Your digital reputation is being shaped with or without you. Jason is the only person I've found who shows you how to take control of that narrative instead of getting blindsided by it."</blockquote>
+          <figcaption><strong>Nick Berry</strong>, Founder, Redesigned.Business</figcaption>
+        </figure>
+        <!-- /TESTIMONIAL -->
         <div class="why-stats" style="margin-top: 40px; display: flex; align-items: center;"><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; padding-left: 0;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">25 billion</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">data points</span></div></div><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M10.8 7.2 6.2 16.8M13.2 7.2l4.6 9.6"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">73 million</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">entities</span></div></div><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 10h3M9 17h6"/><path d="M10.5 13.5a1.5 1.5 0 1 1 3 0c0 1-1.5 1.5-1.5 1.5"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">17</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">patent applications filed with INPI</span></div></div></div>
       </div>
       <div class="why-photo" style="position: relative; align-self: end; height: 560px;">
