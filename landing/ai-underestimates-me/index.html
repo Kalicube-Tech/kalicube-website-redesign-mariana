@@ -37,8 +37,6 @@
     h1, h2, h3, p { margin: 0; }
     h1, h2, h3 { text-wrap: balance; }
     p { text-wrap: pretty; }
-    .struck { position: relative; display: inline-block; line-height: 1.2; text-decoration: line-through; text-decoration-color: #B98B4E; text-decoration-thickness: 2.5px; }
-    .fix { position: absolute; left: 2px; top: -27px; font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 27px; font-weight: 600; line-height: 1; color: #B98B4E; white-space: nowrap; transform: rotate(-4deg); text-decoration: none; }
     .hero { position: relative; overflow: hidden; }
     .hero > * { position: relative; z-index: 1; }
     .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
@@ -49,6 +47,8 @@
 <style id="aum-page">
   /* This page only (AI underestimates me): the separators, the screen-reader correction and the before/after lists. */
   .aum-dot { display: inline-block; width: 3px; height: 3px; margin: 0 0.5em; border-radius: 50%; background: currentColor; vertical-align: middle; }
+  /* Hero card: the handwritten continuation of the AI answer (same hand, colour and size as before, now inline). */
+  .aum-add { font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 27px; font-weight: 600; color: #B98B4E; }
   .aum-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   /* The middle banner headline is longer than the master's: let it wrap onto two balanced lines at the master's size. */
   .nb-cta-head { white-space: normal; text-wrap: balance; }
@@ -60,13 +60,13 @@
   .why-stat:last-child span + span { white-space: normal !important; text-wrap: balance; }
   .aum-cs .aum-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
   @media (max-width: 759px) {
-    /* Phones: the gold sentence starts its own line; the correction ends where the struck words end, so it stays inside the card. */
+    /* Phones: the gold sentence starts its own line; the handwritten continuation uses the smaller phone size. */
     .aum-h1-2 { display: block; }
+    .aum-add { font-size: 21px; }
     .aum-cs .aum-avatar { width: 5.5rem; height: 5.5rem; }
     .aum-quote { padding: 1.5rem !important; gap: 12px !important; }
     .aum-quote svg { width: 34px; height: 28px; }
     .aum-quote-text { font-size: 1.1rem !important; }
-    .aum-struck .fix { left: auto; right: 0; max-width: none; }
     .aum-sub { font-size: 15px !important; }
     .aum-list { font-size: 15px !important; }
   }
@@ -91,7 +91,6 @@
   .m-ha > [style*="flex: 1"] { min-height: 300px; }
   div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
   a.act { max-width: 100%; }
-  .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
   .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
@@ -271,7 +270,7 @@
           <div style="height: 1px; background: #E3E7EE;"></div>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">WHAT AI ANSWERS</div>
-            <p class="m-f20" style="font-size: 20px; line-height: 2.7; color: #1A274E; padding-top: 14px;">Morgan Ellis <span class="struck aum-struck">runs a hedge fund<span class="fix" aria-hidden="true">is a former fintech founder.</span></span><span class="aum-sr">Corrected answer: Morgan Ellis is a former fintech founder.</span></p>
+            <p class="m-f20" style="font-size: 20px; line-height: 1.45; color: #1A274E; padding-top: 10px;"><span aria-hidden="true">Morgan Ellis runs a hedge fund <span class="aum-add">after founding and selling two fintech companies.</span></span><span class="aum-sr">Completed answer: Morgan Ellis runs a hedge fund after founding and selling two fintech companies.</span></p>
           </div>
           <div class="m-f26" style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #B98B4E; transform: rotate(-2deg); transform-origin: left center; text-wrap: balance;">Your achievements deserve to be recognised.</div>
         </div>
