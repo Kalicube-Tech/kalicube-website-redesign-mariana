@@ -49,6 +49,7 @@ Edit `index-ubuntu.html` first. Make the same change in the other three if you w
 | AI underestimates me | `landing/ai-underestimates-me/` |
 | AI gets me wrong | `landing/ai-gets-me-wrong/` |
 | AI still shows my old role | `landing/ai-still-shows-my-old-role/` |
+| AI confuses me with someone else | `landing/ai-confuses-me-with-someone-else/` |
 | Online reputation management | `landing/online-reputation-management/` |
 | jasonbarnard.com | `jasonbarnard/` |
 | kalicube.pro | `kalicubepro/` |
