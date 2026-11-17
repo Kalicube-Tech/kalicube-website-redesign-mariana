@@ -4,9 +4,9 @@
 <script id="flip-redirect">(function(){try{if(window.top!==window.self||/[?&]raw\b/.test(location.search))return;var m=location.pathname.match(/^(.*\/kalicube-website-redesign-mariana\/)(.*?)(index(?:-[a-z]+)?\.html)?$/);if(!m)return;var slug=m[2].replace(/\/+$/,"")||"home";if(window.innerWidth<760){if(!/index-ubuntu\.html$/.test(location.pathname))location.replace(m[1]+m[2]+"index-ubuntu.html?raw");return;}location.replace(m[1]+"font-flip/?page="+slug);}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Confuses Me With Someone Else? Stand Apart From Your Namesake | Kalicube · Ubuntu</title>
+<title>Someone Else With Your Name in Google and AI? Stand Apart | Kalicube · Ubuntu</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Google or ChatGPT mixing you up with someone who shares your name? Kalicube gives search and AI the details that tell you apart from your namesakes.">
+<meta name="description" content="Google or ChatGPT mixing you up with a namesake, or showing someone more famous first? Kalicube gives search and AI the evidence that points to you.">
 <link rel="canonical" href="https://kalicube.com/solutions/personal/ai-confuses-me-with-someone-else/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400&amp;family=Caveat:wght@600&amp;family=Google+Sans+Code:wght@500&amp;display=swap">
   <style>
@@ -48,7 +48,7 @@
     .hero-name a.act:hover { color: #1A274E; }
   </style>
 <style id="acm-page">
-  /* This page only (AI confuses me with someone else): the separators, the screen-reader correction, the before/after lists and the case-study avatars. */
+  /* This page only (namesake: AI confuses me with someone else): the separators, the screen-reader correction, the situation cards, the before/after lists, the case-study avatars and the testimonial. */
   .acm-dot { display: inline-block; width: 3px; height: 3px; margin: 0 0.5em; border-radius: 50%; background: currentColor; vertical-align: middle; }
   .acm-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   /* The middle banner headline is longer than the master's: let it wrap onto two balanced lines at the master's size. */
@@ -57,6 +57,9 @@
   /* The correction is longer than the struck words: it sits above them from their left end, and the struck words leave room above themselves for it. */
   .acm-struck { margin-top: 30px; }
   .acm-struck .fix { top: auto; bottom: calc(100% + 2px); transform-origin: left bottom; }
+  /* Find your situation: two equal no-photo cards, the "How we fix it" lines aligned at the bottom. */
+  .acm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; align-items: stretch; }
+  .acm-card-h3 { text-wrap: balance; }
   /* Case studies on this page: a circular avatar beside the number and name, as on the sibling page (AI underestimates me). */
   .acm-cs .acm-cs-head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1rem; }
   .acm-cs .acm-avatar { width: 6.5rem; height: 6.5rem; border-radius: 50%; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 2px #E3A949; }
@@ -69,6 +72,11 @@
   @media (max-width: 759px) {
     .acm-cs .acm-avatar { width: 5.5rem; height: 5.5rem; }
     .acm-cs .acm-initials span { font-size: 1.65rem; }
+    .acm-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    .acm-quote { padding: 1.5rem !important; gap: 12px !important; }
+    .acm-quote svg { width: 34px; height: 28px; }
+    .acm-quote-text { font-size: 1.1rem !important; }
+    .acm-mid { padding-top: 40px !important; padding-bottom: 40px !important; }
     /* Phones: the gold sentence starts its own line; the correction ends where the struck words end, so it stays inside the card. */
     .acm-h1-2 { display: block; }
     .acm-struck { margin-top: 22px; }
@@ -262,16 +270,16 @@
     <div class="m-px m-pb m-g1 m-gap" style="padding: 64px 120px 80px; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 72px; align-items: center;">
       <div style="display: flex; flex-direction: column;">
       <p style="font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #E3A949;">PERSONAL DIGITAL BRAND ENGINEERING</p>
-      <h1 class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em; text-wrap: balance;">Google and AI are mixing you up with someone else. <span class="acm-h1-2" style="color: #E3A949;">Let's set you apart.</span></h1>
-      <p class="m-f26" style="margin-top: 1.25rem; font-size: 24px; line-height: 1.4; font-weight: 400; color: #FFFFFF; max-width: 640px;">Get Google, ChatGPT, Gemini and Perplexity to tell you apart from everyone who shares your name.</p>
-      <p style="margin-top: 1.5rem; font-size: 18px; line-height: 1.6; color: #A9B6CE; max-width: 40rem;">Someone else with your name has their photo, their job, their reviews or their story showing up in answers about you. People who look you up meet a blend of two people, and they can't tell which parts are you.</p>
+      <h1 class="m-f48" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em; text-wrap: balance;">Your name brings up someone else. <span class="acm-h1-2" style="color: #E3A949;">Let's make it bring up you.</span></h1>
+      <p class="m-f26" style="margin-top: 1.25rem; font-size: 24px; line-height: 1.4; font-weight: 400; color: #FFFFFF; max-width: 640px;">Get Google, ChatGPT, Gemini and Perplexity to tell you apart from everyone who shares your name, and put you forward when people look for you.</p>
+      <p style="margin-top: 1.5rem; font-size: 18px; line-height: 1.6; color: #A9B6CE; max-width: 40rem;">Someone else with your name is getting in the way. Their photo, job or story ends up in answers about you, or they're simply the one people meet first. Either way, the client, investor or journalist looking for you finds someone else.</p>
       <div style="margin-top: 2rem; display: flex; flex-direction: column; align-items: flex-start;">
         <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: inherit; display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 17px 30px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
         <div class="acm-trust" style="margin-top: 0.75rem; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.72);"><span>Free</span><span class="acm-dot" aria-hidden="true"></span><span>Less than 5 minutes</span><span class="acm-dot" aria-hidden="true"></span><span>Personalised strategy</span></div>
         <a href="../../apply/" style="margin-top: 1.5rem; font-size: 19.2px; line-height: 1.5; color: #FFFFFF; text-decoration: underline; text-underline-offset: 4px;">Already know what you need? Book a call</a>
       </div>
       </div>
-      <!-- The example, on the photo. Fictional and illustrative, not a case study. Nina Calder is not marked up as a person. -->
+      <!-- The example, on the photo. Nina Calder is fictional and illustrative, not a case study, and is not marked up as a person. -->
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <div class="m-px" style="background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 34px 40px 36px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); display: flex; flex-direction: column; gap: 22px;">
           <div style="display: flex; flex-direction: column; gap: 8px;">
@@ -289,39 +297,66 @@
     </div>
   </section>
 
-  <!-- Why AI mixes people up -->
+  <!-- Diagnosis: why your name leads to someone else -->
   <section class="m-px m-pt m-pb" style="padding: 96px 120px;">
     <div class="m-g1 m-gap" style="display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; align-items: start;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div style="font-size: 14px; line-height: 1.4; font-weight: 500; letter-spacing: 0.08em; color: #5C6A88;">WHY AI MIXES PEOPLE UP</div><h2 class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.12;">When two people share a name, <span style="color: #B98B4E;">AI can't always tell which is which.</span></h2></div>
+      <div style="display: flex; flex-direction: column; gap: 14px;"><div style="font-size: 14px; line-height: 1.4; font-weight: 500; letter-spacing: 0.08em; color: #5C6A88;">WHY YOUR NAME LEADS TO SOMEONE ELSE</div><h2 class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.12;">When two people share a name, <span style="color: #B98B4E;">Google and AI have to choose.</span></h2></div>
       <div style="display: flex; flex-direction: column; gap: 28px; max-width: 640px;">
-        <p class="m-f20" style="font-size: 20px; line-height: 1.7; color: #3D4660;">Google and AI build their answer about you from everything they find under your name. When another person with the same name works in a similar field, has a better-known story or is related to you, their details can end up attached to you: their photo, their job, their reviews, even their scandal.</p>
-        <p class="m-f20" style="font-size: 20px; line-height: 1.7; color: #3D4660;">Nothing about you is wrong. The machines just don't have enough clear details to know where you end and the other person begins.</p>
+        <p class="m-f20" style="font-size: 20px; line-height: 1.7; color: #3D4660;">Google and AI build their answer about you from everything they find under your name. When someone else shares it, they have to decide which details belong to whom, and who to show first.</p>
+        <p class="m-f20" style="font-size: 20px; line-height: 1.7; color: #3D4660;">If they can't tell you apart, the other person's photo, job, reviews or story end up attached to you. If they can, but have far more evidence about the other person, that person simply comes first. In both cases, nothing about you is wrong. The machines just don't have enough clear evidence about you.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Find your situation: the two namesake problems. The no-photo situation cards from Online reputation management, without links. -->
+  <section class="m-px cs" style="position: relative; overflow: hidden; background: linear-gradient(160deg, #F1F7FD 0%, #EAF3FC 55%, #E4EFFA 100%); padding: 80px 120px;">
+    <svg class="cs-deco" aria-hidden="true" width="1800" height="1800" viewBox="0 0 1800 1800" fill="none" style="position: absolute; right: -1350px; top: -420px; pointer-events: none;"><circle cx="900" cy="900" r="899" fill="rgba(214,230,246,0.3)" stroke="rgba(190,212,236,0.35)" stroke-width="1"/></svg>
+    <p style="position: relative; text-align: center; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #8C6230;">TWO WAYS A NAME GETS SHARED</p>
+    <h2 class="m-f40" style="position: relative; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #1A274E;">Which namesake problem <span style="color: #8C6230;">are you facing?</span></h2>
+    <div class="cs-grid acm-grid" style="position: relative; max-width: 56rem; margin: 3rem auto 0; display: grid; gap: 1.75rem;">
+      <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
+          <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #B98B4E;">01</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
+          <h3 class="acm-card-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; color: #1A274E;">AI mixes you up with someone else</h3>
+          <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">Their photo, career, reviews or story appear in answers about you. A family member with the same name, someone in your field or someone with a negative story can all end up blended with you.</p>
+          <span style="display: block; height: 1.25rem; flex-shrink: 0;"></span>
+          <p style="margin-top: auto; padding-top: 1rem; border-top: 1px solid #E3E7EE; font-size: 16px; line-height: 1.55; color: #3D4660;"><strong style="font-weight: 700; color: #1A274E;">How we fix it:</strong> We find where the mixing comes from, give the machines one clear line that identifies you, and break the wrong links at their source.</p>
+        </div>
+      </article>
+      <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
+          <div aria-hidden="true" style="display: flex; align-items: center; gap: 12px;"><span style="font-size: 20px; line-height: 1; font-weight: 700; color: #B98B4E;">02</span><span style="width: 2.5rem; height: 2px; background: #E3A949;"></span></div>
+          <h3 class="acm-card-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 12px; font-size: 21.5px; line-height: 1.25; font-weight: 700; color: #1A274E;">Someone more famous comes first</h3>
+          <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">The facts aren't mixed. A celebrity, public figure or internet personality with your name is simply who people meet first.</p>
+          <span style="display: block; height: 1.25rem; flex-shrink: 0;"></span>
+          <p style="margin-top: auto; padding-top: 1rem; border-top: 1px solid #E3E7EE; font-size: 16px; line-height: 1.55; color: #3D4660;"><strong style="font-weight: 700; color: #1A274E;">How we fix it:</strong> We start where you are strongest, in the contexts where people look for someone like you, make you the clear answer there, then widen step by step.</p>
+        </div>
+      </article>
     </div>
   </section>
 
   <!-- What we do about it -->
   <section class="m-px m-what" style="background: radial-gradient(circle at 0% 0%, rgba(96,140,220,0.16), rgba(96,140,220,0) 32%), radial-gradient(circle at 100% 100%, rgba(96,140,220,0.14), rgba(96,140,220,0) 32%), linear-gradient(135deg, #22346A 0%, #1A274E 50%, #101B3A 100%); color: #FFFFFF; padding: 80px 120px;">
     <p style="text-align: center; font-size: 14px; line-height: 1.4; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #A9B6CE;">WHAT WE DO ABOUT IT</p>
-    <h2 class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #FFFFFF;">Give Google and AI <span style="display: block; color: #E3A949;">the details that tell you apart.</span></h2>
+    <h2 class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #FFFFFF;">Give Google and AI <span style="display: block; color: #E3A949;">the evidence that points to you.</span></h2>
     <div style="max-width: 50rem; margin: 28px auto 0; text-align: center;">
-      <p style="font-size: 18px; line-height: 1.6; color: #C9D3E6;">We map everyone the machines confuse with you, find where the mixing comes from, and give Google and AI one clear way to identify you. We never criticise the other person.</p>
+      <p style="font-size: 18px; line-height: 1.6; color: #C9D3E6;">We map everyone who shares your name, find what is getting in your way, and give Google and AI clear reasons to recognise you and put you forward. We never diminish the other people who share your name.</p>
     </div>
     <ol class="m-g1 m-steps" style="list-style: none; margin: 3.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem;">
       <li style="display: flex; flex-direction: column;">
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;"><span aria-hidden="true" style="width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 22px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">01</span><span style="flex: 1; height: 1px; background: rgba(255,255,255,0.22);"></span></div>
-        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Find <span style="color: #E3A949;">who you're mixed up with</span></h3>
-        <p style="margin-top: 1rem; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We identify every person Google and AI confuse with you, and the pages that link their information to you.</p>
+        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Find <span style="color: #E3A949;">who your name brings up</span></h3>
+        <p style="margin-top: 1rem; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We record who appears when your name is searched or asked about, in each context that matters to you, and where any mixing comes from.</p>
       </li>
       <li style="display: flex; flex-direction: column;">
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;"><span aria-hidden="true" style="width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 22px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">02</span><span style="flex: 1; height: 1px; background: rgba(255,255,255,0.22);"></span></div>
         <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Agree <span style="color: #E3A949;">the line that identifies you</span></h3>
-        <p style="margin-top: 1rem; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We agree one clear line that identifies you by what you do and where, and state it on your own website and every profile you control.</p>
+        <p style="margin-top: 1rem; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We agree one clear line that identifies you by what you do and where, and make your own website the clearest source on you.</p>
       </li>
       <li style="display: flex; flex-direction: column;">
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;"><span aria-hidden="true" style="width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 22px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">03</span><span style="flex: 1; height: 1px; background: rgba(255,255,255,0.22);"></span></div>
-        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Break <span style="color: #E3A949;">the wrong links</span></h3>
-        <p style="margin-top: 1rem; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We correct the sources that mix you up, and ask other sites to do the same, so each person's details stay with the right person.</p>
+        <h3 class="m-f26" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Strengthen <span style="color: #E3A949;">you where it matters</span></h3>
+        <p style="margin-top: 1rem; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We correct the sources that mix you up, then build independent mentions that carry your full identity, context by context.</p>
       </li>
     </ol>
   </section>
@@ -361,13 +396,13 @@
     </div>
   </section>
 
-  <!-- Case studies: real people who stand apart from their namesakes -->
+  <!-- Case studies: real people whose name now leads to them, with the Scott Duffy testimonial -->
   <section class="m-px cs acm-cs" style="position: relative; overflow: hidden; background: linear-gradient(160deg, #F1F7FD 0%, #EAF3FC 55%, #E4EFFA 100%); padding: 80px 120px;">
     <svg class="cs-deco" aria-hidden="true" width="1800" height="1800" viewBox="0 0 1800 1800" fill="none" style="position: absolute; right: -1350px; top: -420px; pointer-events: none;"><circle cx="900" cy="900" r="899" fill="rgba(214,230,246,0.3)" stroke="rgba(190,212,236,0.35)" stroke-width="1"/></svg>
     <svg class="cs-deco" aria-hidden="true" width="260" height="70" viewBox="0 0 260 70" fill="none" style="position: absolute; right: 0; bottom: 0; pointer-events: none;"><path d="M260 6 C 190 18, 120 40, 40 70" stroke="rgba(227,169,73,0.45)" stroke-width="1"/></svg>
     <p style="position: relative; text-align: center; font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #8C6230;">REAL PEOPLE. ONE NAME, ONE IDENTITY.</p>
-    <h2 class="m-f40" style="position: relative; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #1A274E;">We've helped people <span style="color: #A8783C;">stand apart from their namesakes.</span></h2>
-    <p style="position: relative; max-width: 46rem; margin: 20px auto 0; text-align: center; font-size: 18px; line-height: 1.6; color: #4A5470;">These examples show how clear, consistent details help Google and AI tell people with the same name apart.</p>
+    <h2 class="m-f40" style="position: relative; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; text-align: center; font-size: 46px; line-height: 1.12; font-weight: 700; color: #1A274E;">We've helped people <span style="color: #A8783C;">make their name lead to them.</span></h2>
+    <p style="position: relative; max-width: 46rem; margin: 20px auto 0; text-align: center; font-size: 18px; line-height: 1.6; color: #4A5470;">These examples show how clear, consistent evidence helps Google and AI tell people with the same name apart, and put the right one first.</p>
     <div class="cs-grid" style="position: relative; max-width: 56rem; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); gap: 1.75rem;">
       <article class="cs-card" style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 1rem; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); overflow: hidden;">
         <div style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
@@ -379,7 +414,7 @@
             </div>
           </div>
           <!-- DRAFT: needs review -->
-          <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">Thousands of Scott Duffys. Google now knows which one he is.</p>
+          <p style="margin-top: 4px; font-size: 18.5px; line-height: 1.35; font-weight: 500; color: #1A274E;">Thousands of Scott Duffys. Google now shows him first.</p>
           <!-- /DRAFT -->
           <!-- DRAFT: needs review -->
           <p style="margin-top: 0.75rem; font-size: 16px; line-height: 1.55; color: #4A5470;">Scott Duffy, an entrepreneur and best-selling author, shares his name with thousands of people, including another best-selling author. Google couldn't tell which Scott Duffy to show. Kalicube made his details clear and consistent until Google showed him first, with the other Scott Duffy as a separate result, and ChatGPT and Perplexity described him accurately.</p>
@@ -409,12 +444,23 @@
         </div>
       </article>
     </div>
-    <!-- Middle call to action: the master's compact navy banner, directly under the case studies -->
-    <div class="nb-cta">
+    <!-- TESTIMONIAL: CHECK BEFORE LAUNCH (wording against source, permission, current title). Compare against: https://kalicube.com/case-studies/knowledge-panel/how-to-connect-your-books-to-your-knowledge-panel/ -->
+    <figure class="acm-quote" style="position: relative; box-sizing: border-box; max-width: 46rem; margin: 3rem auto 0; display: flex; align-items: flex-start; gap: 18px; background: #EDF5FB; border-radius: 0.75rem; padding: 2rem 2.5rem;"><svg aria-hidden="true" width="44" height="36" viewBox="0 0 34 28" style="flex-shrink: 0; margin-top: 4px;" fill="#E3A949"><path d="M0 28V16C0 7 4 2 13 0l2 4c-5 1.6-7.5 4.6-7.5 9H14v15zM19 28V16c0-9 4-14 13-16l2 4c-5 1.6-7.5 4.6-7.5 9H33v15z"/></svg>
+      <div style="min-width: 0;">
+        <blockquote style="margin: 0;"><p class="acm-quote-text" style="font-size: 1.25rem; line-height: 1.5; font-weight: 500; color: #1A274E;">"I am competing with other people that have the same name and very visible online presences. Jason and Kalicube has managed to get Google to give me preference over others."</p></blockquote>
+        <figcaption class="cs-attr" style="margin-top: 12px; font-size: 14px; line-height: 1.4; color: #1A274E;"><strong style="font-size: 15px; font-weight: 700;">Scott Duffy</strong>, Keynote Speaker, AI Mavericks</figcaption>
+      </div>
+    </figure>
+    <!-- /TESTIMONIAL -->
+  </section>
+
+  <!-- Middle call to action: the master's compact navy banner, in its own band directly under the case studies -->
+  <section class="m-px acm-mid" style="background: #FFFFFF; padding: 64px 120px;">
+    <div class="nb-cta" style="margin-top: 0;">
       <svg class="nb-cta-lines" viewBox="0 0 360 150" fill="none" aria-hidden="true"><g stroke="#E3A949" stroke-width="1" stroke-linecap="round"><path d="M0 40 C 80 60, 160 110, 300 150" opacity="0.35"/><path d="M0 58 C 70 78, 150 120, 260 150" opacity="0.3"/><path d="M0 76 C 60 94, 130 128, 220 150" opacity="0.26"/><path d="M0 94 C 50 110, 110 136, 180 150" opacity="0.22"/><path d="M0 112 C 40 124, 90 142, 140 150" opacity="0.2"/><path d="M20 0 C 60 50, 150 100, 360 140" opacity="0.2"/></g></svg>
       <div class="nb-cta-inner">
         <div class="nb-cta-text">
-          <p class="nb-cta-head">Find out who Google and AI confuse you with.</p>
+          <p class="nb-cta-head">Find out who your name brings up in Google and AI.</p>
           <ul class="nb-cta-sub"><li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Free</span></li><li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Less than 5 minutes</span></li><li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Personalised strategy</span></li></ul>
         </div>
         <span class="nb-cta-rule" aria-hidden="true"></span>
@@ -427,25 +473,25 @@
   <section class="m-px wk" style="position: relative; overflow: hidden; color: #FFFFFF; background: linear-gradient(170deg, #1A274E 0%, #16224A 60%, #131D40 100%); padding: 88px 120px;">
     <div style="position: relative; max-width: 54rem; margin: 0 auto; text-align: center;">
       <p style="font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #E3A949;">WHAT WORKING WITH US LOOKS LIKE</p>
-      <h2 class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; font-size: 46px; line-height: 1.12; font-weight: 700; color: #FFFFFF;">We do the work. <span style="display: block; color: #E3A949;">People find the right you.</span></h2>
-      <p style="margin-top: 24px; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We start by recording who appears when your name is searched or asked about. Then we agree how to identify you and engineer the record until each person's details stay with the right person.</p>
+      <h2 class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; font-size: 46px; line-height: 1.12; font-weight: 700; color: #FFFFFF;">We do the work. <span style="display: block; color: #E3A949;">Your name leads to you.</span></h2>
+      <p style="margin-top: 24px; font-size: 18px; line-height: 1.6; color: #C9D3E6;">We start by recording who your name brings up today. Then we agree how to identify you and engineer the evidence, context by context, until people looking for you find you.</p>
     </div>
     <ol class="wk-list" style="position: relative; list-style: none; margin: 3.5rem auto 0; padding: 0; max-width: 48rem;">
       <li class="wk-step">
         <div class="wk-num"><span aria-hidden="true">01</span></div>
-        <div class="wk-body"><h3 class="wk-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Record <span style="color: #E3A949;">who appears for your name</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We document which other people show up when your name is searched or asked about, and what of theirs is attached to you.</p></div>
+        <div class="wk-body"><h3 class="wk-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Record <span style="color: #E3A949;">who your name brings up</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We document who appears when your name is searched or asked about, in each context that matters to you.</p></div>
       </li>
       <li class="wk-step">
         <div class="wk-num"><span aria-hidden="true">02</span></div>
-        <div class="wk-body"><h3 class="wk-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Find <span style="color: #E3A949;">where the mixing comes from</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We trace the pages that link their information to you.</p></div>
+        <div class="wk-body"><h3 class="wk-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Set <span style="color: #E3A949;">you apart</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We agree the line that identifies you, put it on your own website and every profile you control, and correct the sources that mix you up.</p></div>
       </li>
       <li class="wk-step">
         <div class="wk-num"><span aria-hidden="true">03</span></div>
-        <div class="wk-body"><h3 class="wk-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Set <span style="color: #E3A949;">you apart</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We agree the line that identifies you, put it on your own website and every profile you control, then correct the sources that mix you up.</p></div>
+        <div class="wk-body"><h3 class="wk-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Lead <span style="color: #E3A949;">where you are strongest</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We build independent mentions, interviews, articles, talks and listings that carry your full identity, starting with the contexts where people look for someone like you.</p></div>
       </li>
       <li class="wk-step">
         <div class="wk-num"><span aria-hidden="true">04</span></div>
-        <div class="wk-body"><h3 class="wk-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Keep <span style="color: #E3A949;">you clearly apart</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We keep engineering your record as Google and AI respond, so new mix-ups don't take hold.</p></div>
+        <div class="wk-body"><h3 class="wk-h3" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; line-height: 1.2; font-weight: 700; color: #FFFFFF;">Widen <span style="color: #E3A949;">step by step</span></h3><p style="margin-top: 0.75rem; max-width: 38rem; font-size: 17px; line-height: 1.6; color: #C9D3E6;">We extend from your name with your role, to your name with your image, and towards your name on its own, and keep engineering your record as Google and AI respond.</p></div>
       </li>
     </ol>
   </section>
@@ -457,7 +503,7 @@
         <p style="font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #8C6230;">WHY KALICUBE</p>
         <h2 class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; font-size: 50px; line-height: 1.1; font-weight: 700; color: #1A274E; max-width: 720px;">We've been engineering how Google understands <span style="color: #A8783C;">people since 2015.</span></h2>
         <p class="m-f20" style="margin-top: 28px; max-width: 680px; font-size: 19px; line-height: 1.6; color: #3D4660;"><strong style="font-weight: 700; color: #1A274E;">Jason Barnard</strong> solved this problem on himself first. In 2015, prospects searching his name before hiring him found a different Jason Barnard. The method Kalicube uses today started there.</p>
-        <p class="m-f20" style="margin-top: 18px; max-width: 680px; font-size: 19px; line-height: 1.6; color: #3D4660;">Kalicube combines its research with Kalicube Pro intelligence to understand how Google and AI build their picture of a person, and what needs to change when that picture blends two people into one. Our Digital Brand Engineers apply that methodology to your record.</p>
+        <p class="m-f20" style="margin-top: 18px; max-width: 680px; font-size: 19px; line-height: 1.6; color: #3D4660;">Kalicube combines its research with Kalicube Pro intelligence to understand how Google and AI build their picture of a person, and what needs to change when a name leads to someone else. Our Digital Brand Engineers apply that methodology to your record.</p>
         <div class="why-stats" style="margin-top: 40px; display: flex; align-items: center;"><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; padding-left: 0;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">25 billion</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">data points</span></div></div><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M10.8 7.2 6.2 16.8M13.2 7.2l4.6 9.6"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">73 million</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">entities</span></div></div><div class="why-stat" style="display: flex; align-items: center; gap: 12px; padding: 0 24px; border-left: 1px solid #E3E7EE;"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3A949" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 10h3M9 17h6"/><path d="M10.5 13.5a1.5 1.5 0 1 1 3 0c0 1-1.5 1.5-1.5 1.5"/></svg><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 24px; line-height: 1; font-weight: 700; color: #1A274E; white-space: nowrap;">17</span><span style="font-size: 15px; line-height: 1.2; color: #4A5470; white-space: nowrap;">patent applications filed with INPI</span></div></div></div>
       </div>
       <div class="why-photo" style="position: relative; align-self: end; height: 560px;">
@@ -471,8 +517,8 @@
   <section class="m-px cta" id="call" style="background-color: #1A274E; background-image: url('../../strategy-plus/images/CTA_section_bg.webp'); background-size: cover; background-position: center center; background-repeat: no-repeat; color: #FFFFFF; padding: 96px 120px;">
     <div style="max-width: 75rem; margin: 0 auto; text-align: center;">
       <p style="font-size: 14px; line-height: 1.4; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #E3A949;">YOUR NAME SHOULD LEAD TO YOU</p>
-      <h2 class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; font-size: 42px; line-height: 1.15; font-weight: 700; color: #FFFFFF;"><span class="cta-l" style="display: block; white-space: nowrap;">See who Google and AI think you are.</span><span class="cta-l" style="display: block; white-space: nowrap; color: #E3A949;">Then build the strategy to set you apart.</span></h2>
-      <p style="max-width: 40rem; margin: 1.25rem auto 0; font-size: 18px; line-height: 1.6; color: #C9D3E6;">Start with a <strong style="font-weight: 700; color: #FFFFFF;">free AI Audit</strong> to see who search and AI confuse you with, where the mixing comes from, and what needs to change.</p>
+      <h2 class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; margin-top: 16px; font-size: 42px; line-height: 1.15; font-weight: 700; color: #FFFFFF;"><span class="cta-l" style="display: block; white-space: nowrap;">See who your name brings up today.</span><span class="cta-l" style="display: block; white-space: nowrap; color: #E3A949;">Then build the strategy to make it lead to you.</span></h2>
+      <p style="max-width: 40rem; margin: 1.25rem auto 0; font-size: 18px; line-height: 1.6; color: #C9D3E6;">Start with a <strong style="font-weight: 700; color: #FFFFFF;">free AI Audit</strong> to see who search and AI show for your name, where any mixing comes from, and what needs to change.</p>
       <div class="cta-btns" style="margin-top: 2rem; display: flex; justify-content: center; align-items: center; gap: 1rem;">
         <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 17px 30px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
         <a href="../../apply/" class="act m-nw" style="font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 12px; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.85); padding: 15px 28px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; background: transparent;"><span>Speak to a Digital Brand Engineer</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
